@@ -19,6 +19,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
    */
   $scope.getCoats = function() {
     resetUI();
+    $scope.tooltips = [];
     $scope.component = 'coats';
     $scope.loading = true;
     $http.get('/coats?site=' + $scope.url).success(function(serviceResponse){
@@ -87,8 +88,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
    * Show/Hide searchbox
    */
   $scope.toggleSearchbox = function() {
-    resetUI();
-    $scope.component = ($scope.component != 'search') ? 'search' : '';
+    $scope.component = ($scope.component != 'search') ? 'search' : 'coats';
     $scope.hideMenu = !$scope.hideMenu;
     $scope.showSearchbox = !$scope.showSearchbox;
   };
@@ -97,10 +97,16 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
    * Show/Hide account
    */
   $scope.toggleAccount = function() {
-    resetUI();
+    $scope.component = ($scope.component != 'account') ? 'account' : 'coats';
     $scope.showSearchbox = false;
     $scope.hideMenu = !$scope.hideMenu;
     $scope.showAccount = !$scope.showAccount;
+  };
+
+  $scope.toggleTooltip = function(tooltipId) {
+    console.log(tooltipId);
+    $scope.tooltips[tooltipId] = $scope.tooltips[tooltipId] ? !$scope.tooltips[tooltipId] : true;
+    console.log($scope.tooltips[tooltipId]);
   };
 
 

@@ -1,3 +1,4 @@
+// @import "_tooltips";
 .overcoatExtensionContainer {
 	width: 400px;
 	height: 100%;
@@ -121,6 +122,62 @@ button {
 }
 
 .main {
+	.relative {
+		position: relative;
+	}
+	.context-menu {
+		width: 180px;
+		background: #0099e8;
+		color:white;
+		position:absolute;
+		z-index:9;
+		padding:0.4% 1%;
+		-webkit-border-radius:3px;
+		-moz-border-radius:3px;
+		border-radius:3px;
+		right:0;
+		top: 40px;
+
+		a {
+			color: #fff;
+			display: block;
+			font-size: 0.85rem;
+			line-height: 1.2rem;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.context-menu-caret:before {
+		content:'';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border: 6px solid #0099e8;
+	}
+	.context-menu-caret:after {
+		content:'';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border: 5px solid transparent;
+	}
+
+	.context-menu-caret:before {
+		right: 10px;
+		top: 35px;
+		margin-left: -6px;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-top-width: 0;
+	}
+	.context-menu-caret:after {
+		margin-left: -5px;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-top-width: 0;
+	}
 
 	.new-coats {
 		background-color: #009be2;
@@ -161,6 +218,7 @@ button {
 		}
 
 		.icon-3points {
+			height: 25px;
 			background-image: url('/statics/images/3-points.png');
 			background-color: transparent;
 			background-repeat: no-repeat;

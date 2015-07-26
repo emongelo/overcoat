@@ -11,8 +11,13 @@ div.epp-ctn--gtr
     div.epp-cl-1-4.align-right
       if !isFriend
         button.button--follow.text--smallest follow
-    div.epp-cl-1-12.align-right
-      button.epp-cl-1.icon-3points &nbsp;
+    div.epp-cl-1-12.align-right.relative
+      span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
+      div.epp-air-8.context-menu(ng-if="tooltips[coat.id]")
+        a(href="javascript:;" ng-click="select('get-url')") Url Origin
+        a(href="javascript:;" ng-click="select('mute-user')") Mute user
+      span(class="context-menu-caret" ng-if="tooltips[coat.id]")
+
 
   main.epp-cl-1.epp-space-top-16
     p.text--smallest

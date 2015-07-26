@@ -9,6 +9,34 @@ a.main-menu__button(href="javascript:;" ng-click="toggleSearchbox()" ng-class="{
 a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': component == 'account'}" ng-if="!hideMenu")
   img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
 
+
+div.epp-cl-1(ng-if="component == 'coats'")
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="filterCoats('active')")
+    span Most Active
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="filterCoats('latest')")
+    span Latest
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="filterCoats('hot-sites')")
+    span Hot Coats
+
+div.epp-cl-1-2(ng-if="component == 'discover'")
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('hot')")
+    span Hot sites
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('new')")
+    span New sites
+
+div.epp-cl-1-2(ng-if="component == 'discover'")
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('top-coaters')")
+    span Top coaters
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('hot-coats')")
+    span Hot coats anywhere
+
+
+div.epp-cl-1(ng-if="component == 'search'")
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="searchIn('site')" ng-if="component == 'search'")
+    span This site
+  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="searchIn('all')" ng-if="component == 'search'")
+    span Across all sites
+
 a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="toggleSearchbox()" ng-if="component == 'search'")
   span Search
 
