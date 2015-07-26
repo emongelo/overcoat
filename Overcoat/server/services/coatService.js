@@ -9,7 +9,7 @@ var coatService = {
         var arr = mocks.sites;
 
         var sites = arr.filter(function(e){
-          return e.site == site
+          return e.name == site
         });
 
         resolve(sites.shift());

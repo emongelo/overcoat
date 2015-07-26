@@ -26489,6 +26489,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
     resetUI();
     $http.get('/api/users/detail/' + userId + '?render=false').success(function(res){
       $scope.isLogged = true;
+      $scope.hideMenu = true;
       $scope.user = res;
       $scope.getCoats();
     });
@@ -26511,7 +26512,8 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
    */
   $scope.toggleSearchbox = function() {
     resetUI();
-    $scope.component = 'search';
+    $scope.component = ($scope.component != 'search') ? 'search' : '';
+    $scope.hideMenu = !$scope.hideMenu;
     $scope.showSearchbox = !$scope.showSearchbox;
   };
 
@@ -26519,7 +26521,9 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
    * Show/Hide account
    */
   $scope.toggleAccount = function() {
+    resetUI();
     $scope.showSearchbox = false;
+    $scope.hideMenu = !$scope.hideMenu;
     $scope.showAccount = !$scope.showAccount;
   };
 
@@ -26538,6 +26542,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
   };
 
   function resetUI(noReset) {
+    $scope.hideMenu = false;
     $scope.showAccount = false;
     $scope.showPostingBox = false;
     $scope.showSearchbox = false;

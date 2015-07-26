@@ -1,1 +1,1 @@
-exports.coats = [1,2,3];
+exports.topCoaters = [1,2,3];

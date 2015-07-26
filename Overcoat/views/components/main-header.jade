@@ -1,10 +1,16 @@
-a.main-menu__button(href="javascript:;" ng-click="getCoats()" ng-class="{'main-menu__button--active': component == 'coats'}")
+a.main-menu__button(href="javascript:;" ng-click="getCoats()" ng-class="{'main-menu__button--active': component == 'coats'}" ng-if="!hideMenu")
   span Coats
-a.main-menu__button(href="javascript:;" ng-click="getActivity()" ng-class="{'main-menu__button--active': component == 'activity'}")
+a.main-menu__button(href="javascript:;" ng-click="getActivity()" ng-class="{'main-menu__button--active': component == 'activity'}" ng-if="!hideMenu")
   span Activity
-a.main-menu__button(href="javascript:;" ng-click="getDiscover()" ng-class="{'main-menu__button--active': component == 'discover'}")
+a.main-menu__button(href="javascript:;" ng-click="getDiscover()" ng-class="{'main-menu__button--active': component == 'discover'}" ng-if="!hideMenu")
   span Discover
-a.main-menu__button(href="javascript:;" ng-click="toggleSearchbox()" ng-class="{'main-menu__button--active': component == 'search'}")
+a.main-menu__button(href="javascript:;" ng-click="toggleSearchbox()" ng-class="{'main-menu__button--active': component == 'search'}" ng-if="!hideMenu")
   span.icon-search &nbsp;
-a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': component == 'account'}")
+a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': component == 'account'}" ng-if="!hideMenu")
   img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
+
+a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="toggleSearchbox()" ng-if="component == 'search'")
+  span Search
+
+a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="toggleAccount()" ng-if="showAccount && hideMenu")
+  span Account
