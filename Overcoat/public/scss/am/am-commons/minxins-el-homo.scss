@@ -1,0 +1,124 @@
+// // ----
+// // libsass (v3.2.5)
+// // ----
+
+// $epp-sides: "left", "right", "top", "bottom";
+// $epp-cols: 12;
+
+// @mixin epp-cl($device){
+//   @for $i from 1 through $epp-cols{
+//     @if $epp-cols % $i == 0 {
+//       $from: 1;
+//       $to: #{$epp-cols/$i};
+//     } @else {
+//       $middle:0; 
+//       $divisor:2;
+//       $quantity: $i;
+//       $total: $epp-cols;
+//       @if ($quantity>$total) { 
+//         $middle: $quantity/2; 
+//       } @else {
+//         $middle: $total/2; 
+//         @while($middle>1) { 
+//           @while($quantity % $divisor == 0 and $total % $divisor == 0) { 
+//             $quantity: $quantity/$divisor; 
+//             $total-total: $total/$divisor; 
+//           } 
+//           $divisor: $divisor + 1; 
+//           $middle: $middle - 1; 
+//         }
+//       }
+//       $from: $quantity;
+//       $to: $total;
+//     }
+    
+//     .epp-cl-#{$from}-#{$to}#{$device} { 
+//       width:#{($i*100)/$epp-cols}%!important;
+//       box-sizing:border-box;
+//     }
+    
+//     .epp-lt-#{$from}-#{$to}#{$device} { 
+//       margin-left:#{($i*100)/$epp-cols}%!important;
+//       box-sizing:border-box;
+//     }
+    
+//     .epp-rt-#{$from}-#{$to}#{$device} { 
+//       margin-right:#{($i*100)/$epp-cols}%!important;
+//       box-sizing:border-box;
+//     }
+    
+//     @if #{$from} == #{$to} {
+//       .epp-cl-#{$from}#{$device} {
+//         width:#{100%/$i}px!important;
+//         box-sizing:border-box;
+//       }
+//       .epp-lt-#{$from}#{$device} {
+//         margin-left:#{100%/$i}px!important;
+//         box-sizing:border-box;
+//       }
+//       .epp-rt-#{$from}#{$device} {
+//         margin-right:#{100%/$i}px!important;
+//         box-sizing:border-box;
+//       }
+//     }
+    
+//   }
+// }
+  
+// @include epp-cl("");
+
+// @mixin epp-text($device){
+//   $multiple: 1;
+//   @for $i from 1 through 24 {
+//     $value: ((8+($i*2))/16) * 1rem;
+//     .text--#{8+($i*2)}#{$device} { 
+//       font-size:$value;
+//       @if $multiple * 8 <= 8+($i*2) {
+//         $multiple: $multiple + 1;
+//       }
+//       line-height: $multiple * 8px;
+//     }
+//   }
+// }
+
+// @include epp-text("");
+
+// @mixin epp-air-and-space($device,$unit-val: 8){
+//   @for $i from 0 through 6{
+//     .epp-air-#{$i*$unit-val}#{$device} { 
+//       padding:#{$i*$unit-val}px!important;
+//       box-sizing:border-box;
+//     }
+//     @each $side in $epp-sides{
+//       .epp-air-#{$side}-#{$i*$unit-val}#{$device}{
+//         padding-#{$side}:#{$i*$unit-val}px!important;
+//         box-sizing:border-box;
+//       }
+//     }
+//     .epp-space-#{$i*$unit-val}#{$device} { 
+//       margin:#{$i*$unit-val}px;
+//     }
+//     @each $side in $epp-sides{
+//       .epp-space-#{$side}-#{$i*$unit-val}#{$device}{
+//         margin-#{$side}:#{$i*$unit-val}px;
+//       }
+//     }
+//   }
+// }
+
+// @include epp-air-and-space("");
+
+// @media (min-width:1152px){
+//   @include epp-air-and-space("--dt");
+//   @include epp-cl("--dt");
+// }
+
+// @media (min-width:768px) and (max-width:1151px){
+//   @include epp-air-and-space("--tb");
+//   @include epp-cl("--tb");
+// }
+
+// @media (max-width:767px){
+//   @include epp-air-and-space("--ph");
+//   @include epp-cl("--ph");
+// }

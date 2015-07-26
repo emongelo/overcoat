@@ -1,0 +1,34 @@
+doctype html
+<!--[if lt IE 7 ]><html class="ie6" lang="es" class="flights no-js" itemscope itemtype="http://schema.org/Organization"><![endif]-->
+<!--[if IE 7 ]><html class="ie7" lang="es" class="flights no-js" itemscope itemtype="http://schema.org/Organization"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="es" class="flights no-js" itemscope itemtype="http://schema.org/Organization"><![endif]-->
+<!--[if IE 9 ]><html class="ie9" lang="es" class="flights no-js" itemscope itemtype="http://schema.org/Organization"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+html(lang="ES" class="hotels no-js" itemscope itemtype="http://schema.org/Organization")
+  <!--<![endif]-->
+
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no")
+    meta(name="robots" content="noindex")
+    style [ng\:cloak],[ng-cloak],[data-ng-cloak]
+    script(src="#{config.assets.js}/base/base-pkg.js")
+    link(rel="stylesheet" href="#{config.assets.css}/am.css")
+    link(rel="stylesheet" href="#{config.assets.css}/oc.css")
+
+  body(ng-app="Overcoat" ng-cloak ng-controller="mainCtrl" ng-init="appInit()")
+
+    div.epp-ctn.main-header-ctn
+    include components/top-section
+
+    main
+
+      include components/welcome
+
+      include components/account
+
+      include components/coats
+
+      include components/activity
+
+      include components/discover

@@ -1,0 +1,25 @@
+// Account component
+section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="showAccount")
+  div.epp-ctn--gtr.epp-cl-1.epp-space-bottom-16.account
+    div.epp-cl-1.epp-ctn.epp-space-bottom-16.account--header
+      div.epp-cl-1-8
+        img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
+      div.epp-cl-2-3.epp-space-left-8
+        p.screenname.text--bold {{user.name}}
+        span.subline.text--smallest @{{user.screenName}}
+      div.epp-cl-1-6.text--smallest.align-right.text--gray
+        | Log out
+
+    div.epp-cl-1.epp-ctn.align-center.account--footer
+      div.epp-cl-1-4
+        p {{user.coats}}
+        span Coats
+      div.epp-cl-1-4
+        p {{user.followers}}
+        span Followers
+      div.epp-cl-1-4
+        p {{user.following}}
+        span Following
+      div.epp-cl-1-4
+        p {{user.upvotes}}
+        span Upvotes

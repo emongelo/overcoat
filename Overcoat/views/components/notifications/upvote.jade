@@ -1,0 +1,14 @@
+article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}")
+  div.epp-ctn--gtr
+    header.epp-cl-1.epp-space-top-8.epp-space-bottom-8
+      div.epp-cl-1-8
+        img.avatar--small.avatar--rounded(ng-src="{{notification.user.avatar}}")
+      div.epp-ctn.epp-cl-1-2
+        p.screenname
+          span.text--bold {{notification.user.screenName}}
+          span  Followed you from
+        p.link-style www.google.com
+      div.epp-cl-1-4.align-right
+
+      div.epp-cl-1-12.align-right
+        button.epp-cl-1.icon-3points &nbsp;

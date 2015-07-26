@@ -1,0 +1,249 @@
+//---------------------------------\\
+//----------Table of Content-------\\
+//---------------------------------\\
+
+
+// 01 Tipography
+//      01-1 Titles
+//      01-2 Only Readers
+//      01-3 Text
+//      01-3 Link Style
+// 02 Transition
+
+
+//---------------------------------\\
+//------------Tipography-----------\\
+//---------------------------------\\
+
+//--------------Text-------------\\
+
+.am-text--legal, .text--legal {
+    @include font-rem(normal,10px,16px);
+}
+
+.am-title--smallest, .am-text--smallest, .text--smallest{
+    @include font-rem(normal,12px,16px);
+}
+.am-title--smaller, .am-text--smaller, .text--smaller{
+    @include font-rem(normal,14px,16px);
+}
+.am-title--xxs, .am-text--xxs, .text--xxs{
+    @include font-rem(normal,16px,24px);
+}
+.am-title--xs, .am-text--xs, .text--xs{
+    @include font-rem(normal,18px,24px);
+}
+.am-title--sm, .am-text--sm, .text--sm{
+    @include font-rem(normal,20px,24px);
+}
+.am-title--md, .am-text--md, .text--md{
+    @include font-rem(normal,24px,32px);
+}
+.am-title--lg, .am-text--lg, .text--lg{
+    @include font-rem(normal,28px,32px);
+}
+.am-title--xl, .am-text--xl, .text--xl{
+    @include font-rem(normal,32px,40px);
+}
+.am-title--xxl, .am-text--xxl, .text--xxl{
+    @include font-rem(normal,36px,40px);
+}
+.am-title--larger, .am-text--larger, .text--larger{
+    @include font-rem(normal,48px,56px);
+}
+.am-title--largest, .am-text--largest, .text--largest{
+    @include font-rem(normal,56px,64px);
+}
+.am-title--shadow, .am-text--shadow, .text--shadow{
+    @include text-shadow(1px 1px 1px black);
+}
+.am-title--bold, .am-text--bold, .text--bold {
+    font-weight:bold;
+}
+
+.text--italic {
+    font-style:italic;
+}
+
+//-----------Only Readers----------\\
+
+.am-only-readers, .only-readers{
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  position: absolute;
+}
+
+//------------Link Style-----------\\
+
+.link-style {
+    color:$link;
+    text-decoration: none;
+    cursor:pointer;
+    &:active{
+        color:$link-dark;
+        text-decoration: underline;
+    }
+    &:hover{
+        color:$link-light;
+        text-decoration: underline;
+    }
+    &[class*="icon-"]:hover {
+        text-decoration:none;
+    }
+}
+
+//------------Colors-----------\\
+
+
+.color--primary-light {
+    color: $blue-light;
+}
+.color--primary {
+    color: $blue;
+}
+.color--primary-dark {
+    color: $blue-dark;
+}
+
+.color--secondary-light {
+    color: $orange-light;
+}
+.color--secondary {
+    color: $orange;
+}
+.color--secondary-dark {
+    color: $orange-dark;
+}
+
+.color--link-light {
+    color: $link-light;
+}
+.color--link {
+    color: $link;
+}
+.color--link-dark {
+    color: $link-dark;
+}
+
+.color--facebook {
+    color: $facebook;
+}
+.color--facebook-light {
+    color: $facebook-light;
+}
+.color--facebook-dark {
+    color: $facebook-dark;
+}
+
+.color--error, .color--important {
+    color: $error;
+}
+.color--error-light, .color--important-light {
+    color: $error-light;
+}
+.color--error-dark, .color--important-dark {
+    color: $error-dark;
+}
+.color--ok {
+    color: $ok;
+}
+.color--ok-light {
+    color: $ok-light;
+}
+.color--ok-dark {
+    color: $ok-dark;
+}
+.color--warning {
+    color: $warning;
+}
+.color--warning-light {
+    color: $warning-light;
+}
+.color--warning-dark {
+    color: $warning-dark;
+}
+.color--notification {
+    color: $notification;
+}
+.color--notification-light {
+    color: $notification-light;
+}
+.color--notification-dark {
+    color: $notification-dark;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.color--gray-lightest {
+    color: $gray-lightest;
+}
+.color--gray-lighter {
+    color: $gray-lighter;
+}
+.color--gray-light {
+    color: $gray-light;
+}
+.color--gray {
+    color: $gray;
+}
+.color--gray-dark {
+    color: $gray-dark;
+}
+.color--gray-darker {
+    color: $gray-darker;
+}
+.color--gray-darkest {
+    color: $gray-darkest;
+}
+
+.color--cyan-light {
+    color: $cyan-light;
+}
+.color--cyan {
+    color: $cyan;
+}
+
+.color--red-light {
+    color: $red-light;
+}
+.color--red {
+    color: $red;
+}
+.color--red-dark {
+    color: $red-dark;
+}
+.color--green-light {
+    color: $green-light;
+}
+.color--green {
+    color: $green;
+}
+.color--green-dark {
+    color: $green-dark;
+}
+.color--white {
+    color: $white;
+}
+.color--black {
+    color: $black;
+}
+
+//---------------------------------\\
+//------------Transition-----------\\
+//---------------------------------\\
+
+.transition {
+    @include transition(all, 0.2s, ease);
+}

@@ -1,0 +1,1 @@
+exports.coats = [1,2,3];

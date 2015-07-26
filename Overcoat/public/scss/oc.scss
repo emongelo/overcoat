@@ -1,0 +1,273 @@
+.overcoatExtensionContainer {
+	width: 400px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+	background-color: #b4cddd;
+}
+
+button {
+	cursor: pointer;
+}
+
+.text--bold {
+	font-weight: bold;
+}
+
+.text--smallest {
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: normal;
+}
+
+.avatar--small {
+	width: 47px;
+	height: 47px;
+}
+
+.avatar--smallest {
+	width: 34px;
+	height: 34px;
+}
+
+.link-style {
+	color: #009be2;
+}
+
+.link-style--gray {
+	color: #999;
+}
+
+.main-header {
+	background-color: #0099e8;
+	padding: 0 10px;
+	nav {
+		.main-menu__button {
+			font-size: 0.8rem;
+			color: #a3dbf5;
+			font-weight: bold;
+			line-height: 2rem;
+			padding: 0 8px;
+			display: inline-block;
+			position: relative;
+			text-transform: uppercase;
+
+			&.main-menu__button--active {
+				color: #fff;
+			}
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		.icon-search {
+			background-image: url('/statics/images/lupa.png');
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	.coat-row {
+		border-radius: 5px;
+		background: #fff;
+		padding: 5px;
+
+		input {
+			&.rounded-box {
+				border: 0px;
+			}
+		}
+		.avatar--small {
+			.avatar--rounded {
+				border-radius: 3px;
+			}
+		}
+
+		p {
+			color: #0099e8;
+			font-size: 1rem;
+			line-height: 2rem;
+		}
+	}
+
+	.posting-box {
+		background: #fff;
+		padding: 8px;
+		border-radius: 8px;
+		textarea {
+			font-size: 0.75rem;
+			color: #333333;
+			border: 0;
+		}
+	}
+}
+
+.footer-link {
+	line-height: 1rem;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	font-size: 0.60rem;
+	font-weight: bold;
+}
+
+.main {
+
+	.new-coats {
+		background-color: #009be2;
+		border-radius: 15px;
+		font-size: 0.75rem;
+		span {
+			color: #fff;
+		}
+	}
+
+	.screenname {
+		margin: 0;
+		line-height: 1rem;
+		font-size: 0.8rem;
+	}
+
+	.subline {
+		color: #ccc;
+		font-size: 0.87rem;
+	}
+
+	.oc-box {
+		background: #fff;
+
+		&.oc-box--friend-join {
+			p {
+				line-height: 1.5rem;
+			}
+		}
+
+		.button--follow {
+			border: 1px solid #0099e8;
+			border-radius: 5px;
+			background-color: #fff;
+			color: #0099e8;
+			cursor: pointer;
+			height: 25px;
+		}
+
+		.icon-3points {
+			background-image: url('/statics/images/3-points.png');
+			background-color: transparent;
+			background-repeat: no-repeat;
+			background-position-x: center;
+		}
+
+		footer {
+			border-bottom: 1px solid #cccccc;
+			padding-bottom: 8px;
+		}
+
+		.append {
+			&.append--replies-ctn {
+				background-color: #b4cddd;
+			}
+			&.append--photo-ctn {
+				height: 200px;
+
+				.append--photo {
+					width: 100%;
+					height: 100%;
+					background-size: cover;
+					background-position: 50%;
+					background-image: url('/statics/images/photo.png');
+				}
+			}
+		}
+	}
+
+	.account {
+		background: #fff;
+
+		.account--header {
+			padding: 16px 8px;
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 16px;
+		}
+
+		.account--footer {
+			border-bottom: 1px solid #ccc;
+			padding: 16px 8px;
+
+			p {
+				color: #ff8000;
+				font-size: 2rem;
+			}
+
+			span {
+				font-size: 0.75rem;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.discover {
+		.coat-name {
+			font-size: 1rem;
+			line-height: 2.5rem;
+			color: #0099e8;
+		}
+
+		.num-coat {
+			margin: 0;
+			color: #ff8000;
+			display: block;
+			line-height: 1.5rem;
+		}
+
+		.num-coat--text {
+			display: inline-block;
+			vertical-align: middle;
+			color: #444;
+		}
+
+		.user-stats {
+			h2 {
+				color: #ff8000;
+				margin: 0;
+			}
+			span {
+				font-size: 0.70rem;
+				color: #444;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.welcome-main {
+	background: #0099e8;
+	color: #fff;
+	height: 100%;
+
+	.site-mission {
+		p {
+			font-size: 1rem;
+		}
+	}
+
+	.network-login {
+		button {
+			color: #0099e8;
+			background-color: #fff;
+			border-radius: 5px;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="component == 'activity' && notifications.length")
+  include notifications
+  div(ng-repeat="notification in notifications")
+    div(ng-include="getView(notification.type)")

@@ -1,0 +1,57 @@
+//---------------------------------\\
+//----------Table of Content-------\\
+//---------------------------------\\
+
+// 01 TODO ORDENAR
+
+[class^="icon-"], [class*=" icon-"] {
+	display:inline-block;
+}
+
+
+
+@import "am-icons-definition";
+
+.icon-SME { // Seguro de Viajes
+	@extend .icon-assistance;
+}
+
+.icon-TKT { // Vuelos
+	@extend .icon-flights;
+}
+
+.icon-EXC { // Excursiones
+	@extend .icon-excursions;
+}
+
+.icon-HTL { // Hoteles
+	@extend .icon-hotels;
+}
+
+.icon-ACT { // Actividades
+	@extend .icon-excursions;
+}
+
+.icon-CRU { // Cruceros
+	@extend .icon-cruises;
+}
+
+.icon-CAR { // Autos
+	@extend .icon-cars;
+}
+
+.icon-PTR { // Trenes
+	@extend .icon-trains;
+}
+
+.icon-PDN { // Disney
+	@extend .icon-disney;
+}
+
+.icon-PKT { // Paquetes
+	@extend .icon-packages;
+}
+
+.borrar-prueba { // Paquetes
+	@extend .icon-packages;
+}

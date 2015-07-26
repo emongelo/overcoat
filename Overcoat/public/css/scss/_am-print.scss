@@ -1,0 +1,35 @@
+@media print {
+	body { 
+		background: white; 
+		font-size: 12pt; 
+	}
+		
+	.header, .main-menu-ctn, .footer { 
+		display: none; 
+	}
+		
+	.epp-ctn { 
+		width: auto; 
+		margin: 0 5%; 
+		padding: 0; 
+		border: 0; 
+		float: none !important; 
+		color: black; 
+		background: transparent none; 
+	}
+		
+	a:link, 
+	a:visited { 
+		color: #520; 
+		background: transparent; 
+		font-weight: bold; 
+		text-decoration: underline; 
+	}
+		
+	a:link:after, 
+	a:visited:after { 
+		content: " (" attr(href) ") "; 
+		font-size: 90%; 
+	}
+	
+}

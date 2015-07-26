@@ -1,0 +1,42 @@
+div.epp-ctn--gtr
+  header.epp-cl-1.epp-space-top-8
+    div.epp-cl-1-8
+      img.avatar--small.avatar--rounded(ng-src="{{coat.user.avatar}}")
+    div.epp-ctn.epp-cl-1-2
+      p.screenname
+        span.text--bold {{coat.user.name}}
+        if extraMsg
+          span  #{extraMsg}
+      span.subline Yesterday
+    div.epp-cl-1-4.align-right
+      if !isFriend
+        button.button--follow.text--smallest follow
+    div.epp-cl-1-12.align-right
+      button.epp-cl-1.icon-3points &nbsp;
+
+  main.epp-cl-1.epp-space-top-16
+    p.text--smallest
+      | {{coat.message}}
+  footer.epp-cl-1.align-center.epp-space-top-16
+    div.epp-cl-1-8
+      p.link-style.footer-link upvote
+      span.text--smallest.color--gray {{coat.upvotes}}
+    div.epp-cl-1-6
+      p.link-style.footer-link downvote
+      span.text--smallest.color--gray {{coat.downvotes}}
+    div.epp-cl-1-8
+      p.link-style.footer-link reply
+      span.text--smallest.color--gray {{coat.replies.length}}
+    div.epp-cl-1-8
+      p.link-style.footer-link tip
+      span.text--smallest.color--gray {{coat.tips}}
+
+    div.epp-cl-3-8.align-right
+      p.link-style.footer-link share
+      span.text--smallest.color--gray {{coat.shares}}
+
+  div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="coat.picture")
+    div.epp-cl-1.append--photo(ng-style="{'background-image': 'url('+coat.picture+')'}")
+
+  div.epp-cl-1.append.append--replies-ctn(ng-if="coat.replies.length")
+    include reply

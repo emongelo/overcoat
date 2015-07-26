@@ -1,0 +1,8 @@
+content     overcoatextension    chrome/content/
+content     overcoatextension    chrome/content/ contentaccessible=yes
+overlay chrome://browser/content/browser.xul chrome://overcoatextension/content/browser.xul
+
+locale	overcoatextension	en-US	locale/en-US/
+
+skin	overcoatextension	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://overcoatextension/skin/skin.css

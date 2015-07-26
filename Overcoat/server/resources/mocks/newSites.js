@@ -1,0 +1,1 @@
+exports.newSites = [1,2];

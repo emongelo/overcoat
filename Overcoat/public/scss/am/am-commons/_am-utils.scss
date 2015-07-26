@@ -1,0 +1,503 @@
+//---------------------------------\\
+//----------Table of Content-------\\
+//---------------------------------\\
+
+
+// 01 Tipography
+//      01-01 Text
+//          01-01-01 Media Queries
+//      01-02 Only Readers
+//      01-03 Link Style
+// 02 Colors
+//      02-01 Font Colors
+//      02-02 Background Colors
+// 03 Transition
+// 04 Rotation
+
+
+//---------------------------------\\
+//------------Tipography-----------\\
+//---------------------------------\\
+
+//--------------Text-------------\\
+
+.am-text--legal, .text--legal, .font-10 {
+    @include font-rem(normal,10px,16px);
+}
+.am-title--smallest, .am-text--smallest, .text--smallest, .font-12{
+    @include font-rem(normal,12px,16px);
+}
+.am-title--smaller, .am-text--smaller, .text--smaller, .font-14{
+    @include font-rem(normal,14px,16px);
+}
+.am-title--xxs, .am-text--xxs, .text--xxs, .font-16{
+    @include font-rem(normal,16px,24px);
+}
+.am-title--xs, .am-text--xs, .text--xs, .font-18{
+    @include font-rem(normal,18px,24px);
+}
+.am-title--sm, .am-text--sm, .text--sm, .font-20{
+    @include font-rem(normal,20px,24px);
+}
+.am-title--md, .am-text--md, .text--md, .font-24{
+    @include font-rem(normal,24px,32px);
+}
+.am-title--lg, .am-text--lg, .text--lg, .font-28{
+    @include font-rem(normal,28px,32px);
+}
+.am-title--xl, .am-text--xl, .text--xl, .font-32{
+    @include font-rem(normal,32px,40px);
+}
+.am-title--xxl, .am-text--xxl, .text--xxl, .font-36{
+    @include font-rem(normal,36px,40px);
+}
+.am-title--larger, .am-text--larger, .text--larger, .font-48{
+    @include font-rem(normal,48px,56px);
+}
+.am-title--largest, .am-text--largest, .text--largest, .font-56{
+    @include font-rem(normal,56px,64px);
+}
+.am-title--shadow, .am-text--shadow, .text--shadow{
+    @include text-shadow(1px 1px 1px black);
+}
+.am-title--bold, .am-text--bold, .text--bold {
+    font-weight:bold;
+}
+.text--italic {
+    font-style:italic;
+}
+
+//--------------Text Media Queries-------------\\
+
+// Phone to 767
+@media (max-width:767px) { 
+    .text--legal--ph, .font-10--ph {
+        @include font-rem(normal,10px,16px);
+    }
+    .text--smallest--ph, .font-12--ph{
+        @include font-rem(normal,12px,16px);
+    }
+    .text--smaller--ph, .font-14--ph{
+        @include font-rem(normal,14px,16px);
+    }
+    .text--xxs--ph, .font-16--ph{
+        @include font-rem(normal,16px,24px);
+    }
+    .text--xs--ph, .font-18--ph{
+        @include font-rem(normal,18px,24px);
+    }
+    .text--sm--ph, .font-20--ph{
+        @include font-rem(normal,20px,24px);
+    }
+    .text--md--ph, .font-24--ph{
+        @include font-rem(normal,24px,32px);
+    }
+    .text--lg--ph, .font-28--ph{
+        @include font-rem(normal,28px,32px);
+    }
+    .text--xl--ph, .font-32--ph{
+        @include font-rem(normal,32px,40px);
+    }
+    .text--xxl--ph, .font-36--ph{
+        @include font-rem(normal,36px,40px);
+    }
+    .text--larger--ph, .font-48--ph{
+        @include font-rem(normal,48px,56px);
+    }
+    .text--largest--ph, .font-56--ph{
+        @include font-rem(normal,56px,64px);
+    }
+}
+
+// Tablet from 768 to 1151
+@media (min-width:768px) and (max-width:1151px) { 
+    .text--legal--tb, .font-10--tb {
+        @include font-rem(normal,10px,16px);
+    }
+    .text--smallest--tb, .font-12--tb{
+        @include font-rem(normal,12px,16px);
+    }
+    .text--smaller--tb, .font-14--tb{
+        @include font-rem(normal,14px,16px);
+    }
+    .text--xxs--tb, .font-16--tb{
+        @include font-rem(normal,16px,24px);
+    }
+    .text--xs--tb, .font-18--tb{
+        @include font-rem(normal,18px,24px);
+    }
+    .text--sm--tb, .font-20--tb{
+        @include font-rem(normal,20px,24px);
+    }
+    .text--md--tb, .font-24--tb{
+        @include font-rem(normal,24px,32px);
+    }
+    .text--lg--tb, .font-28--tb{
+        @include font-rem(normal,28px,32px);
+    }
+    .text--xl--tb, .font-32--tb{
+        @include font-rem(normal,32px,40px);
+    }
+    .text--xxl--tb, .font-36--tb{
+        @include font-rem(normal,36px,40px);
+    }
+    .text--larger--tb, .font-48--tb{
+        @include font-rem(normal,48px,56px);
+    }
+    .text--largest--tb, .font-56--tb{
+        @include font-rem(normal,56px,64px);
+    }
+}
+
+// Desktop from 1152
+@media (min-width:1152px) { 
+    .text--legal--dt, .font-10--dt {
+        @include font-rem(normal,10px,16px);
+    }
+    .text--smallest--dt, .font-12--dt{
+        @include font-rem(normal,12px,16px);
+    }
+    .text--smaller--dt, .font-14--dt{
+        @include font-rem(normal,14px,16px);
+    }
+    .text--xxs--dt, .font-16--dt{
+        @include font-rem(normal,16px,24px);
+    }
+    .text--xs--dt, .font-18--dt{
+        @include font-rem(normal,18px,24px);
+    }
+    .text--sm--dt, .font-20--dt{
+        @include font-rem(normal,20px,24px);
+    }
+    .text--md--dt, .font-24--dt{
+        @include font-rem(normal,24px,32px);
+    }
+    .text--lg--dt, .font-28--dt{
+        @include font-rem(normal,28px,32px);
+    }
+    .text--xl--dt, .font-32--dt{
+        @include font-rem(normal,32px,40px);
+    }
+    .text--xxl--dt, .font-36--dt{
+        @include font-rem(normal,36px,40px);
+    }
+    .text--larger--dt, .font-48--dt{
+        @include font-rem(normal,48px,56px);
+    }
+    .text--largest--dt, .font-56--dt{
+        @include font-rem(normal,56px,64px);
+    }
+}
+
+//-----------Only Readers----------\\
+
+.am-only-readers, .only-readers{
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  position: absolute;
+}
+
+//------------Link Style-----------\\
+
+.link-style {
+    color:$link;
+    text-decoration: none;
+    cursor:pointer;
+    &:active{
+        color:$link-dark;
+        text-decoration: underline;
+    }
+    &:hover{
+        color:$link-light;
+        text-decoration: underline;
+    }
+    &[class*="icon-"]:hover {
+        text-decoration:none;
+    }
+}
+
+//---------------------------------\\
+//--------------Colors-------------\\
+//---------------------------------\\
+
+//------------Font Colors-----------\\
+
+.color--primary-light {
+    color: $blue-light;
+}
+.color--primary {
+    color: $blue;
+}
+.color--primary-dark {
+    color: $blue-dark;
+}
+.color--secondary-light {
+    color: $orange-light;
+}
+.color--secondary {
+    color: $orange;
+}
+.color--secondary-dark {
+    color: $orange-dark;
+}
+.color--link-light {
+    color: $link-light;
+}
+.color--link {
+    color: $link;
+}
+.color--link-dark {
+    color: $link-dark;
+}
+.color--facebook {
+    color: $facebook;
+}
+.color--facebook-light {
+    color: $facebook-light;
+}
+.color--facebook-dark {
+    color: $facebook-dark;
+}
+.color--error, .color--important {
+    color: $error;
+}
+.color--error-light, .color--important-light {
+    color: $error-light;
+}
+.color--error-dark, .color--important-dark {
+    color: $error-dark;
+}
+.color--ok {
+    color: $ok;
+}
+.color--ok-light {
+    color: $ok-light;
+}
+.color--ok-dark {
+    color: $ok-dark;
+}
+.color--warning {
+    color: $warning;
+}
+.color--warning-light {
+    color: $warning-light;
+}
+.color--warning-dark {
+    color: $warning-dark;
+}
+.color--notification {
+    color: $notification;
+}
+.color--notification-light {
+    color: $notification-light;
+}
+.color--notification-dark {
+    color: $notification-dark;
+}
+.color--gray-lightest {
+    color: $gray-lightest;
+}
+.color--gray-lighter {
+    color: $gray-lighter;
+}
+.color--gray-light {
+    color: $gray-light;
+}
+.color--gray {
+    color: $gray;
+}
+.color--gray-dark {
+    color: $gray-dark;
+}
+.color--gray-darker {
+    color: $gray-darker;
+}
+.color--gray-darkest {
+    color: $gray-darkest;
+}
+.color--cyan-light {
+    color: $cyan-light;
+}
+.color--cyan {
+    color: $cyan;
+}
+.color--red-light {
+    color: $red-light;
+}
+.color--red {
+    color: $red;
+}
+.color--red-dark {
+    color: $red-dark;
+}
+.color--green-light {
+    color: $green-light;
+}
+.color--green {
+    color: $green;
+}
+.color--green-dark {
+    color: $green-dark;
+}
+.color--white {
+    color: $white;
+}
+.color--black {
+    color: $black;
+}
+.color--tripadvisor {
+    color:$tripadvisor;
+}
+.color--star {
+    color:$star;
+}
+
+//------------Background Colors-----------\\
+
+
+.bg--primary-light {
+    background-color: $blue-light;
+}
+.bg--primary {
+    background-color: $blue;
+}
+.bg--primary-dark {
+    background-color: $blue-dark;
+}
+.bg--secondary-light {
+    background-color: $orange-light;
+}
+.bg--secondary {
+    background-color: $orange;
+}
+.bg--secondary-dark {
+    background-color: $orange-dark;
+}
+.bg--link-light {
+    background-color: $link-light;
+}
+.bg--link {
+    background-color: $link;
+}
+.bg--link-dark {
+    background-color: $link-dark;
+}
+.bg--facebook {
+    background-color: $facebook;
+}
+.bg--facebook-light {
+    background-color: $facebook-light;
+}
+.bg--facebook-dark {
+    background-color: $facebook-dark;
+}
+.bg--error, .bg--important {
+    background-color: $error;
+}
+.bg--error-light, .bg--important-light {
+    background-color: $error-light;
+}
+.bg--error-dark, .bg--important-dark {
+    background-color: $error-dark;
+}
+.bg--ok {
+    background-color: $ok;
+}
+.bg--ok-light {
+    background-color: $ok-light;
+}
+.bg--ok-dark {
+    background-color: $ok-dark;
+}
+.bg--warning {
+    background-color: $warning;
+}
+.bg--warning-light {
+    background-color: $warning-light;
+}
+.bg--warning-dark {
+    background-color: $warning-dark;
+}
+.bg--notification {
+    background-color: $notification;
+}
+.bg--notification-light {
+    background-color: $notification-light;
+}
+.bg--notification-dark {
+    background-color: $notification-dark;
+}
+.bg--gray-lightest {
+    background-color: $gray-lightest;
+}
+.bg--gray-lighter {
+    background-color: $gray-lighter;
+}
+.bg--gray-light {
+    background-color: $gray-light;
+}
+.bg--gray {
+    background-color: $gray;
+}
+.bg--gray-dark {
+    background-color: $gray-dark;
+}
+.bg--gray-darker {
+    background-color: $gray-darker;
+}
+.bg--gray-darkest {
+    background-color: $gray-darkest;
+}
+.bg--cyan-light {
+    background-color: $cyan-light;
+}
+.bg--cyan {
+    background-color: $cyan;
+}
+.bg--red-light {
+    background-color: $red-light;
+}
+.bg--red {
+    background-color: $red;
+}
+.bg--red-dark {
+    background-color: $red-dark;
+}
+.bg--green-light {
+    background-color: $green-light;
+}
+.bg--green {
+    background-color: $green;
+}
+.bg--green-dark {
+    background-color: $green-dark;
+}
+.bg--white {
+    background-color: $white;
+}
+.bg--black {
+    background-color: $black;
+}
+.bg--tripadvisor {
+    background-color:$tripadvisor;
+}
+.bg--star {
+    background-color:$star;
+}
+
+//---------------------------------\\
+//------------Transition-----------\\
+//---------------------------------\\
+
+.transition {
+    @include transition(all, 0.2s, ease);
+}
+
+//---------------------------------\\
+//------------Rotation-------------\\
+//---------------------------------\\
+
+.rotation {
+    @include rotate(180deg);
+}

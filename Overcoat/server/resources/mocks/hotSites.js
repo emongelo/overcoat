@@ -1,0 +1,1 @@
+exports.hotSites = [1,2];

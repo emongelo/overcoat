@@ -1,0 +1,30 @@
+main {
+	height: 100%;
+	background-color: #008acd;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	color: #fff;
+}
+main.not-visible {
+	right: -400px;
+}
+.epp-ctn--xxs {
+	max-width: 400px;
+}
+.network-login {
+	background-color: #76858f;
+}
+.network-login .link-style {
+	color: #fff;
+}
+.hamburger {
+	position: relative;
+	top: 50%;
+	right: 30px;
+	width: 30px;
+	height: 40px;
+	background-color: #008acd;
+	color: #fff;
+	border-radius: 5px 0 0 5px;
+}

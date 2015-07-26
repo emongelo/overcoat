@@ -1,0 +1,36 @@
+article.oc-box(ng-repeat="reply in coat.replies")
+  div.epp-ctn--gtr
+    header.epp-cl-1.epp-space-top-16
+      div.epp-cl-1-8
+        img.avatar--small.avatar--rounded(ng-src="{{reply.user.avatar}}")
+      div.epp-ctn.epp-cl-1-2
+        p.screenname.text--bold {{reply.user.name}}
+        span.subline Yesterday
+      div.epp-cl-1-4.align-right
+        button.button--follow.text--smallest follow
+      div.epp-cl-1-12.align-right
+        button.epp-cl-1.icon-3points &nbsp;
+
+    main.epp-cl-1.epp-space-top-16
+      p.text--smallest
+        | {{reply.message}}
+    footer.epp-cl-1.align-center.epp-space-top-16
+      div.epp-cl-1-8
+        p.link-style.footer-link upvote
+        span.text--smallest.color--gray {{reply.upvotes}}
+      div.epp-cl-1-6
+        p.link-style.footer-link downvote
+        span.text--smallest.color--gray {{reply.downvotes}}
+      div.epp-cl-1-8
+        p.link-style.footer-link reply
+        span.text--smallest.color--gray {{reply.replies.length}}
+      div.epp-cl-1-8
+        p.link-style.footer-link tip
+        span.text--smallest.color--gray {{reply.tips}}
+
+      div.epp-cl-3-8.align-right
+        p.link-style.footer-link share
+        span.text--smallest.color--gray {{reply.shares}}
+
+    div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="reply.picture")
+      div.epp-cl-1.append--photo(ng-style="{'background-image': 'url('+reply.picture+')'}")

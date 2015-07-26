@@ -1,0 +1,10 @@
+a.main-menu__button(href="javascript:;" ng-click="getCoats()" ng-class="{'main-menu__button--active': component == 'coats'}")
+  span Coats
+a.main-menu__button(href="javascript:;" ng-click="getActivity()" ng-class="{'main-menu__button--active': component == 'activity'}")
+  span Activity
+a.main-menu__button(href="javascript:;" ng-click="getDiscover()" ng-class="{'main-menu__button--active': component == 'discover'}")
+  span Discover
+a.main-menu__button(href="javascript:;" ng-click="toggleSearchbox()" ng-class="{'main-menu__button--active': component == 'search'}")
+  span.icon-search &nbsp;
+a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': component == 'account'}")
+  img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")

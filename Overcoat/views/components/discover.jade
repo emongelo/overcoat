@@ -1,0 +1,37 @@
+// Account component
+section.epp-ctn.epp-cl-1.main
+  div.epp-space-bottom-16.discover(ng-if="component == 'discover'")
+
+    article.epp-ctn--gtr.oc-box.epp-space-top-8.epp-air-top-8
+      div.epp-cl-3-4
+        span.coat-name whitehouse.com
+      div.epp-cl-1-4.align-center
+        h2.num-coat 2k
+        span.text--smallest.num-coat--text coats
+
+    article.epp-ctn--gtr.oc-box.epp-space-top-8.epp-air-top-8
+      div.epp-cl-3-4
+        span.coat-name yahoo.com
+      div.epp-cl-1-4.align-center
+        h2.num-coat 8.2k
+        span.text--smallest.num-coat--text coats
+
+
+    article.oc-box.epp-space-top-8.epp-air-8
+      div.epp-cl-1-6
+        img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
+      div.epp-ctn.epp-cl-2-3
+        p.screenname
+          span.text--bold John Doe
+        div.epp-cl-1.epp-space-top-8.user-stats
+          div.epp-cl-1-4.align-center
+            h2 212
+            span Coats
+          div.epp-cl-1-3.align-center
+            h2 34
+            span Followers
+          div.epp-cl-1-3.align-center
+            h2 1m
+            span Following
+      div.epp-cl-1-6.align-right
+        button.button--follow.text--smallest follow

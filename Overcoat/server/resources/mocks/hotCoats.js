@@ -1,0 +1,1 @@
+exports.hotCoats = [1, 2, 3];
