@@ -1,18 +1,22 @@
 div.epp-ctn.epp-ctn--gtr.main-header(ng-if="user")
+  // Search component
+  div.epp-ctn.epp-cl-5-6.epp-space-top-16.epp-air-8.coat-row(ng-if="component == 'search' && showSearchbox")
+    img(src="/statics/images/input-search.png")
+    input.epp-cl-5-6.epp-air-left-8.rounded-box(name="searchCoat" value="Search")
+    img(src="/statics/images/input-clear.png")
+
+  div.epp-cl-1-6.epp-space-top-16.align-center.close-search(ng-click="toggleSearchbox()" ng-if="component == 'search'") X
+
   // Main header
   nav.epp-cl-1.epp-space-top-16.epp-space-bottom-16.main-menu.align-center(ng-if="user")
     include main-header
 
   // Coats component
-  div.epp-ctn.epp-cl-1.epp-space-bottom-16.coat-row(ng-if="component == 'coats'")
+  div.epp-ctn.epp-cl-1.epp-space-bottom-16.epp-air-8.coat-row(ng-if="component == 'coats'")
     div.epp-cl-1-8
       img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
     p.epp-cl-7-12.epp-space-bottom-16.rounded-box
       span.link-style Coat {{site.name}}
-
-  // Search component
-  div.epp-ctn.epp-cl-1.epp-space-bottom-16.coat-row(ng-if="component == 'search' && showSearchbox")
-    input.epp-cl-1.rounded-box(placeholder="Search coats" name="searchCoat" value="")
 
   // Post-box component
   div(ng-if="component == 'coats'")

@@ -26920,6 +26920,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
     $scope.component = ($scope.component != 'search') ? 'search' : 'coats';
     $scope.hideMenu = !$scope.hideMenu;
     $scope.showSearchbox = !$scope.showSearchbox;
+    $scope.toggleSubmenu('search');
   };
 
   /**
@@ -26952,7 +26953,34 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
     return type;
   };
 
+  $scope.isActive = function(component) {
+    return $scope.component == component;
+  };
+
+  $scope.isSubActive = function(subSection) {
+    return $scope.subSection == subSection;
+  };
+
+  $scope.toggleSubmenu = function(section) {
+    $scope.showSubmenu = ($scope.showSubmenu == section) ? '' : section;
+  };
+
+  $scope.filterCoats = function(filter) {
+    $scope.subSection = filter;
+  };
+
+  $scope.filterDiscover = function(filter) {
+    $scope.subSection = filter;
+  };
+
+  $scope.filterSearch = function(filter) {
+    $scope.subSection = filter;
+  };
+
+
+
   function resetUI(noReset) {
+    $scope.showSubmenu = '';
     $scope.hideMenu = false;
     $scope.showAccount = false;
     $scope.showPostingBox = false;

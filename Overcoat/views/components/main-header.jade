@@ -1,44 +1,43 @@
-a.main-menu__button(href="javascript:;" ng-click="getCoats()" ng-class="{'main-menu__button--active': component == 'coats'}" ng-if="!hideMenu")
-  span Coats
-a.main-menu__button(href="javascript:;" ng-click="getActivity()" ng-class="{'main-menu__button--active': component == 'activity'}" ng-if="!hideMenu")
+div.main-menu__button(ng-class="{'main-menu__button--active': isActive('coats')}" ng-if="!hideMenu")
+  span(ng-click="getCoats()") Coats
+  span.icon-down(ng-click="toggleSubmenu('coats')")
+a.main-menu__button(href="javascript:;" ng-click="getActivity()" ng-class="{'main-menu__button--active': isActive('activity')}" ng-if="!hideMenu")
   span Activity
-a.main-menu__button(href="javascript:;" ng-click="getDiscover()" ng-class="{'main-menu__button--active': component == 'discover'}" ng-if="!hideMenu")
-  span Discover
-a.main-menu__button(href="javascript:;" ng-click="toggleSearchbox()" ng-class="{'main-menu__button--active': component == 'search'}" ng-if="!hideMenu")
-  span.icon-search &nbsp;
-a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': component == 'account'}" ng-if="!hideMenu")
+div.main-menu__button(ng-class="{'main-menu__button--active': isActive('discover')}" ng-if="!hideMenu")
+  span(ng-click="getDiscover()") Discover
+  span.icon-down(ng-click="toggleSubmenu('discover')")
+div.main-menu__button(ng-class="{'main-menu__button--active': isActive('search')}" ng-if="!hideMenu")
+  span.icon-search(ng-click="toggleSearchbox()") &nbsp;
+
+a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': isActive('account')}" ng-if="!hideMenu")
   img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
 
+div.epp-cl-1.main-menu__button.main-menu__button--active(href="javascript:;" ng-if="showAccount && hideMenu")
+  div.epp-cl-5-6 My Account
+  div.epp-cl-1-12.align-center.close-account(ng-click="toggleAccount()" ng-if="showAccount && hideMenu") X
 
-div.epp-cl-1(ng-if="component == 'coats'")
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="filterCoats('active')")
-    span Most Active
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="filterCoats('latest')")
-    span Latest
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="filterCoats('hot-sites')")
-    span Hot Coats
+div.epp-cl-1.epp-ctn.submenu
+  div.epp-cl-1.align-left.epp-ait-top-16(ng-if="showSubmenu == 'coats'")
+    a.main-menu__button(href="javascript:;" ng-click="filterCoats('active')" ng-class="{'main-menu__button--active': isSubActive('active')}")
+      span Most Active
+    a.main-menu__button(href="javascript:;" ng-click="filterCoats('latest')" ng-class="{'main-menu__button--active': isSubActive('latest')}")
+      span Latest
+    a.main-menu__button(href="javascript:;" ng-click="filterCoats('hot-sites')" ng-class="{'main-menu__button--active': isSubActive('hot-sites')}")
+      span Hot Coats
 
-div.epp-cl-1-2(ng-if="component == 'discover'")
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('hot')")
-    span Hot sites
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('new')")
-    span New sites
+  div.epp-cl-1(ng-if="showSubmenu == 'discover'")
+    a.main-menu__button(href="javascript:;" ng-click="filterDiscover('hot')" ng-class="{'main-menu__button--active': isSubActive('hot')}")
+      span Hot sites
+    a.main-menu__button(href="javascript:;" ng-click="filterDiscover('new')" ng-class="{'main-menu__button--active': isSubActive('new')}")
+      span New sites
+    a.main-menu__button(href="javascript:;" ng-click="filterDiscover('top-coaters')" ng-class="{'main-menu__button--active': isSubActive('top-coaters')}")
+      span Top coaters
+    a.main-menu__button(href="javascript:;" ng-click="filterDiscover('hot-coats')" ng-class="{'main-menu__button--active': isSubActive('hot-coats')}")
+      span Hot coats anywhere
 
-div.epp-cl-1-2(ng-if="component == 'discover'")
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('top-coaters')")
-    span Top coaters
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="discover('hot-coats')")
-    span Hot coats anywhere
+  div.epp-cl-1.submenu-search(ng-if="showSubmenu == 'search'")
+    a.main-menu__button(href="javascript:;" ng-click="filterSearch('site')" ng-if="component == 'search'" ng-class="{'main-menu__button--active': isSubActive('site')}")
+      span This site
+    a.main-menu__button(href="javascript:;" ng-click="filterSearch('all')" ng-if="component == 'search'" ng-class="{'main-menu__button--active': isSubActive('all')}")
+      span Across all sites
 
-
-div.epp-cl-1(ng-if="component == 'search'")
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="searchIn('site')" ng-if="component == 'search'")
-    span This site
-  a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="searchIn('all')" ng-if="component == 'search'")
-    span Across all sites
-
-a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="toggleSearchbox()" ng-if="component == 'search'")
-  span Search
-
-a.main-menu__button.main-menu__button--active(href="javascript:;" ng-click="toggleAccount()" ng-if="showAccount && hideMenu")
-  span Account
