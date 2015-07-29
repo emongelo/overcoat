@@ -19,6 +19,6 @@ function attachScript() {
   var head = document.getElementsByTagName('head')[0];
   var script = document.createElement('script');
   script.id = "overcoatJs";
-  script.src = 'http://dev.overcoat.com:4000/statics/js/iframe/iframe-pkg.js';
+  script.src = 'http://ec2-52-8-130-205.us-west-1.compute.amazonaws.com:4000/statics/js/iframe/iframe-pkg.js';
   head.appendChild(script);
 }
