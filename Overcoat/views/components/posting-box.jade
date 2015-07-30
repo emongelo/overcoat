@@ -1,4 +1,4 @@
-div.epp-ctn.epp-cl-1.epp-space-bottom-16.posting-box(ng-if="showPostingBox")
+div.epp-ctn.epp-space-bottom-16.posting-box(ng-if="showPostingBox")
   div
     div.epp-cl-1-8
       img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
@@ -12,5 +12,5 @@ div.epp-ctn.epp-cl-1.epp-space-bottom-16.posting-box(ng-if="showPostingBox")
       div.epp-cl-1-2
         a.link-style.footer-link + Photo
       div.epp-cl-1-2.align-right
-        a.link-style.footer-link.link-style--gray Cancel
+        a.link-style.footer-link.link-style--gray(ng-click="togglePostingBox()") Cancel
         a.epp-space-left-8.link-style.footer-link Coat
