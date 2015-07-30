@@ -77,14 +77,14 @@ button {
 			}
 
 			.icon-down {
-				display: block;
-				line-height: 0;
+				margin-left: 5px;
 			}
 		}
 
 		.submenu {
 			.main-menu__button {
-				font-size: 0.7rem;
+				font-size: 0.65rem;
+				padding: 0 5px;
 			}
 
 			.submenu-search {

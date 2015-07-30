@@ -12,16 +12,16 @@ div.epp-ctn.epp-ctn--gtr.main-header(ng-if="user")
     include main-header
 
   // Coats component
-  div.epp-ctn.epp-cl-1.epp-space-bottom-16.epp-air-8.coat-row(ng-if="component == 'coats'")
+  div.epp-ctn.epp-cl-1.epp-space-bottom-16.epp-air-8.coat-row(ng-if="component == 'coats' && !showPostingBox")
     div.epp-cl-1-8
       img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
     p.epp-cl-7-12.epp-space-bottom-16.rounded-box
-      span.link-style Coat {{site.name}}
+      span.link-style(ng-click="togglePostingBox()") Coat {{site.name}}
 
   // Post-box component
-  div(ng-if="component == 'coats'")
+  div.epp-air-bottom-8(ng-if="showPostingBox")
     include posting-box
 
   // Invite friends component
   div(ng-if="component == 'invite'")
-    //- include modals/invite-modal
+    include modals/invite-modal

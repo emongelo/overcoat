@@ -26920,7 +26920,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
     $scope.component = ($scope.component != 'search') ? 'search' : 'coats';
     $scope.hideMenu = !$scope.hideMenu;
     $scope.showSearchbox = !$scope.showSearchbox;
-    $scope.toggleSubmenu('search');
+    $scope.toggleSubmenu('Search');
   };
 
   /**
@@ -26928,9 +26928,14 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
    */
   $scope.toggleAccount = function() {
     $scope.component = ($scope.component != 'account') ? 'account' : 'coats';
-    $scope.showSearchbox = false;
-    $scope.hideMenu = !$scope.hideMenu;
-    $scope.showAccount = !$scope.showAccount;
+
+    if ( $scope.component == 'account' ) {
+      $scope.showSearchbox = false;
+      $scope.hideMenu = !$scope.hideMenu;
+      $scope.showAccount = !$scope.showAccount;
+    } else {
+      $scope.getCoats();
+    }
   };
 
   $scope.toggleTooltip = function(tooltipId) {
@@ -26962,7 +26967,8 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
   };
 
   $scope.toggleSubmenu = function(section) {
-    $scope.showSubmenu = ($scope.showSubmenu == section) ? '' : section;
+    if ( section != 'Search' ) $scope['get' + section]();
+    $scope.showSubmenu = ($scope.showSubmenu == section.toLowerCase()) ? '' : section.toLowerCase();
   };
 
   $scope.filterCoats = function(filter) {
@@ -26975,6 +26981,10 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
 
   $scope.filterSearch = function(filter) {
     $scope.subSection = filter;
+  };
+
+  $scope.togglePostingBox = function() {
+    $scope.showPostingBox = !$scope.showPostingBox;
   };
 
 

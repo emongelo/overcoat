@@ -1,11 +1,11 @@
 div.main-menu__button(ng-class="{'main-menu__button--active': isActive('coats')}" ng-if="!hideMenu")
   span(ng-click="getCoats()") Coats
-  span.icon-down(ng-click="toggleSubmenu('coats')")
+  span.icon-down(ng-click="toggleSubmenu('Coats')")
 a.main-menu__button(href="javascript:;" ng-click="getActivity()" ng-class="{'main-menu__button--active': isActive('activity')}" ng-if="!hideMenu")
   span Activity
 div.main-menu__button(ng-class="{'main-menu__button--active': isActive('discover')}" ng-if="!hideMenu")
   span(ng-click="getDiscover()") Discover
-  span.icon-down(ng-click="toggleSubmenu('discover')")
+  span.icon-down(ng-click="toggleSubmenu('Discover')")
 div.main-menu__button(ng-class="{'main-menu__button--active': isActive('search')}" ng-if="!hideMenu")
   span.icon-search(ng-click="toggleSearchbox()") &nbsp;
 
@@ -17,7 +17,7 @@ div.epp-cl-1.main-menu__button.main-menu__button--active(href="javascript:;" ng-
   div.epp-cl-1-12.align-center.close-account(ng-click="toggleAccount()" ng-if="showAccount && hideMenu") X
 
 div.epp-cl-1.epp-ctn.submenu
-  div.epp-cl-1.align-left.epp-ait-top-16(ng-if="showSubmenu == 'coats'")
+  div.epp-cl-1.align-left.epp-ait-top-16.align-center(ng-if="showSubmenu == 'coats'")
     a.main-menu__button(href="javascript:;" ng-click="filterCoats('active')" ng-class="{'main-menu__button--active': isSubActive('active')}")
       span Most Active
     a.main-menu__button(href="javascript:;" ng-click="filterCoats('latest')" ng-class="{'main-menu__button--active': isSubActive('latest')}")
