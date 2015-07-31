@@ -199,17 +199,19 @@
 }
 
 //------------Link Style-----------\\
-
+.text--pointer {
+	cursor: pointer;
+}
 .link-style {
-    //color:$link;
+    color:$link;
     text-decoration: none;
     cursor:pointer;
     &:active{
-        //color:$link-dark;
+        color:$link-dark;
         text-decoration: underline;
     }
     &:hover{
-        //color:$link-light;
+        color:$link-light;
         text-decoration: underline;
     }
     &[class*="icon-"]:hover {
