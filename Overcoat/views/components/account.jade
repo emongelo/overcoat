@@ -6,7 +6,10 @@ section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="showAccount")
         img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
       div.epp-cl-2-3.epp-space-left-8
         p.screenname.text--bold {{user.name}}
+
         span.subline.text--smallest @{{user.screenName}}
+        span.text--smaller.link-style.color--link(ng-click="toggleInviteModal()")  Invite Friends
+
       div.epp-cl-1-6.text--smallest.align-right.text--gray
         | Log out
 

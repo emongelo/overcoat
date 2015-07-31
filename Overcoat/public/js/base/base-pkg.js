@@ -26829,7 +26829,7 @@
 
 var Overcoat = angular.module('Overcoat', []);
 
-Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce, $compile){
+Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   _this = {};
 
   $scope.url = window.location.href;
@@ -26987,17 +26987,23 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http, $sce
     $scope.showPostingBox = !$scope.showPostingBox;
   };
 
+  $scope.toggleInviteModal = function() {
+    $scope.modal = $scope.modal ? '' : 'invite';
+  };
 
 
   function resetUI(noReset) {
+    $scope.modal = '';
     $scope.showSubmenu = '';
     $scope.hideMenu = false;
     $scope.showAccount = false;
     $scope.showPostingBox = false;
     $scope.showSearchbox = false;
+    $scope.inviteModal = false;
     $scope.noCoats = false;
     $scope.site = [];
     $scope.coats = [];
     $scope.newCoats = [];
+
   }
 }]);

@@ -1,2 +1,15 @@
-div(ng-if="showInviteModal" style="position: absolute; width: 80%; height: 300px; background-color: #fff; top: 20px; left: 10%; border: 1px solid red")
-  | Invite your friends!
+div.modal-background
+div.modal.epp-air-8.modal-invite
+  div.epp-cl-1.align-right
+    span.link-style.color--white(ng-click="toggleInviteModal()") X
+  div.epp-cl-1.align-center.epp-space-top-8.epp-space-bottom-16
+    h1 Invite your friends to join overcoat!
+
+  div.epp-cl-1.align-center
+    p Start by adding your email address
+    input(type="email" placeholder="Enter your email address" class="input--block")
+
+    button.epp-space-top-32.button.button--lg.button--primary(ng-click="toggleInviteModal()") Find my friends
+
+  div.epp-cl-1.epp-space-top-32.epp-space-bottom-16
+    p We'll import your address book to connect you with your friends on Overcoat and invite those who aren't here yet.
