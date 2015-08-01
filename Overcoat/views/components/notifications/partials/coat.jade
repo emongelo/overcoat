@@ -9,31 +9,43 @@ div.epp-ctn--gtr(ng-init="coat = notification.coat")
           span  #{extraMsg}
       span.subline Yesterday
     div.epp-cl-1-4.align-right
-      if !isFriend
-        button.button--follow.text--smallest follow
-    div.epp-cl-1-12.align-right
-      button.epp-cl-1.icon-3points &nbsp;
+      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
+    div.epp-cl-1-12.align-right.relative
+      span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
+      div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[coat.id]")
+        a(href="javascript:;" ng-click="tooltip.getOriginUrl(coat)") Url Origin
+        a(href="javascript:;" ng-click="tooltip.muteUser(coat.user.id)" ng-if="user.id != coat.user.id") Mute {{coat.user.name}}
+        a(href="javascript:;" ng-click="tooltip.reportUser(coat.user.id)" ng-if="user.id != coat.user.id") Report user
+        a(href="javascript:;" ng-click="tooltip.unfollow(coat.user.id)" ng-if="user.id != coat.user.id && isFriend(coat.user.id)") Unfollow
+        a(href="javascript:;" ng-click="tooltip.deleteCoat(coat.id)" ng-if="user.id == coat.user.id") Delete coat
+      span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[coat.id]")
 
   main.epp-cl-1.epp-space-top-16
     p.text--smallest
       | {{coat.message}}
   footer.epp-cl-1.align-center.epp-space-top-16
     div.epp-cl-1-8
-      p.link-style.footer-link upvote
+      p.link-style.footer-link(ng-click="upvote(coat.id)") upvote
       span.text--smallest.color--gray {{coat.upvotes}}
     div.epp-cl-1-6
-      p.link-style.footer-link downvote
+      p.link-style.footer-link(ng-click="downvote(coat.id)") downvote
       span.text--smallest.color--gray {{coat.downvotes}}
     div.epp-cl-1-8
-      p.link-style.footer-link reply
+      p.link-style.footer-link(ng-click="reply(coat.id)") reply
       span.text--smallest.color--gray {{coat.replies.length}}
     div.epp-cl-1-8
-      p.link-style.footer-link tip
+      p.link-style.footer-link(ng-click="tip(coat.id)") tip
       span.text--smallest.color--gray {{coat.tips}}
 
-    div.epp-cl-3-8.align-right
-      p.link-style.footer-link share
+    div.epp-cl-3-8.align-right.relative
+      p.footer-link
+        span.link-style(data-ng-click="toggleShareTooltip(coat.id)") share
       span.text--smallest.color--gray {{coat.shares}}
+      div.epp-air-8.tooltip.tooltip-top(ng-if="shareTooltips[coat.id]")
+        a(href="javascript:;" ng-click="share('tw')") Share on Twitter
+        a(href="javascript:;" ng-click="share('fb')") Share on Facebook
+        a(href="javascript:;" ng-click="getLink(coat)") Get link
+      span.tooltip-caret.tooltip-caret-top(ng-if="shareTooltips[coat.id]")
 
   div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="coat.picture")
     div.epp-cl-1.append--photo(ng-style="{'background-image': 'url('+coat.picture+')'}")

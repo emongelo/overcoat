@@ -19,7 +19,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
    */
   $scope.getCoats = function() {
     resetUI();
-    $scope.tooltips = [];
+
     $scope.component = 'coats';
     $scope.loading = true;
     $http.get('/coats?site=' + $scope.url).success(function(serviceResponse){
@@ -110,9 +110,31 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   };
 
   $scope.toggleTooltip = function(tooltipId) {
-    console.log(tooltipId);
     $scope.tooltips[tooltipId] = $scope.tooltips[tooltipId] ? !$scope.tooltips[tooltipId] : true;
-    console.log($scope.tooltips[tooltipId]);
+  };
+
+  $scope.toggleShareTooltip = function(tooltipId) {
+    $scope.shareTooltips[tooltipId] = $scope.shareTooltips[tooltipId] ? !$scope.shareTooltips[tooltipId] : true;
+  };
+
+  $scope.upvote = function(coatId) {
+    alert('upvote coat ' + coatId);
+  };
+
+  $scope.downvote = function(coatId) {
+    alert('downvote coat ' + coatId);
+  };
+
+  $scope.reply = function(coatId) {
+    alert('reply coat ' + coatId);
+  };
+
+  $scope.tip = function(coatId) {
+    alert('tip coat ' + coatId);
+  };
+
+  $scope.follow = function(userId) {
+    alert('follow user ' + userId);
   };
 
 
@@ -162,8 +184,13 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.modal = $scope.modal ? '' : 'invite';
   };
 
+  $scope.isFriend = function(friendId) {
+    $scope.friends = [1,2,3,4];
+    return ( $scope.friends.indexOf(friendId) != -1 ) ? true : false;
+  };
 
-  function resetUI(noReset) {
+
+  function resetUI() {
     $scope.modal = '';
     $scope.showSubmenu = '';
     $scope.hideMenu = false;
@@ -175,6 +202,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.site = [];
     $scope.coats = [];
     $scope.newCoats = [];
-
+    $scope.tooltips = [];
+    $scope.shareTooltips = [];
   }
 }]);

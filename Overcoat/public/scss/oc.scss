@@ -193,59 +193,6 @@ button {
 	.relative {
 		position: relative;
 	}
-	.context-menu {
-		width: 180px;
-		background: #0099e8;
-		color:white;
-		position:absolute;
-		z-index:9;
-		padding:0.4% 1%;
-		-webkit-border-radius:3px;
-		-moz-border-radius:3px;
-		border-radius:3px;
-		right:0;
-		top: 40px;
-
-		a {
-			color: #fff;
-			display: block;
-			font-size: 0.85rem;
-			line-height: 1.2rem;
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-
-	.context-menu-caret:before {
-		content:'';
-		position: absolute;
-		width: 0;
-		height: 0;
-		border: 6px solid #0099e8;
-	}
-	.context-menu-caret:after {
-		content:'';
-		position: absolute;
-		width: 0;
-		height: 0;
-		border: 5px solid transparent;
-	}
-
-	.context-menu-caret:before {
-		right: 10px;
-		top: 35px;
-		margin-left: -6px;
-		border-right-color: transparent;
-		border-left-color: transparent;
-		border-top-width: 0;
-	}
-	.context-menu-caret:after {
-		margin-left: -5px;
-		border-right-color: transparent;
-		border-left-color: transparent;
-		border-top-width: 0;
-	}
 
 	.new-coats {
 		background-color: #009be2;
@@ -399,6 +346,88 @@ button {
 				text-decoration: none;
 			}
 		}
+	}
+}
+
+.tooltip {
+	width: 180px;
+	background: #0099e8;
+	color:white;
+	position:absolute;
+	z-index:9;
+	padding:0.4% 1%;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	right:0;
+
+	a {
+		color: #fff;
+		display: block;
+		font-size: 0.85rem;
+		line-height: 1.2rem;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&-top {
+		top: -90px;
+	}
+
+	&-bottom {
+		top: 32px;
+	}
+}
+
+.tooltip-caret {
+	&:before {
+		content:'';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border: 6px solid #0099e8;
+	}
+	&:after {
+		content:'';
+		position: absolute;
+		width: 0;
+		height: 0;
+		border: 5px solid transparent;
+	}
+
+	&:before {
+		right: 10px;
+		margin-left: -6px;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-bottom-width: 0;
+	}
+
+	&-bottom:before {
+		right: 10px;
+		top: 27px;
+		margin-left: -6px;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-top-width: 0;
+		border-bottom-width: 5px;
+	}
+
+	&-top:before {
+		right: 10px;
+		top: -17px;
+		margin-left: -6px;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-bottom-width: 0;
+	}
+
+	&:after {
+		margin-left: -5px;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-bottom-width: 0;
 	}
 }
 
