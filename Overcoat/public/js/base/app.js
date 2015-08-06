@@ -178,6 +178,77 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
   $scope.togglePostingBox = function() {
     $scope.showPostingBox = !$scope.showPostingBox;
+    $scope.coatText = '';
+  };
+
+  $scope.submit = function(text) {
+    if ( !text ) {
+      alert('You must enter a text');
+      return false;
+    }
+
+    $scope.coatText = text;
+
+    var params = {
+      userId: $scope.user.id,
+      coatText: text
+    };
+
+    $http.post('/coat/post', params).then(function(serviceResponse){
+      $scope.coats.unshift({
+        id: 7,
+        userId: $scope.user.id,
+        user: $scope.user,
+        siteId: 1,
+        message: $scope.coatText,
+        upvotes: 0,
+        downvotes: 0,
+        tips: 0,
+        shares: 0,
+        picture: undefined
+      });
+
+      $scope.togglePostingBox();
+    }, function(err){
+    });
+  };
+
+  $scope.deleteCoat = function(coatId) {
+    if ( confirm('Sure?') ) {
+      $http.delete('/coat/delete', {coatId: coatId}).then(function(res){
+        var coat = $scope.coats.filter(function(e) {
+          if ( e.id == coatId ) {
+            var index = $scope.coats.indexOf(e);
+            if ( index != -1 ) {
+              $scope.coats.splice(index, 1);
+            }
+          }
+          return e.id == coatId
+        });
+      }, function(err){
+
+      });
+    }
+  };
+
+  $scope.searchSubmit = function(searchText) {
+
+    if (!searchText) {
+      alert('really?');
+      return false;
+    }
+
+    $scope.searchResults = [];
+    $scope.searchText = searchText;
+
+    $http.get('/search?q=' + searchText + '&type=' + $scope.subSection).then(function(res){
+      $scope.searchResults.push({
+        id: 1,
+        name: $scope.searchText
+      });
+    }, function(err){
+
+    });
   };
 
   $scope.toggleInviteModal = function() {
@@ -204,5 +275,6 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.newCoats = [];
     $scope.tooltips = [];
     $scope.shareTooltips = [];
+    $scope.searchResults = [];
   }
 }]);

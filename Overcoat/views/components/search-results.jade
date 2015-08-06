@@ -1,0 +1,7 @@
+section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="component == 'search'")
+  div.epp-ctn.epp-cl-1.epp-space-top-8.epp-space-bottom-8(ng-if="searchResults.length")
+    ul
+      li.epp-cl-1.epp-space-bottom-8.oc-box.epp-air-8.display-inblock.link-style(ng-repeat="result in searchResults") {{result.name}}
+
+  div(ng-if="noResults")
+    p No results

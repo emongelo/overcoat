@@ -1,11 +1,6 @@
 div.epp-ctn.epp-ctn--gtr.main-header(ng-if="user")
   // Search component
-  div.epp-ctn.epp-cl-5-6.epp-space-top-16.epp-air-8.coat-row(ng-if="component == 'search' && showSearchbox")
-    img(src="/statics/images/input-search.png")
-    input.epp-cl-5-6.epp-air-left-8.rounded-box(name="searchCoat" value="Search")
-    img(src="/statics/images/input-clear.png")
-
-  div.epp-cl-1-6.epp-space-top-16.align-center.close-search(ng-click="toggleSearchbox()" ng-if="component == 'search'") X
+  include search
 
   // Main header
   nav.epp-cl-1.epp-space-top-16.epp-space-bottom-16.main-menu.align-center(ng-if="user")

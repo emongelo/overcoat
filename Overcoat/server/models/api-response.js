@@ -5,12 +5,12 @@
  * @returns {{headers: *, data: *, error: *, timestamp: number}|*}
  * @constructor
  */
-exports.ApiResponse = function (response, body) {
+exports.apiResponse = function (response, body) {
   var _err;
   if ( response && response.statusCode != 200) {
     _err = {
       statusCode: response.statusCode,
-      message: body,
+      message: body
     };
   }
 

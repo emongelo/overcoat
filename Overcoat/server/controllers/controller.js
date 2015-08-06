@@ -37,6 +37,44 @@ var controller = function(router){
     });
   });
 
+  router.post("/coat/post", function(req, res){
+    postParams = {
+      userId: req.body.userId,
+      coatText: req.body.coatText
+    };
+
+    sv.coatService.postCoat(postParams).then(function(res){
+      res.send({status: 'success'});
+    }, function(err){
+      res.send({status: 'error', message: err});
+    });
+  });
+
+  router.delete("/coat/delete", function(req, res){
+    deleteParams = {
+      coatId: req.body.userId
+    };
+
+    sv.coatService.deleteCoat(deleteParams).then(function(res){
+      res.send({status: 'success'});
+    }, function(err){
+      res.send({status: 'error', message: err});
+    });
+  });
+
+  router.get("/search", function(req, res){
+    params = {
+      q: req.query.q,
+      type: req.query.type
+    };
+
+    sv.coatService.search(params).then(function(res){
+      res.send({status: 'success'});
+    }, function(err){
+      res.send({status: 'error', message: err});
+    });
+  });
+
   router.get("/activity", function(req, res){
     sv.notificationService.getNotifications().then(function(serviceResponse){
       var activities = serviceResponse;

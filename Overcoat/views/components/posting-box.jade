@@ -1,16 +1,16 @@
 div.epp-ctn.epp-space-bottom-16.posting-box(ng-if="showPostingBox")
-  div
-    div.epp-cl-1-8
-      img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
-    div.epp-ctn.epp-cl-5-6.epp-space-left-8
-      textarea
-        | This is a Post
+  form(name="postCoat" ng-submit="submit(coatText)")
+    div
+      div.epp-cl-1-8
+        img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
+      div.epp-ctn.epp-cl-5-6.epp-space-left-8
+        textarea(placeholder="Post something" ng-model="coatText")
 
-  div.footer-links
-    div.epp-cl-1-8 &nbsp;
-    div.epp-ctn.epp-cl-5-6.epp-space-left-8
-      div.epp-cl-1-2
-        a.link-style.footer-link + Photo
-      div.epp-cl-1-2.align-right
-        a.link-style.footer-link.link-style--gray(ng-click="togglePostingBox()") Cancel
-        a.epp-space-left-8.link-style.footer-link Coat
+    div.footer-links
+      div.epp-cl-1-8 &nbsp;
+      div.epp-ctn.epp-cl-5-6.epp-space-left-8
+        div.epp-cl-1-2
+          a.link-style.footer-link + Photo
+        div.epp-cl-1-2.align-right
+          a.link-style.footer-link.link-style--gray(ng-click="togglePostingBox()") Cancel
+          input.epp-space-left-8.link-style.footer-link(type="submit" value="Coat")

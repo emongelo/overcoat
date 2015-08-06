@@ -5,15 +5,15 @@ function requestResponse(method, url, params, options) {
   var deferred = Q.defer();
 
   //options.form = params;
-  amLogger.log('[request:make request]'+method+' '+url);
+  console.log('[request:make request]'+method+' '+url);
   request[method](url, options, function (error, response, body) {
     if (error) {
-      amLogger.error('[request:response error]:' + url + ':' + JSON.stringify(error));
+      console.error('[request:response error]:' + url + ':' + JSON.stringify(error));
       if(!error.statusCode)
         error.statusCode = 504;
       deferred.reject(error);
     } else {
-      amLogger.log('[request:response success]:' + url);
+      console.log('[request:response success]:' + url);
       deferred.resolve({response: response, body: body});
     }
   });
