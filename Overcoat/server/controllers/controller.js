@@ -25,7 +25,7 @@ var controller = function(router){
 
   router.get("/coats", function(req, res){
     var site = req.query.site;
-    //site = 'www.whitehouse.gov';
+    site = 'www.whitehouse.gov';
 
     sv.coatService.getSite(site).then(function(site){
       sv.coatService.getCoats(site.id).then(function(coats){

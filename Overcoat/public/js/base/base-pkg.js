@@ -26967,6 +26967,14 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     alert('follow user ' + userId);
   };
 
+  $scope.acceptInvitation = function(userId) {
+    alert('accept invitation for user ' + userId);
+  };
+
+  $scope.ignoreInvitation = function(userId) {
+    alert('ignore invitation for user ' + userId);
+  };
+
 
   /**
    * -- Helpers

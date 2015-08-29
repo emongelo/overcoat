@@ -30,6 +30,7 @@ body {
 	position: relative;
 	background-color: #b4cddd;
 	font-family: 'Overcoat Medium', sans-serif;
+	font-size: 0.75rem;
 }
 
 main {
@@ -37,6 +38,7 @@ main {
 }
 
 button {
+	font-family: 'Overcoat Medium', sans-serif;
 	cursor: pointer;
 }
 
@@ -45,13 +47,14 @@ button {
 }
 
 .text--smallest {
-	font-size: 0.75rem;
+	font-size: 0.65
+	rem;
 	line-height: 1.2rem;
 	font-weight: normal;
 }
 
 .text--smaller {
-	font-size: 0.85rem;
+	font-size: 0.70rem;
 	line-height: 1rem;
 	font-weight: normal;
 }
@@ -241,12 +244,18 @@ button {
 	.screenname {
 		margin: 0;
 		line-height: 1.2rem;
-		font-size: 0.8rem;
+		font-size: 0.75rem;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 
 	.subline {
 		color: #666;
 		font-size: 0.75rem;
+	}
+
+	.friend-invitations {
+		background-color: #ff8000;
 	}
 
 	.oc-box {
@@ -256,10 +265,39 @@ button {
 			background: #fafcfc;
 		}
 
+		&.oc-box--friend-invitation {
+			background-color: #ff8000;
+			color: #fff;
+			font-family: "Overcoat Bold";
+
+			.screenname {
+				font-size: 0.8rem;
+				line-height: 3rem;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+
 		&.oc-box--friend-join {
 			p {
 				line-height: 1.5rem;
 			}
+		}
+
+		.button--close {
+			background-color: transparent;
+			color: #fff;
+			cursor: pointer;
+			height: 32px;
+			font-size: 1rem;
+		}
+
+		.button--invite {
+			border-radius: 5px;
+			background-color: #339933;
+			color: #fff;
+			cursor: pointer;
+			height: 32px;
 		}
 
 		.button--follow {
