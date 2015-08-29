@@ -5,11 +5,13 @@ div.epp-ctn--gtr
     div.epp-ctn.epp-cl-1-2
       p.screenname
         span.text--bold {{coat.user.name}}
+        img.epp-space-left-8(src="/statics/images/star.png" width="20" height="20")
+        |  235
         if extraMsg
           span  #{extraMsg}
       span.subline Yesterday
     div.epp-cl-1-4.align-right
-      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
+      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
     div.epp-cl-1-12.align-right.relative
       span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
       div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[coat.id]")

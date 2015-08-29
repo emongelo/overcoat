@@ -9,7 +9,7 @@ div.epp-ctn--gtr(ng-init="coat = notification.coat")
           span  #{extraMsg}
       span.subline Yesterday
     div.epp-cl-1-4.align-right
-      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
+      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
     div.epp-cl-1-12.align-right.relative
       span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
       div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[coat.id]")

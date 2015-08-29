@@ -3,7 +3,7 @@ exports.coats = [
     id: 1,
     userId: 1,
     siteId: 1,
-    message: "Este sitio es excelente",
+    message: "Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.",
     upvotes: 34,
     downvotes: 21,
     tips: 0,

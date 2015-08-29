@@ -1,4 +1,4 @@
-article.oc-box(ng-repeat="reply in coat.replies")
+article.oc-box.reply(ng-repeat="reply in coat.replies")
   div.epp-ctn--gtr
     header.epp-cl-1.epp-space-top-16
       div.epp-cl-1-8
@@ -7,7 +7,7 @@ article.oc-box(ng-repeat="reply in coat.replies")
         p.screenname.text--bold {{reply.user.name}}
         span.subline Yesterday
       div.epp-cl-1-4.align-right
-        button.button--follow.text--smallest(ng-if="user.id != reply.user.id && isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
+        button.button--follow.text--smallest(ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
       div.epp-cl-1-12.align-right.relative
         span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(reply.id)") &nbsp;
         div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[reply.id]")

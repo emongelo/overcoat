@@ -26830,7 +26830,8 @@
 var Overcoat = angular.module('Overcoat', []);
 
 Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
-  _this = {};
+  var _this = this;
+
 
   $scope.url = window.location.href;
   resetUI();
@@ -26839,8 +26840,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
    * Login
    */
   $scope.signin = function(network) {
-    _this.userId = 1;
-    $scope.getAccount(_this.userId);
+    $scope.getAccount(1);
   };
 
   /**
@@ -26891,12 +26891,13 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   /**
    * Get selected coat posts
    */
-  $scope.getAccount = function(userId) {
+  $scope.getAccount = function(userId, cb) {
     resetUI();
     $http.get('/api/users/detail/' + userId + '?render=false').success(function(res){
       $scope.isLogged = true;
       $scope.hideMenu = true;
       $scope.user = res;
+      if (cb) cb();
       $scope.getCoats();
     });
   };
@@ -27085,10 +27086,18 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   };
 
   $scope.isFriend = function(friendId) {
-    $scope.friends = [1,2,3,4];
     return ( $scope.friends.indexOf(friendId) != -1 ) ? true : false;
   };
 
+  $scope.getFriends = function(cb) {
+    $http.get('/user/friends').then(function(res){
+      $scope.friends = res || [];
+      //if ( cb ) cb();
+    }, function(err){
+      $scope.friends = [];
+      //if ( cb ) cb();
+    });
+  };
 
   function resetUI() {
     $scope.modal = '';

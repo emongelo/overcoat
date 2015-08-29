@@ -6,9 +6,16 @@ section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="component == 'coats'")
   article.oc-box.epp-space-top-8(ng-repeat="coat in coats")
     include partials/coat
 
-div(ng-if="noCoats")
-  p Be the first to overcoat here and rule the land
-  p What is it about this site?
-  p Questions?
-  p Comments?
-  p Complaints?
+  div.first-here.align-center(ng-if="!coats.length")
+    img.epp-space-top-32.epp-space-bottom-32(src="/statics/images/avatar-male.png")
+    p Hi.
+      br
+      | You're the first
+      br
+      | one here!
+
+    p What is it about this place?
+    p Start posting in the box
+      br
+      | above and I'll get
+      | your friends to join us.

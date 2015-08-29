@@ -1,13 +1,12 @@
 //---------------------------------\\
 //----------Table of Content-------\\
 //---------------------------------\\
-
 // 01 Import epp mixins
 // 02 Import Variables
 // 03 Import Components
 // 04 Import Icons
-
 @import "epp";
+@import "commons/fonts";
 @import "commons/oc-variables";
 @import "commons/oc-components";
 @import "commons/oc-icons";
@@ -24,11 +23,17 @@ $blue: #0099e8;
 }
 
 body {
+	color: #333;
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
 	position: relative;
 	background-color: #b4cddd;
+	font-family: 'Overcoat Medium', sans-serif;
+}
+
+main {
+	height: 100%;
 }
 
 button {
@@ -41,6 +46,12 @@ button {
 
 .text--smallest {
 	font-size: 0.75rem;
+	line-height: 1.2rem;
+	font-weight: normal;
+}
+
+.text--smaller {
+	font-size: 0.85rem;
 	line-height: 1rem;
 	font-weight: normal;
 }
@@ -72,6 +83,7 @@ button {
 	padding: 0 10px;
 
 	nav {
+		font-family: 'Overcoat Black', sans-serif;
 		.main-menu__button {
 			font-size: 0.8rem;
 			color: #a3dbf5;
@@ -164,7 +176,7 @@ button {
 
 		p {
 			color: #0099e8;
-			font-size: 1rem;
+			font-size: 0.85rem;
 			line-height: 2rem;
 		}
 	}
@@ -200,8 +212,21 @@ button {
 }
 
 .main {
+	height: 100%;
 	.relative {
 		position: relative;
+	}
+
+	.first-here {
+		background: #1e1f24;
+		color: #ccc;
+		height: 100%;
+
+		p {
+			font-family: "Overcoat Book";
+			line-height: 1.5rem;
+		}
+
 	}
 
 	.new-coats {
@@ -215,17 +240,21 @@ button {
 
 	.screenname {
 		margin: 0;
-		line-height: 1rem;
+		line-height: 1.2rem;
 		font-size: 0.8rem;
 	}
 
 	.subline {
-		color: #ccc;
-		font-size: 0.87rem;
+		color: #666;
+		font-size: 0.75rem;
 	}
 
 	.oc-box {
 		background: #fff;
+
+		&.reply {
+			background: #fafcfc;
+		}
 
 		&.oc-box--friend-join {
 			p {
@@ -341,13 +370,29 @@ button {
 	color: #fff;
 	height: 100%;
 
+	h1 {
+		&.welcome-overcoat {
+			font-family: "Overcoat Black";
+			font-size: 3rem;
+			line-height: 3rem;
+		}
+	}
+
 	.site-mission {
 		p {
-			font-size: 1rem;
+			font-size: 1.2rem;
+			line-height: 1.5rem;
 		}
 	}
 
 	.network-login {
+		background-color: #0a759d;
+
+		p {
+			font-family: "Overcoat Black";
+			font-size: 0.85rem;
+			text-transform: uppercase;
+		}
 		button {
 			color: #0099e8;
 			background-color: #fff;
@@ -356,20 +401,55 @@ button {
 				text-decoration: none;
 			}
 		}
+
+		.network-list {
+			.network-row {
+				background-color: #fff;
+				background-position: 4px;
+				background-repeat: no-repeat;
+				background-size: 40px 40px;
+				border-radius: 4px;
+				padding: 0;
+				cursor: pointer;
+				p {
+					padding: 16px 64px;
+				}
+			}
+
+			.network--fb {
+				background-image: url(/statics/images/logo-fb.png);
+				color: #385e98;
+
+			}
+			.network--tw {
+				background-image: url(/statics/images/logo-tw.png);
+				color: #0099e7;
+			}
+			.network--gl {
+				background-image: url(/statics/images/logo-gl.png);
+				color: #c52227;
+			}
+		}
+
+		.terms {
+			color: #85bace;
+			font-size: 0.70rem;
+		}
 	}
+
 }
 
 .tooltip {
 	width: 180px;
 	background: #0099e8;
-	color:white;
-	position:absolute;
-	z-index:9;
-	padding:0.4% 1%;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	border-radius:3px;
-	right:0;
+	color: white;
+	position: absolute;
+	z-index: 9;
+	padding: 0.4% 1%;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	right: 0;
 
 	a {
 		color: #fff;
@@ -392,14 +472,14 @@ button {
 
 .tooltip-caret {
 	&:before {
-		content:'';
+		content: '';
 		position: absolute;
 		width: 0;
 		height: 0;
 		border: 6px solid #0099e8;
 	}
 	&:after {
-		content:'';
+		content: '';
 		position: absolute;
 		width: 0;
 		height: 0;
@@ -439,5 +519,14 @@ button {
 		border-left-color: transparent;
 		border-bottom-width: 0;
 	}
+}
+
+.upload-icon {
+	line-height: 2rem;
+	display: inline-block;
+	background-image: url(/statics/images/upload.png);
+	background-size: 24px;
+	background-repeat: no-repeat;
+	background-position: 0px 4px;
 }
 

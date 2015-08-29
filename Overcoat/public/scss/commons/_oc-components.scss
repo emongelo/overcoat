@@ -29,10 +29,6 @@
 @import "epp-mixins";
 @import "oc-tooltips";
 
-body{
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    color:$gray-darker;
-}
 a{
     &:link{
         color:$link;

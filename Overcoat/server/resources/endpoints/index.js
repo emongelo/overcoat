@@ -52,5 +52,9 @@ module.exports = {
   deleteCoat: {
     method: 'delete',
     path: config.api.basePath + '/deleteCoat'
+  },
+  getFriends: {
+    method: 'get',
+    path: config.api.basePath + '/user/friends'
   }
 };

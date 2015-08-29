@@ -25,7 +25,7 @@ var controller = function(router){
 
   router.get("/coats", function(req, res){
     var site = req.query.site;
-    site = 'www.whitehouse.gov';
+    //site = 'www.whitehouse.gov';
 
     sv.coatService.getSite(site).then(function(site){
       sv.coatService.getCoats(site.id).then(function(coats){
@@ -91,6 +91,15 @@ var controller = function(router){
     var user = sv.userService.getUser(userId);
 
     res.send(user);
+  });
+
+  router.get("/user/friends", function(req, res){
+    var friends = sv.userService.getFriends().then(function(friends){
+      res.send(friends);
+    }, function(err){
+      console.log('Se ha producido un error inesperado');
+      res.send([]);
+    })
   });
 
   router.get("/discover", function(req, res){

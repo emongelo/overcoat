@@ -1,15 +1,30 @@
 div.epp-ctn.welcome-main(ng-if="!user")
   div.epp-cl-1
-    div.epp-ctn.epp-space-top-32.epp-space-bottom-32.epp-air-16
-      h2 WELCOME TO OVERCOAT
+    div.epp-ctn.epp-space-top-32.epp-air-16
+      h1.welcome-overcoat
+        | WELCOME
+        br
+        | TO OVERCOAT
 
-    div.site-mission.epp-air-16.epp-cl-1.epp-space-top-32.epp-space-bottom-16
+    div.site-mission.epp-cl-1.epp-space-bottom-16.epp-space-left-16
       p.text--smaller
         | Connect on the web's top layer! <br>
         | Post comments on any website <br>
         | It's an URL social network
 
     div.network-login.epp-air-16.epp-cl-1.epp-space-top-32.epp-space-bottom-32
-      p LOGIN WITH
-      button.text--smaller.epp-cl-1-3.epp-space-top-16.epp-space-bottom-16.link-style(ng-click="signin('facebook')") Facebook Login
-      button.text--smaller.epp-cl-1-3.epp-space-top-16.epp-space-bottom-16.link-style(ng-click="signin('twitter')") Twitter Login
+      p.text--bold SIGN UP / LOGIN WITH
+
+      div.epp-space-top-16.network-list
+
+        div.epp-cl-1.network-row.network--fb.epp-space-bottom-8(ng-click="signin('facebook')")
+          p Connect with Facebook
+
+        div.epp-cl-1.network-row.network--tw.epp-space-bottom-8(ng-click="signin('twitter')")
+          p Connect with Twitter
+
+        div.epp-cl-1.network-row.network--gl.epp-space-bottom-8(ng-click="signin('google')")
+          p Connect with Google
+
+      p.epp-space-top-32.text--smaller.terms
+        | By signing up you agree to Overcoat's Terms of Service
