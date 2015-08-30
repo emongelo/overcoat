@@ -1,13 +1,20 @@
 div.main-menu__button(ng-class="{'main-menu__button--active': isActive('coats')}" ng-if="!hideMenu")
   span(ng-click="getCoats()") Coats
+  br
   span.icon-down(ng-click="toggleSubmenu('Coats')")
 a.main-menu__button(href="javascript:;" ng-click="getActivity()" ng-class="{'main-menu__button--active': isActive('activity')}" ng-if="!hideMenu")
   span Activity
+  br
+  | &nbsp;
 div.main-menu__button(ng-class="{'main-menu__button--active': isActive('discover')}" ng-if="!hideMenu")
   span(ng-click="getDiscover()") Discover
+  br
+  | &nbsp;
   span.icon-down(ng-click="toggleSubmenu('Discover')")
 div.main-menu__button(ng-class="{'main-menu__button--active': isActive('search')}" ng-if="!hideMenu")
   span.icon-search(ng-click="toggleSearchbox()") &nbsp;
+  br
+  | &nbsp;
 
 a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': isActive('account')}" ng-if="!hideMenu")
   img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")

@@ -28,7 +28,7 @@ body {
 	height: 100%;
 	margin: 0 auto;
 	position: relative;
-	background-color: #b4cddd;
+	background-color: #0099e8;
 	font-family: 'Overcoat Medium', sans-serif;
 	font-size: 0.75rem;
 }
@@ -85,12 +85,12 @@ button {
 	padding: 0 10px;
 
 	nav {
-		font-family: 'Overcoat Black', sans-serif;
+		font-family: 'Cubano', sans-serif;
 		.main-menu__button {
-			font-size: 0.8rem;
+			font-size: 1.2rem;
 			color: #a3dbf5;
 			font-weight: bold;
-			line-height: 2rem;
+			line-height: 0.9rem;
 			padding: 0 8px;
 			display: inline-block;
 			position: relative;
@@ -111,6 +111,7 @@ button {
 
 			.icon-down {
 				margin-left: 5px;
+				font-size: 0.75rem;
 			}
 		}
 
@@ -406,19 +407,20 @@ button {
 	background: #0099e8;
 	color: #fff;
 	height: 100%;
+	font-family: "Cubano";
 
 	h1 {
 		&.welcome-overcoat {
-			font-family: "Overcoat Black";
-			font-size: 3rem;
+			font-size: 3.2rem;
 			line-height: 3rem;
 		}
 	}
 
 	.site-mission {
 		p {
-			font-size: 1.2rem;
-			line-height: 1.5rem;
+			font-family: "Overcoat Medium";
+			font-size: 1.3rem;
+			line-height: 1.7rem;
 		}
 	}
 
@@ -426,8 +428,7 @@ button {
 		background-color: #0a759d;
 
 		p {
-			font-family: "Overcoat Black";
-			font-size: 0.85rem;
+			font-size: 1.3rem;
 			text-transform: uppercase;
 		}
 		button {
@@ -444,12 +445,14 @@ button {
 				background-color: #fff;
 				background-position: 4px;
 				background-repeat: no-repeat;
-				background-size: 40px 40px;
-				border-radius: 4px;
+				background-size: 47px 47px;
+				border-radius: 6px 4px;
 				padding: 0;
 				cursor: pointer;
 				p {
-					padding: 16px 64px;
+					padding: 19px;
+					padding-left: 88px;
+					font-size: 1.1rem;
 				}
 			}
 
@@ -470,7 +473,10 @@ button {
 
 		.terms {
 			color: #85bace;
-			font-size: 0.70rem;
+			font-family: "Overcoat Bold";
+			font-size: 0.75rem;
+			line-height: 2.3rem;
+			text-transform: none;
 		}
 	}
 
