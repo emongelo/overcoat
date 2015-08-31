@@ -2,14 +2,15 @@ div.epp-ctn--gtr
   header.epp-cl-1.epp-space-top-8
     div.epp-cl-1-8
       img.avatar--small.avatar--rounded(ng-src="{{coat.user.avatar}}")
-    div.epp-ctn.epp-cl-1-2
+    div.epp-ctn.epp-cl-1-2.epp-air-left-8
       p.screenname
         span.text--bold {{coat.user.name}}
-        img.epp-space-left-8(src="/statics/images/star.png" width="20" height="20")
-        |  235
+        img.epp-space-left-8.valign--text-top(src="/statics/images/star.png" width="14" height="14")
+        span.user-counter  234
+
         if extraMsg
           span  #{extraMsg}
-      span.subline Yesterday
+      span.subline 20 minutes ago
     div.epp-cl-1-4.align-right
       button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
     div.epp-cl-1-12.align-right.relative
@@ -23,10 +24,10 @@ div.epp-ctn--gtr
       span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[coat.id]")
 
 
-  main.epp-cl-1.epp-space-top-16
-    p.text--smallest
+  main.epp-cl-1.epp-space-top-8
+    p
       | {{coat.message}}
-  footer.epp-cl-1.align-center.epp-space-top-16
+  footer.epp-cl-1.epp-space-top-16
     div.epp-cl-1-8
       p.link-style.footer-link(ng-click="upvote(coat.id)") upvote
       span.text--smallest.color--gray {{coat.upvotes}}

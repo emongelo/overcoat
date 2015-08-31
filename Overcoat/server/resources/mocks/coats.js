@@ -3,7 +3,7 @@ exports.coats = [
     id: 1,
     userId: 1,
     siteId: 1,
-    message: "Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.",
+    message: "Este sitio de mierda no funca. Por que son tan imbeciles? Cuando van a adoptar bitcoin y se dejan de joder? Lorem ipsum...more text.",
     upvotes: 34,
     downvotes: 21,
     tips: 0,

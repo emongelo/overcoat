@@ -23,7 +23,7 @@ $blue: #0099e8;
 }
 
 body {
-	color: #333;
+	color: #414141;
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
@@ -42,8 +42,14 @@ button {
 	cursor: pointer;
 }
 
+.valign--text-top {
+	display: inline-block;
+	vertical-align: text-top;
+}
+
 .text--bold {
 	font-weight: bold;
+	font-family: 'Overcoat Bold', sans-serif;
 }
 
 .text--smallest {
@@ -222,12 +228,13 @@ button {
 
 	.first-here {
 		background: #1e1f24;
-		color: #ccc;
+		color: #c0c0c0;
 		height: 100%;
 
 		p {
 			font-family: "Overcoat Book";
-			line-height: 1.5rem;
+			font-size: 1.4rem;
+			line-height: 2rem;
 		}
 
 	}
@@ -247,10 +254,15 @@ button {
 		font-size: 0.75rem;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		.user-counter {
+			color: #9a9a9a;
+			font-size: 0.60rem;
+			padding-left: 2px;
+		}
 	}
 
 	.subline {
-		color: #666;
+		color: #8d8d8d;
 		font-size: 0.75rem;
 	}
 
@@ -314,7 +326,7 @@ button {
 			background-image: url('/statics/images/3-points.png');
 			background-color: transparent;
 			background-repeat: no-repeat;
-			background-position-x: center;
+			background-position-x: right;
 		}
 
 		footer {
