@@ -184,8 +184,8 @@ button {
 		}
 
 		p {
-			color: #0099e8;
-			font-size: 0.85rem;
+			color: #ccc;
+			font-size: 1.1rem;
 			line-height: 2rem;
 		}
 	}
@@ -213,11 +213,11 @@ button {
 }
 
 .footer-link {
-	line-height: 1rem;
+	line-height: 0.5rem;
 	text-transform: uppercase;
 	margin-bottom: 0;
-	font-size: 0.60rem;
-	font-weight: bold;
+	font-size: 0.65rem;
+	//font-family: "Overcoat Black";
 }
 
 .main {
@@ -329,14 +329,18 @@ button {
 			background-position-x: right;
 		}
 
+		main {
+			color: #656565;
+		}
+
 		footer {
-			border-bottom: 1px solid #cccccc;
-			padding-bottom: 8px;
+			border-bottom: 1px solid #005d88;
+			padding-bottom: 4px;
 		}
 
 		.append {
 			&.append--replies-ctn {
-				background-color: #b4cddd;
+				background-color: #0099e8;
 			}
 			&.append--photo-ctn {
 				height: 200px;

@@ -24,27 +24,27 @@ div.epp-ctn--gtr
       span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[coat.id]")
 
 
-  main.epp-cl-1.epp-space-top-8
+  main.epp-cl-1.epp-space-top-8.coat-message
     p
       | {{coat.message}}
   footer.epp-cl-1.epp-space-top-16
-    div.epp-cl-1-8
-      p.link-style.footer-link(ng-click="upvote(coat.id)") upvote
-      span.text--smallest.color--gray {{coat.upvotes}}
-    div.epp-cl-1-6
-      p.link-style.footer-link(ng-click="downvote(coat.id)") downvote
-      span.text--smallest.color--gray {{coat.downvotes}}
-    div.epp-cl-1-8
-      p.link-style.footer-link(ng-click="reply(coat.id)") reply
-      span.text--smallest.color--gray {{coat.replies.length}}
-    div.epp-cl-1-8
-      p.link-style.footer-link(ng-click="tip(coat.id)") tip
-      span.text--smallest.color--gray {{coat.tips}}
+    div.epp-cl-1-8.align-center
+      p.link-style.text--bold.footer-link(ng-click="upvote(coat.id)") upvote
+      span.text--smallest.color--gray.text--bold {{coat.upvotes}}
+    div.epp-cl-1-6.align-center
+      p.link-style.text--bold.footer-link(ng-click="downvote(coat.id)") downvote
+      span.text--smallest.color--gray.text--bold {{coat.downvotes}}
+    div.epp-cl-1-8.align-center
+      p.link-style.text--bold.footer-link(ng-click="reply(coat.id)") reply
+      span.text--smallest.color--gray.text--bold {{coat.replies.length}}
+    div.epp-cl-1-8.align-center
+      p.link-style.text--bold.footer-link(ng-click="tip(coat.id)") tip
+      span.text--smallest.color--gray.text--bold {{coat.tips}}
 
     div.epp-cl-3-8.align-right.relative
-      p.footer-link
-        span.link-style(data-ng-click="toggleShareTooltip(coat.id)") share
-      span.text--smallest.color--gray {{coat.shares}}
+      p.link-style.text--bold.footer-link(data-ng-click="toggleShareTooltip(coat.id)") share
+        span &nbsp;
+      span.text--smallest.color--gray
       div.epp-air-8.tooltip.tooltip-top(ng-if="shareTooltips[coat.id]")
         a(href="javascript:;" ng-click="share('tw')") Share on Twitter
         a(href="javascript:;" ng-click="share('fb')") Share on Facebook

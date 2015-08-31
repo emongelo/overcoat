@@ -6,7 +6,7 @@ section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="component == 'coats'")
   article.oc-box.epp-space-top-8(ng-repeat="coat in coats")
     include partials/coat
 
-  div.first-here.align-center(ng-if="!coats.length")
+  div.first-here.align-center(ng-cloak ng-if="!coats.length")
     img.epp-space-top-32.epp-space-bottom-32(src="/statics/images/avatar-male.png")
     p Hi.
       br
