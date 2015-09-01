@@ -265,6 +265,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   };
 
   $scope.isFriend = function(friendId) {
+    $scope.friends = [2,3];
     return ( $scope.friends.indexOf(friendId) != -1 ) ? true : false;
   };
 
