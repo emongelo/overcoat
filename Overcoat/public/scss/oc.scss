@@ -14,6 +14,12 @@
 
 $blue: #0099e8;
 
+.epp-ctn--gtr>[class*="epp-cl-"] {
+	box-sizing: border-box;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
 .overcoatExtensionContainer {
 	width: 400px;
 	height: 100%;
@@ -282,6 +288,11 @@ button {
 
 		&.reply {
 			background: #fafcfc;
+
+			.icon-3points {
+				padding-left: 6px;
+			}
+
 		}
 
 		&.oc-box--friend-invitation {
@@ -575,6 +586,11 @@ button {
 
 .box--rounded {
 	border-radius: 5px;
+}
+
+.border--gray {
+	border-bottom: 1px solid #aab1b5 !important;
+	box-shadow: 0 0 !important;
 }
 
 .button--close {

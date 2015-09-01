@@ -27,7 +27,7 @@ div.epp-ctn--gtr
   main.epp-cl-1.epp-space-top-8.coat-message
     p
       | {{coat.message}}
-  footer.epp-cl-1.epp-space-top-16
+  footer.epp-cl-1.epp-space-top-16(ng-class="{'border--gray':coat.replies.length}")
     div.epp-cl-1-8.align-center
       p.link-style.text--bold.footer-link(ng-click="upvote(coat.id)") upvote
       span.text--smallest.color--gray.text--bold {{coat.upvotes}}
@@ -51,8 +51,8 @@ div.epp-ctn--gtr
         a(href="javascript:;" ng-click="getLink(coat)") Get link
       span.tooltip-caret.tooltip-caret-top(ng-if="shareTooltips[coat.id]")
 
-  div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="coat.picture")
-    div.epp-cl-1.append--photo(ng-style="{'background-image': 'url('+coat.picture+')'}")
+  div.epp-ctn--gtr.append.append--photo-ctn(ng-if="coat.picture")
+    div.append--photo(ng-style="{'background-image': 'url('+coat.picture+')'}")
 
-  div.epp-cl-1.append.append--replies-ctn(ng-if="coat.replies.length")
+  div.append.append--replies-ctn(ng-if="coat.replies.length")
     include reply

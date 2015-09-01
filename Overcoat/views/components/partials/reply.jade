@@ -1,47 +1,41 @@
-article.oc-box.reply(ng-repeat="reply in coat.replies")
+article.oc-box.reply.border--gray(ng-repeat="reply in coat.replies")
   div.epp-ctn--gtr
-    header.epp-cl-1.epp-space-top-16
+    div.epp-cl-1.epp-space-top-16
       div.epp-cl-1-8
         img.avatar--small.avatar--rounded(ng-src="{{reply.user.avatar}}")
-      div.epp-ctn.epp-cl-1-2
-        p.screenname.text--bold {{reply.user.name}}
-        span.subline Yesterday
-      div.epp-cl-1-4.align-right
-        button.button--follow.text--smallest(ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
+      div.epp-cl-3-4.epp-air-left-8
+        p
+         span.screenname.text--bold {{reply.user.name}}
+         |  - {{reply.message}}
+
+      // Menu
       div.epp-cl-1-12.align-right.relative
         span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(reply.id)") &nbsp;
         div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[reply.id]")
           a(href="javascript:;" ng-click="tooltip.getOriginUrl(reply)") Url Origin
+          a(href="javascript:;" ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
           a(href="javascript:;" ng-click="tooltip.muteUser(reply.user.id)" ng-if="user.id != reply.user.id") Mute {{reply.user.name}}
           a(href="javascript:;" ng-click="tooltip.reportUser(reply.user.id)" ng-if="user.id != reply.user.id") Report user
           a(href="javascript:;" ng-click="tooltip.unfollow(reply.user.id)" ng-if="user.id != reply.user.id && isFriend(reply.user.id)") Unfollow
           a(href="javascript:;" ng-click="tooltip.deletereply(reply.id)" ng-if="user.id == reply.user.id") Delete reply
         span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[reply.id]")
 
-    main.epp-cl-1.epp-space-top-16
-      p
-        | {{reply.message}}
-    footer.epp-cl-1.align-center.epp-space-top-16
-      div.epp-cl-1-8
+    div.epp-cl-1-6
+
+    div.epp-cl-3-4.epp-space-top-8.epp-air-left-8
+      div.epp-cl-1-5
         p.link-style.footer-link.text--bold(ng-click="upvote(reply.id)") upvote
         span.text--smallest.color--gray.text--bold {{reply.upvotes}}
-      div.epp-cl-1-6
+      div.epp-cl-1-4
         p.link-style.footer-link.text--bold(ng-click="downvote(reply.id)") downvote
         span.text--smallest.color--gray.text--bold {{reply.downvotes}}
-      div.epp-cl-1-8
+      div.epp-cl-1-5
+        p.link-style.footer-link.text--bold(ng-click="tip(reply.id)") reply
+        span.text--smallest.color--gray.text--bold {{reply.replies}}
+      div.epp-cl-1-4
         p.link-style.footer-link.text--bold(ng-click="tip(reply.id)") tip
         span.text--smallest.color--gray.text--bold {{reply.tips}}
-      div.epp-cl-1-8
 
-      div.epp-cl-3-8.align-right.relative
-        p.footer-link
-          span.link-style.text--bold(data-ng-click="toggleShareTooltip(reply.id)") share
-        span.text--smallest.color--gray {{reply.shares}}
-        div.epp-air-8.tooltip.tooltip-top(ng-if="shareTooltips[reply.id]")
-          a(href="javascript:;" ng-click="share('tw')") Share on Twitter
-          a(href="javascript:;" ng-click="share('fb')") Share on Facebook
-          a(href="javascript:;" ng-click="getLink(reply)") Get link
-        span.tooltip-caret.tooltip-caret-top(ng-if="shareTooltips[reply.id]")
 
-    div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="reply.picture")
-      div.epp-cl-1.append--photo(ng-style="{'background-image': 'url('+reply.picture+')'}")
+      div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="reply.picture")
+        div.epp-cl-1.append--photo(ng-style="{'background-image': 'url('+reply.picture+')'}")
