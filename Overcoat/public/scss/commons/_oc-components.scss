@@ -115,12 +115,13 @@ select{
     }
 }
 p{
-    font-size: 0.75rem;
+    font-size: 0.85rem;
 	line-height: 1.2rem;
 }
 
 textarea{
     border-color:$gray-lighter;
+	height: 162px;
 }
 ul{
     @include font-rem(null,14px,24px,null);

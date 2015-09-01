@@ -19,23 +19,23 @@ article.oc-box.reply(ng-repeat="reply in coat.replies")
         span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[reply.id]")
 
     main.epp-cl-1.epp-space-top-16
-      p.text--smallest
+      p
         | {{reply.message}}
     footer.epp-cl-1.align-center.epp-space-top-16
       div.epp-cl-1-8
-        p.link-style.footer-link(ng-click="upvote(reply.id)") upvote
-        span.text--smallest.color--gray {{reply.upvotes}}
+        p.link-style.footer-link.text--bold(ng-click="upvote(reply.id)") upvote
+        span.text--smallest.color--gray.text--bold {{reply.upvotes}}
       div.epp-cl-1-6
-        p.link-style.footer-link(ng-click="downvote(reply.id)") downvote
-        span.text--smallest.color--gray {{reply.downvotes}}
+        p.link-style.footer-link.text--bold(ng-click="downvote(reply.id)") downvote
+        span.text--smallest.color--gray.text--bold {{reply.downvotes}}
       div.epp-cl-1-8
-        p.link-style.footer-link(ng-click="tip(reply.id)") tip
-        span.text--smallest.color--gray {{reply.tips}}
+        p.link-style.footer-link.text--bold(ng-click="tip(reply.id)") tip
+        span.text--smallest.color--gray.text--bold {{reply.tips}}
       div.epp-cl-1-8
 
       div.epp-cl-3-8.align-right.relative
         p.footer-link
-          span.link-style(data-ng-click="toggleShareTooltip(reply.id)") share
+          span.link-style.text--bold(data-ng-click="toggleShareTooltip(reply.id)") share
         span.text--smallest.color--gray {{reply.shares}}
         div.epp-air-8.tooltip.tooltip-top(ng-if="shareTooltips[reply.id]")
           a(href="javascript:;" ng-click="share('tw')") Share on Twitter

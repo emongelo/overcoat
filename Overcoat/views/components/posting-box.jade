@@ -1,15 +1,14 @@
 div.epp-ctn.epp-space-bottom-16.posting-box(ng-if="showPostingBox")
   form(name="postCoat" ng-submit="submit(coatText)")
-    div
-      div.epp-cl-1-8
-        img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
-      div.epp-ctn.epp-cl-5-6.epp-space-left-8
-        textarea(placeholder="Post something" ng-model="coatText")
+    div.epp-ctn.epp-cl-11-12
+      textarea(placeholder="Post something" ng-model="coatText")
+    div.epp-cl-1-12.align-center.valign--text-top
+      a(href="javascript:;" ng-click="togglePostingBox()")
+        img(src="/statics/images/close-gray.png" width="14" height="14")
 
     div.footer-links
       div.epp-ctn.epp-cl-1
         div.epp-cl-1-2
-          a.epp-air-left-32.link-style.footer-link.upload-icon Add photo
+          a.epp-air-left-32.link-style.footer-link.upload-icon.text--bold Add photo
         div.epp-cl-1-2.align-right
-          a.link-style.footer-link.link-style--gray.display-inblock(ng-click="togglePostingBox()") Cancel
-          input.epp-space-left-8.link-style.footer-link.display-inblock(type="submit" value="Coat")
+          input.epp-space-left-8.link-style.footer-link.display-inblock.text--bold(type="submit" value="Coat")

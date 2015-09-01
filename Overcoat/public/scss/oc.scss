@@ -29,7 +29,7 @@ body {
 	margin: 0 auto;
 	position: relative;
 	background-color: #0099e8;
-	font-family: 'Overcoat Medium', sans-serif;
+	font-family: 'Overcoat News', sans-serif;
 	font-size: 0.75rem;
 }
 
@@ -84,11 +84,13 @@ button {
 
 .link-style--gray {
 	color: #999;
+	&:hover {
+		color: #999;
+	}
 }
 
 .main-header {
 	background-color: #0099e8;
-	padding: 0 10px;
 
 	nav {
 		font-family: 'Cubano', sans-serif;
@@ -163,7 +165,6 @@ button {
 	}
 
 	.coat-row {
-		border-radius: 5px;
 		background: #fff;
 
 		img {
@@ -187,24 +188,30 @@ button {
 			color: #ccc;
 			font-size: 1.1rem;
 			line-height: 2rem;
+			cursor: pointer;
 		}
 	}
 
 	.posting-box {
 		background: #fff;
 		padding: 8px;
-		border-radius: 8px;
+
 		textarea {
-			font-size: 0.75rem;
-			color: #333333;
+			font-family: "Overcoat News";
+			font-size: 1rem;
+			color: #333;
 			border: 0;
+		}
+
+		.button--close {
+			color: #ccc;
 		}
 		.footer-link {
 
 		}
 		input.footer-link {
 			line-height: 1rem;
-			font-size: 0.6rem;
+			font-size: 0.65rem;
 			background: transparent;
 			height: auto;
 			vertical-align: baseline;
@@ -296,31 +303,6 @@ button {
 			}
 		}
 
-		.button--close {
-			background-color: transparent;
-			color: #fff;
-			cursor: pointer;
-			height: 32px;
-			font-size: 1rem;
-		}
-
-		.button--invite {
-			border-radius: 5px;
-			background-color: #339933;
-			color: #fff;
-			cursor: pointer;
-			height: 32px;
-		}
-
-		.button--follow {
-			border: 1px solid #0099e8;
-			border-radius: 5px;
-			background-color: #fff;
-			color: #0099e8;
-			cursor: pointer;
-			height: 25px;
-		}
-
 		.icon-3points {
 			height: 25px;
 			background-image: url('/statics/images/3-points.png');
@@ -330,11 +312,12 @@ button {
 		}
 
 		main {
-			color: #656565;
+			color: #333;
 		}
 
 		footer {
 			border-bottom: 1px solid #005d88;
+			box-shadow: 0 -1px 0 #005d88 inset;
 			padding-bottom: 4px;
 		}
 
@@ -590,3 +573,31 @@ button {
 	background-position: 0px 4px;
 }
 
+.box--rounded {
+	border-radius: 5px;
+}
+
+.button--close {
+	background-color: transparent;
+	color: #fff;
+	cursor: pointer;
+	height: 32px;
+	font-size: 1rem;
+}
+
+.button--invite {
+	border-radius: 5px;
+	background-color: #339933;
+	color: #fff;
+	cursor: pointer;
+	height: 32px;
+}
+
+.button--follow {
+	border: 1px solid #0099e8;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #0099e8;
+	cursor: pointer;
+	height: 25px;
+}
