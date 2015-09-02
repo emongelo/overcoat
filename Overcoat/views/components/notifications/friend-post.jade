@@ -1,4 +1,4 @@
 - var extraMsg = 'posted on Paypal.com'
 - var isFriend = true
-article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}")
-  include partials/coat
+article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}" ng-init="coat = notification.coat")
+  include ../partials/coat

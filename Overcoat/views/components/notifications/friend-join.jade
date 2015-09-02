@@ -3,10 +3,11 @@ article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}")
     header.epp-cl-1.epp-space-top-8.epp-space-bottom-8
       div.epp-cl-1-8
         img.avatar--small.avatar--rounded(ng-src="{{notification.user.avatar}}")
-      div.epp-ctn.epp-cl-3-5.epp-air-8
-        p.screenname
-          span.text--bold {{notification.user.screenName}}
-          span  just joined Overcoat!
+      div.epp-ctn.epp-cl-2-3.epp-air-left-8.epp-air-top-8
+        p
+          span.screenname.text--bold {{notification.user.screenName}}
+          span.notification-desc  just joined Overcoat!
 
-      div.epp-cl-1-4.epp-air-8
-        button.epp-space-left-32.button--follow.text--smallest(ng-if="user.id != notification.user.id && isFriend(notification.user.id)" ng-click="follow(notification.user.id)") follow
+      div.epp-cl-1-6.epp-air-top-8
+        button.button--follow.text--smallest.valign--text-top(ng-if="true" ng-click="follow(notification.user.id)") follow
+        //button.epp-space-left-32.button--follow.text--smallest(ng-if="user.id != notification.user.id && isFriend(notification.user.id)" ng-click="follow(notification.user.id)") follow

@@ -1,4 +1,4 @@
-div.epp-ctn--gtr(ng-init="coat = notification.coat")
+div.epp-ctn--gtr
   header.epp-cl-1.epp-space-top-8
     div.epp-cl-1-8
       img.avatar--small.avatar--rounded(ng-src="{{coat.user.avatar}}")
@@ -6,7 +6,7 @@ div.epp-ctn--gtr(ng-init="coat = notification.coat")
       p.screenname
         span.text--bold {{coat.user.name}}
         if extraMsg
-          span  #{extraMsg}
+          span.notification-desc  #{extraMsg}
       span.subline Yesterday
     div.epp-cl-1-4.align-right
       button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow

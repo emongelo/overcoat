@@ -53,6 +53,11 @@ button {
 	vertical-align: text-top;
 }
 
+.valign--middle {
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .text--bold {
 	font-weight: bold;
 	font-family: 'Overcoat Bold', sans-serif;
@@ -101,7 +106,7 @@ button {
 	nav {
 		font-family: 'Cubano', sans-serif;
 		.main-menu__button {
-			font-size: 1.2rem;
+			font-size: 1.3rem;
 			color: #a3dbf5;
 			font-weight: bold;
 			line-height: 0.9rem;
@@ -130,6 +135,8 @@ button {
 		}
 
 		.submenu {
+			display: block;
+			line-height: 0.6rem;
 			.main-menu__button {
 				font-size: 0.65rem;
 				padding: 0 5px;
@@ -279,6 +286,14 @@ input.footer-link {
 
 	.friend-invitations {
 		background-color: #ff8000;
+		color: #fff;
+
+		.invite-title {
+			display: inline-block;
+			font-size: 1rem;
+			font-family: "Cubano";
+			text-transform: uppercase;
+		}
 	}
 
 	.oc-box {
@@ -294,10 +309,9 @@ input.footer-link {
 		}
 
 		&.oc-box--friend-invitation {
-			background-color: #ff8000;
 			color: #fff;
 			font-family: "Overcoat Bold";
-
+			background-color: #ff8000;
 			.screenname {
 				font-size: 0.8rem;
 				line-height: 3rem;
@@ -308,8 +322,21 @@ input.footer-link {
 
 		&.oc-box--friend-join {
 			p {
-				line-height: 1.5rem;
+				line-height: 2rem;
 			}
+		}
+
+		&.oc-box--friend-follow {
+
+		}
+
+		.notification-link {
+			font-size: 0.8rem;
+		}
+
+		.notification-desc {
+			color: #6f6f6f;
+			font-size: 0.8rem;
 		}
 
 		.icon-3points {
@@ -603,7 +630,7 @@ input.footer-link {
 	background-color: #339933;
 	color: #fff;
 	cursor: pointer;
-	height: 32px;
+	height: 24px;
 }
 
 .button--follow {

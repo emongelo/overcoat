@@ -5,11 +5,12 @@ div.epp-ctn--gtr
     div.epp-ctn.epp-cl-1-2.epp-air-left-8
       p.screenname
         span.text--bold {{coat.user.name}}
-        img.epp-space-left-8.valign--text-top(src="/statics/images/star.png" width="14" height="14")
-        span.user-counter.text--bold  234
+        if !extraMsg
+          img.epp-space-left-8.valign--text-top(src="/statics/images/star.png" width="14" height="14")
+          span.user-counter.text--bold  234
 
         if extraMsg
-          span  #{extraMsg}
+          span.notification-desc  #{extraMsg}
       span.subline 20 minutes ago
     div.epp-cl-1-4.align-right
       button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
