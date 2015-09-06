@@ -16,8 +16,8 @@ div.main-menu__button(ng-class="{'main-menu__button--active': isActive('search')
   br
   | &nbsp;
 
-a.main-menu__button(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': isActive('account')}" ng-if="!hideMenu")
-  img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
+a.main-menu__button.item-avatar(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': isActive('account')}" ng-if="!hideMenu")
+  img.avatar--smallest(ng-src="{{user.avatar}}")
 
 div.epp-cl-1.main-menu__button.main-menu__button--active(href="javascript:;" ng-if="showAccount && hideMenu")
   div.epp-cl-5-6 My Account

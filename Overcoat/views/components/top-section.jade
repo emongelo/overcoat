@@ -7,14 +7,14 @@ div.epp-ctn.epp-ctn--gtr.main-header(ng-if="user")
     include main-header
 
   // Coats component
-  div.epp-ctn.epp-space-bottom-8.epp-air-8.coat-row.epp-space-left-8.epp-space-right-8(ng-class="{'box--rounded': !showPostingBox}" ng-if="component == 'coats' && !showPostingBox")
+  div.epp-ctn.epp-space-8.epp-space-top-16.epp-air-8.coat-row(ng-class="{'box--rounded': !showPostingBox}" ng-if="component == 'coats' && !showPostingBox")
     div.epp-cl-1-8
       img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
     p.epp-cl-5-6.epp-space-bottom-16.rounded-box
       span(ng-click="togglePostingBox()") Coat {{site.name}}
 
   // Post-box component
-  div.epp-air-bottom-8(ng-if="showPostingBox")
+  div.epp-space-top-24.epp-air-bottom-8(ng-if="showPostingBox")
     include posting-box
 
   // Invite friends component
