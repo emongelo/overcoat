@@ -41,20 +41,20 @@ div.epp-ctn--gtr
             input.epp-space-left-8.link-style.footer-link.display-inblock.text--bold(type="submit" value="reply")
 
   footer.epp-cl-1.epp-space-top-16.epp-air-bottom-8(ng-if="!showPostReply" ng-class="{'border--gray':coat.replies.length}")
-    div.epp-cl-1-8.align-center
+    div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="upvote(coat.id)") upvote
-      span.text--smallest.color--gray.text--bold {{coat.upvotes}}
-    div.epp-cl-1-6.align-center
+      span.text--smallest.color--gray.text--bold(ng-if="coat.upvotes") {{coat.upvotes}}
+    div.epp-cl-1-4
       p.link-style.text--bold.footer-link(ng-click="downvote(coat.id)") downvote
-      span.text--smallest.color--gray.text--bold {{coat.downvotes}}
-    div.epp-cl-1-8.align-center
+      span.text--smallest.color--gray.text--bold(ng-if="coat.downvotes") {{coat.downvotes}}
+    div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="showPostReply == true") reply
-      span.text--smallest.color--gray.text--bold {{coat.replies.length}}
-    div.epp-cl-1-8.align-center
+      span.text--smallest.color--gray.text--bold(ng-if="coat.replies.length") {{coat.replies.length}}
+    div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="tip(coat.id)") tip
-      span.text--smallest.color--gray.text--bold {{coat.tips}}
+      span.text--smallest.color--gray.text--bold(ng-if="coat.tips") {{coat.tips}}
 
-    div.epp-cl-3-8.align-right.relative
+    div.epp-cl-1-6.align-right.relative.right
       p.link-style.text--bold.footer-link(data-ng-click="toggleShareTooltip(coat.id)") share
         span &nbsp;
       span.text--smallest.color--gray

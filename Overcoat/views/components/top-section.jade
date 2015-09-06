@@ -3,7 +3,7 @@ div.epp-ctn.epp-ctn--gtr.main-header(ng-if="user")
   include search
 
   // Main header
-  nav.epp-space-top-16.main-menu.align-center(ng-if="user")
+  nav.epp-space-top-24.main-menu.align-center(ng-if="user")
     include main-header
 
   // Coats component
@@ -11,7 +11,7 @@ div.epp-ctn.epp-ctn--gtr.main-header(ng-if="user")
     div.epp-cl-1-8
       img.avatar--smallest.avatar--rounded(ng-src="{{user.avatar}}")
     p.epp-cl-5-6.epp-space-bottom-16.rounded-box
-      span(ng-click="togglePostingBox()") Coat {{site.name}}
+      span.coat-site(ng-click="togglePostingBox()") Coat {{site.name}}
 
   // Post-box component
   div.epp-space-top-24.epp-air-bottom-8(ng-if="showPostingBox")

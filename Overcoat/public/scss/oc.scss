@@ -119,6 +119,10 @@ button {
 	}
 }
 
+.right {
+	float: right;
+}
+
 .main-header {
 	background-color: #0099e8;
 
@@ -202,6 +206,11 @@ button {
 
 	.coat-row {
 		background: #fff;
+
+		.coat-site {
+			font-family: "Overcoat Medium";
+			font-size: 1.1rem;
+		}
 
 		img {
 			display: inline-block;
@@ -306,6 +315,7 @@ input.footer-link {
 	.subline {
 		color: #8d8d8d;
 		font-size: 0.75rem;
+		font-family: "Overcoat Medium";
 	}
 
 	.friend-invitations {
