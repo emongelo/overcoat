@@ -6,14 +6,14 @@ div.epp-ctn--gtr
       p.screenname
         span.text--bold {{coat.user.name}}
         if !extraMsg
-          img.epp-space-left-8.valign--middle(src="/statics/images/star.png" width="14" height="14")
+          img.epp-space-left-8.valign--middle(src="/statics/images/star.png" width="15" height="15")
           span.user-counter.text--bold  234
 
         if extraMsg
           span.notification-desc  #{extraMsg}
       span.subline 20 minutes ago
     div.epp-cl-1-4.align-right
-      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") follow
+      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") Follow
     div.epp-cl-1-12.align-right.relative
       span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
       div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[coat.id]")

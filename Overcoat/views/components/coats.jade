@@ -3,7 +3,7 @@ section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="component == 'coats'")
     div.epp-cl-1-4.new-coats
       span.link-style(ng-click="addCoats(5)") New coats
 
-  article.oc-box.epp-space-top-8.coat-row(ng-repeat="coat in coats" ng-class="{'with-picture' : coat.picture}")
+  article.oc-box.epp-space-top-8.coat-box(ng-repeat="coat in coats" ng-class="{'with-picture' : coat.picture}")
     include partials/coat
 
   div.first-here.align-center(ng-cloak ng-if="!coats.length")

@@ -204,6 +204,11 @@ button {
 		font-weight: 100;
 	}
 
+	.my-account {
+		font-family: "Cubano";
+		font-size: 1.3rem;
+	}
+
 	.coat-row {
 		background: #fff;
 
@@ -306,16 +311,15 @@ input.footer-link {
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		.user-counter {
-			color: #9a9a9a;
+			color: #999999;
 			font-size: 0.62rem;
 			padding-left: 2px;
 		}
 	}
 
 	.subline {
-		color: #8d8d8d;
+		color: #6b6b6b;
 		font-size: 0.75rem;
-		font-family: "Overcoat Medium";
 	}
 
 	.friend-invitations {
@@ -332,6 +336,13 @@ input.footer-link {
 
 	.oc-box {
 		background: #fff;
+
+		&.coat-box {
+			&.with-picture footer {
+				border-bottom: 0;
+				box-shadow: none;
+			}
+		}
 
 		&.reply {
 			background: #fafcfc;
@@ -410,23 +421,30 @@ input.footer-link {
 	.account {
 		background: #fff;
 
+		.logout {
+			margin-left: 12px;
+			font-family: "Overcoat Medium";
+			color: #848484;
+		}
+
 		.account--header {
 			padding: 16px 8px;
-			border-bottom: 1px solid #ccc;
-			padding-bottom: 16px;
+			padding-bottom: 0;
 		}
 
 		.account--footer {
-			border-bottom: 1px solid #ccc;
 			padding: 16px 8px;
 
 			p {
 				color: #ff8000;
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
 
 			span {
-				font-size: 0.75rem;
+				font-family: "Overcoat Bold";
+				font-size: 0.7rem;
+				line-height: 1.5rem;
+				color: #999;
 				text-transform: uppercase;
 			}
 		}
@@ -543,6 +561,12 @@ input.footer-link {
 		}
 	}
 
+	.footer-message {
+		font-family: "Overcoat Medium";
+		font-size: 0.95rem;
+
+	}
+
 }
 
 .tooltip {
@@ -555,7 +579,7 @@ input.footer-link {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	right: 0;
+	right: -16px;
 
 	a {
 		color: #fff;
@@ -601,7 +625,7 @@ input.footer-link {
 	}
 
 	&-bottom:before {
-		right: 10px;
+		right: -2px;
 		top: 27px;
 		margin-left: -6px;
 		border-right-color: transparent;
@@ -663,10 +687,12 @@ input.footer-link {
 }
 
 .button--follow {
+	font-family: "Overcoat News";
+	font-size: 0.75rem;
 	border: 1px solid #0099e8;
 	border-radius: 5px;
 	background-color: #fff;
 	color: #0099e8;
 	cursor: pointer;
-	height: 25px;
+	height: 24px;
 }
