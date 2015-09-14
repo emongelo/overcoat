@@ -1,6 +1,3 @@
-require 'am-commons'
-gem 'am-commons', '~> 0.0.12' 
-
 css_dir = "./public/css/"
 sass_dir = "./public/scss/"
 images_dir = "./public/css/img/"

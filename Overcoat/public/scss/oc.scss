@@ -29,14 +29,14 @@ $blue: #0099e8;
 }
 
 body {
-	color: #414141;
+	color: #000;
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
 	position: relative;
 	background-color: #0099e8;
 	font-family: 'Overcoat News', sans-serif;
-	font-size: 0.75rem;
+	font-size: 13px;
 }
 
 main {
@@ -74,13 +74,13 @@ button {
 }
 
 .text--smallest {
-	font-size: 0.65rem;
+	font-size: 11px;
 	line-height: 1.2rem;
 	font-weight: normal;
 }
 
 .text--smaller {
-	font-size: 0.70rem;
+	font-size: 12px;
 	line-height: 1rem;
 	font-weight: normal;
 }
@@ -129,9 +129,8 @@ button {
 	nav {
 		font-family: 'Cubano', sans-serif;
 		.main-menu__button {
-			font-size: 1.3rem;
+			font-size: 21px;
 			color: #a3dbf5;
-			font-weight: bold;
 			line-height: 0.9rem;
 			padding: 0 8px;
 			display: inline-block;
@@ -212,11 +211,6 @@ button {
 	.coat-row {
 		background: #fff;
 
-		.coat-site {
-			font-family: "Overcoat Medium";
-			font-size: 1.1rem;
-		}
-
 		img {
 			display: inline-block;
 			vertical-align: middle;
@@ -231,7 +225,8 @@ button {
 
 		p {
 			color: #ccc;
-			font-size: 1.1rem;
+			font-family: "Overcoat Medium";
+			font-size: 18px;
 			line-height: 2rem;
 			cursor: pointer;
 		}
@@ -244,7 +239,7 @@ button {
 
 		textarea {
 			font-family: "Overcoat News";
-			font-size: 1rem;
+			font-size: 18px;
 			color: #333;
 			border: 0;
 		}
@@ -255,7 +250,7 @@ button {
 
 		.footer-links input {
 			@extend .valign--bottom;
-			font-size: 0.9rem;
+			font-size: 15px;
 		}
 	}
 }
@@ -264,8 +259,7 @@ button {
 	line-height: 0.5rem;
 	text-transform: uppercase;
 	margin-bottom: 0;
-	font-size: 0.65rem;
-	//font-family: "Overcoat Black";
+	font-size: 11px;
 }
 
 input.footer-link {
@@ -307,19 +301,19 @@ input.footer-link {
 	.screenname {
 		margin: 0;
 		line-height: 1.2rem;
-		font-size: 0.75rem;
+		font-size: 13px;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		.user-counter {
 			color: #999999;
-			font-size: 0.62rem;
+			font-size: 10px;
 			padding-left: 2px;
 		}
 	}
 
 	.subline {
 		color: #6b6b6b;
-		font-size: 0.75rem;
+		font-size: 12px;
 	}
 
 	.friend-invitations {
@@ -336,6 +330,7 @@ input.footer-link {
 
 	.oc-box {
 		background: #fff;
+		color: #333;
 
 		&.coat-box {
 			&.with-picture footer {
@@ -358,7 +353,7 @@ input.footer-link {
 			font-family: "Overcoat Bold";
 			background-color: #ff8000;
 			.screenname {
-				font-size: 0.8rem;
+				font-size: 13px;
 				line-height: 3rem;
 				white-space: nowrap;
 				text-overflow: ellipsis;
@@ -371,17 +366,13 @@ input.footer-link {
 			}
 		}
 
-		&.oc-box--friend-follow {
-
-		}
-
 		.notification-link {
-			font-size: 0.8rem;
+			font-size: 13px;
 		}
 
 		.notification-desc {
-			color: #6f6f6f;
-			font-size: 0.8rem;
+			color: #333;
+			font-size: 13px;
 		}
 
 		.icon-3points {
@@ -390,6 +381,7 @@ input.footer-link {
 			background-color: transparent;
 			background-repeat: no-repeat;
 			background-position-x: right;
+			background-position: 20px 0px;
 		}
 
 		main {
@@ -584,7 +576,8 @@ input.footer-link {
 	a {
 		color: #fff;
 		display: block;
-		font-size: 0.85rem;
+		font-family: "Overcoat Medium";
+		font-size: 13px;
 		line-height: 1.2rem;
 		&:hover {
 			text-decoration: none;
@@ -625,7 +618,7 @@ input.footer-link {
 	}
 
 	&-bottom:before {
-		right: -2px;
+		right: 2px;
 		top: 27px;
 		margin-left: -6px;
 		border-right-color: transparent;
@@ -679,6 +672,7 @@ input.footer-link {
 }
 
 .button--invite {
+	font-family: "Overcoat News";
 	border-radius: 5px;
 	background-color: #339933;
 	color: #fff;

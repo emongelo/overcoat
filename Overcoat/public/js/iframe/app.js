@@ -12,8 +12,9 @@ container.style.right = '-400px';
 
 // Iframe element
 iframe = document.createElement('iframe');
-iframe.src = "http://ec2-52-8-130-205.us-west-1.compute.amazonaws.com:4000";
+iframe.src = "http://dev.overcoat.com:4000";
 iframe.setAttribute('width', 400);
+iframe.setAttribute('notifications', 35);
 iframe.style.width = '400px';
 iframe.style.height = '100%';
 iframe.style.border = '0';
@@ -55,3 +56,14 @@ function handleClick(e){
 
   active = !active;
 }
+
+// Create IE + others compatible event handler
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+// Listen to message from child window
+eventer(messageEvent,function(e) {
+  toggle.innerHTML = e.data.message;
+  console.log('parent received message!:  ',e.data.message);
+},false);

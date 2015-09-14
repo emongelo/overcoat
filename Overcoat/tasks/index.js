@@ -9,7 +9,6 @@ var uglify  = require('gulp-uglify');
 var fs      = require('fs');
 var path    = require('path');
 var gulpsync     = require('gulp-sync')(gulp);
-var nodeInspector = require('gulp-node-inspector');
 
 var _config;
 
@@ -82,10 +81,6 @@ module.exports = function(config){
     return gulp.src([path.join(_config.path.dir, 'public/**/*'), '!public/*.rb', '!public/scss/*'])
         .pipe(gulp.dest(path.join(_config.path.dir, 'public', _config.version)));
 
-  };
-
-  this.debug = function() {
-    return gulp.src([]).pipe(nodeInspector());
   };
 
   function getFolders(dir) {

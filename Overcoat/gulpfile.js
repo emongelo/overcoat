@@ -28,7 +28,6 @@ tasks.gulp.task('watch', function(){
 });
 
 tasks.gulp.task('version', tasks.version);
-tasks.gulp.task('debug', tasks.debug);
 
-tasks.gulp.task('default', ['watch', 'package', 'compass', 'nodemon', 'debug']);
+tasks.gulp.task('default', ['watch', 'package', 'compass', 'nodemon']);
 tasks.gulp.task('staging', tasks.gulpsync.sync(['compass', 'package', 'minify', 'version']));
