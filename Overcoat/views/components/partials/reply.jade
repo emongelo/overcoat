@@ -29,9 +29,6 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
       div.epp-cl-1-4
         p.link-style.footer-link.text--bold(ng-click="downvote(reply.id)") downvote
         span.text--smallest.color--gray.text--bold {{reply.downvotes}}
-      div.epp-cl-1-5
-        p.link-style.footer-link.text--bold(ng-click="tip(reply.id)") reply
-        span.text--smallest.color--gray.text--bold {{reply.replies}}
       div.epp-cl-1-4
         p.link-style.footer-link.text--bold(ng-click="tip(reply.id)") tip
         span.text--smallest.color--gray.text--bold {{reply.tips}}

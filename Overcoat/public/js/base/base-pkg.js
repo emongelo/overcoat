@@ -26827,13 +26827,13 @@
   }]);
 }(angular));
 
-var sendNotificationMessage = function() {
-  var message = {
-    type: "updateNotifications",
-    content: "35"
+var sendNotificationMessage = function(site) {
+  var notification = {
+    name: "updateNotifications",
+    value: "35"
   };
   
-	parent.postMessage(message,"http://dev.overcoat.com:4000");
+	parent.postMessage( notification, site );
 };
 
 var Overcoat = angular.module('Overcoat', []);
@@ -26842,6 +26842,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   var _this = this;
 
   $scope.url = window.location.href;
+  sendNotificationMessage($scope.url);
   resetUI();
 
   /**

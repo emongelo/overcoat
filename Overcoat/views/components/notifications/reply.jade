@@ -1,4 +1,33 @@
 - var extraMsg = 'replied on Paypal.com'
-- var isFriend = true
-article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}")
-  include partials/coat
+
+article.oc-box.epp-space-top-8.border--gray(class="oc-box--{{notification.type}}")
+  div.epp-ctn--gtr
+    div.epp-cl-1.epp-space-top-16
+      div.epp-cl-1-8
+        img.avatar--small.avatar--rounded(ng-src="{{notification.user.avatar}}")
+      div.epp-cl-3-4.epp-air-left-8
+        p.screenname
+          span.text--bold {{notification.user.screenName}}
+          if !extraMsg
+            img.epp-space-left-8.valign--text-top(src="/statics/images/star.png" width="14" height="14")
+            span.user-counter.text--bold  234
+
+          if extraMsg
+            span.notification-desc  #{extraMsg}
+
+        p.link-style.text--bold.notification-link paypal.com
+
+        main.epp-cl-1.epp-space-top-8.epp-space-bottom-16.coat-message
+          p {{notification.coat.message}}
+
+      // Menu
+      div.epp-cl-1-12.align-right.relative
+        span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip([notification.type,notification.id].join('-'))") &nbsp;
+        div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[[notification.type,notification.id].join('-')]")
+          a(href="javascript:;" ng-click="tooltip.getOriginUrl(notification)") Url Origin
+          a(href="javascript:;" ng-click="tooltip.followBack(notification.user.id)") Follow back
+        span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[[notification.type,notification.id].join('-')]")
+        
+// Replies      
+article.oc-box.epp-space-left-8.epp-space-right-8(class="oc-box--{{notification.type}}" ng-init="coat = notification.coat")
+  include ../partials/reply

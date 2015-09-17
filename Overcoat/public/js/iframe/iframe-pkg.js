@@ -1,4 +1,4 @@
-var container, style, iframe, toggle, active = false;
+var container, style, iframe, toggle, counter, active = false;
 
 // Iframe container
 container = document.createElement('div');
@@ -25,14 +25,27 @@ iframe.style.transitionDuration = '400ms';
 toggle = document.createElement('div');
 toggle.id = 'ocExtensionToggle';
 toggle.style.backgroundColor = '#0099e8';
-toggle.style.borderRadius = '8px 0px 0px 8px';
+toggle.style.borderRadius = '18px 0px 0px 18px';
 toggle.style.top = '2%';
 toggle.style.right = '0';
-toggle.style.width = '40px';
-toggle.style.height = '47px';
+toggle.style.width = '41px';
+toggle.style.height = '41px';
 toggle.style.position = 'fixed';
 toggle.style.transitionProperty = 'all';
 toggle.style.transitionDuration = '400ms';
+
+counter = document.createElement('span');
+counter.style.backgroundColor = '#fff';
+counter.style.display = 'inline-block';
+counter.style.borderRadius = '8px';
+counter.style.padding = '3px 6px';
+counter.style.marginTop = '9px';
+counter.style.marginLeft = '10px';
+counter.style.fontFamily = 'Cubano';
+counter.style.color = '#0099e8';
+counter.style.fontSize = '13px';
+
+toggle.appendChild(counter);
 
 // Attach EventListener
 toggle.addEventListener('click', handleClick);
@@ -64,6 +77,6 @@ var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
 // Listen to message from child window
 eventer(messageEvent,function(e) {
-  toggle.innerHTML = e.data.message;
-  console.log('parent received message!:  ',e.data.message);
+  counter.innerHTML = e.data.value;
+  console.log('parent received message!:  ',e.data.name);
 },false);

@@ -30,6 +30,6 @@ exports.notifications = [
     timestamp: '1m',
     type: 'reply',
     userId: 3,
-    coatId: 1
+    coatId: 3
   }
 ];
