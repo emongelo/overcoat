@@ -4,13 +4,13 @@ section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="showAccount")
     div.epp-cl-1.epp-ctn.epp-space-bottom-16.account--header
       div.epp-cl-1-8
         img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
-      div.epp-cl-2-3.epp-space-left-16
+      div.epp-cl-7-12.epp-space-left-16
         p.screenname.text--bold {{user.name}}
 
         span.subline.text--smallest @{{user.screenName}}
         span.text--smaller.text--pointer.color--link(ng-click="toggleInviteModal()")  Invite Friends
 
-      div.epp-cl-1-8.text--smaller.align-right.text--gray.logout
+      div.epp-cl-1-6.text--smaller.align-right.text--gray.right.logout
         | Log out
 
   div.epp-ctn--gtr.epp-cl-1.epp-space-bottom-16.account

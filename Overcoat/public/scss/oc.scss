@@ -157,6 +157,7 @@ button {
 
 			&.item-avatar {
 				@extend .valign--top;
+				margin-top: -2px;
 			}
 		}
 
@@ -170,7 +171,7 @@ button {
 
 			.submenu-search {
 				.main-menu__button {
-					font-size: 1rem;
+					font-size: 21px;
 				}
 			}
 
@@ -380,8 +381,7 @@ input.footer-link {
 			background-image: url('/statics/images/3-points.png');
 			background-color: transparent;
 			background-repeat: no-repeat;
-			background-position-x: right;
-			background-position: 20px 0px;
+			background-position: right top;
 		}
 
 		main {
@@ -409,18 +409,39 @@ input.footer-link {
 			}
 		}
 	}
+	
+	.search-box {
+		color: #999;
+		font-size: 18px;
+	}
 
+	.search-results {
+		background: #fff;
+		border-top: 1px solid #7d7d7d;
+		
+		li {
+			font-family: "Overcoat Medium";
+			font-size: 13px;
+			color: #0c9fe3;
+			margin-left: 0;
+		}
+	}
+	
+	.trending {
+		color: #999;
+		font-size: 11px;
+	}
+		
 	.account {
 		background: #fff;
 
 		.logout {
 			margin-left: 12px;
-			font-family: "Overcoat Medium";
 			color: #848484;
 		}
 
 		.account--header {
-			padding: 16px 8px;
+			padding: 16px 0;
 			padding-bottom: 0;
 		}
 
@@ -429,12 +450,13 @@ input.footer-link {
 
 			p {
 				color: #ff8000;
-				font-size: 1.5rem;
+				font-size: 27px;
+				margin-bottom: 4px;
 			}
 
 			span {
 				font-family: "Overcoat Bold";
-				font-size: 0.7rem;
+				font-size: 11px;
 				line-height: 1.5rem;
 				color: #999;
 				text-transform: uppercase;
@@ -444,7 +466,7 @@ input.footer-link {
 
 	.discover {
 		.coat-name {
-			font-size: 0.9rem;
+			font-size: 14px;
 			line-height: 2.5rem;
 			color: #0099e8;
 		}
@@ -454,7 +476,7 @@ input.footer-link {
 			color: #ff8000;
 			display: block;
 			font-family: "Overcoat Medium";
-			font-size: 1.6rem;
+			font-size: 27px;
 			line-height: 1rem;
 		}
 

@@ -2,18 +2,25 @@ div.epp-ctn--gtr
   header.epp-cl-1.epp-space-top-8
     div.epp-cl-1-8
       img.avatar--small.avatar--rounded(ng-src="{{coat.user.avatar}}")
-    div.epp-ctn.epp-cl-1-2.epp-air-left-8
-      p.screenname
-        span.text--bold {{coat.user.name}}
-        if !extraMsg
+      
+    if !extraMsg  
+      div.epp-ctn.epp-cl-1-2.epp-air-left-8
+        p.screenname
+          span.text--bold {{coat.user.name}}
           img.epp-space-left-8.valign--middle(src="/statics/images/star.png" width="15" height="15")
           span.user-counter.text--bold  234
-
-        if extraMsg
+        span.subline 20 minutes ago
+        
+      div.epp-cl-1-4.align-right
+        button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") Follow
+    
+    else
+      div.epp-ctn.epp-cl-3-4.epp-air-left-8
+        p.screenname
+          span.text--bold {{coat.user.name}}
           span.notification-desc  #{extraMsg}
-      span.subline 20 minutes ago
-    div.epp-cl-1-4.align-right
-      button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") Follow
+        span.subline 20 minutes ago  
+        
     div.epp-cl-1-12.align-right.relative
       span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
       div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[coat.id]")
@@ -67,5 +74,5 @@ div.epp-ctn--gtr
   div.epp-ctn--gtr.append.append--photo-ctn(ng-if="coat.picture")
     div.append--photo(ng-style="{'background-image': 'url('+coat.picture+')'}")
 
-  div.append.append--replies-ctn(ng-if="coat.replies.length")
+  div.append.append--replies-ctn.epp-air-left-8.epp-air-right-8(ng-if="coat.replies.length")
     include reply

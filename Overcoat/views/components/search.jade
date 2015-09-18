@@ -1,7 +1,8 @@
-div.epp-ctn.epp-cl-5-6.epp-space-top-16.epp-air-8.coat-row(ng-if="component == 'search' && showSearchbox")
-  form(ng-submit="searchSubmit(searchText)")
-    img(src="/statics/images/input-search.png")
-    input.epp-cl-5-6.epp-air-left-8.rounded-box(placeholder="Search" name="searchCoat" ng-model="searchText")
-    img(src="/statics/images/input-clear.png" ng-click="searchText = ''")
-
-div.epp-cl-1-6.epp-space-top-16.align-center.close-search(ng-click="toggleSearchbox()" ng-if="component == 'search'") X
+section.epp-ctn.epp-cl-1.main(ng-if="component == 'search' && showSearchbox")
+  div.epp-ctn.epp-cl-5-6.epp-space-top-16.epp-air-8.box--rounded.coat-row
+    form(ng-submit="searchSubmit(searchText)")
+      img(src="/statics/images/input-search.png")
+      input.epp-cl-5-6.epp-air-left-8.rounded-box.search-box(placeholder="Search" name="searchCoat" ng-model="searchText")
+      img(src="/statics/images/input-clear.png" ng-click="searchText = ''")
+  
+  div.epp-cl-1-6.epp-space-top-16.align-center.close-search(ng-click="toggleSearchbox()") X

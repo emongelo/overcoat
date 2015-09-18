@@ -42,9 +42,9 @@ div.epp-cl-1.epp-ctn.submenu
     a.main-menu__button(href="javascript:;" ng-click="filterDiscover('hot-coats')" ng-class="{'main-menu__button--active': isSubActive('hot-coats')}")
       span Hot coats anywhere
 
-  div.epp-cl-1.submenu-search(ng-if="showSubmenu == 'search'")
+  div.epp-cl-1.align-left.epp-space-left-16.submenu-search(ng-if="showSubmenu == 'search'")
     a.main-menu__button(href="javascript:;" ng-click="filterSearch('site')" ng-if="component == 'search'" ng-class="{'main-menu__button--active': isSubActive('site')}")
       span This site
-    a.main-menu__button(href="javascript:;" ng-click="filterSearch('all')" ng-if="component == 'search'" ng-class="{'main-menu__button--active': isSubActive('all')}")
+    a.main-menu__button.epp-space-left-8(href="javascript:;" ng-click="filterSearch('all')" ng-if="component == 'search'" ng-class="{'main-menu__button--active': isSubActive('all')}")
       span Across all sites
 
