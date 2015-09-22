@@ -12,7 +12,7 @@ container.style.right = '-400px';
 
 // Iframe element
 iframe = document.createElement('iframe');
-iframe.src = "http://dev.overcoat.com:4000";
+iframe.src = "http://ec2-52-8-130-205.us-west-1.compute.amazonaws.com:4000";
 iframe.setAttribute('width', 400);
 iframe.setAttribute('notifications', 35);
 iframe.style.width = '400px';
