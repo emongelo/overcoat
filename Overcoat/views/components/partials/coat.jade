@@ -36,8 +36,8 @@ div.epp-ctn--gtr
     p
       | {{coat.message}}
 
-  div.post-reply.epp-air-8(ng-if="showPostReply")
-    form.post-reply-form
+  div.post-reply.epp-air-8(ng-if="showPostReply[coat.id]")
+    form.post-reply-form.epp-air-8
       textarea
         | I am typing my comment right here
       div.footer-links
@@ -47,7 +47,7 @@ div.epp-ctn--gtr
           div.epp-cl-1-2.align-right
             input.epp-space-left-8.link-style.footer-link.display-inblock.text--bold(type="submit" value="reply")
 
-  footer.epp-cl-1.epp-space-top-16.epp-air-bottom-8(ng-if="!showPostReply" ng-class="{'border--gray':coat.replies.length}")
+  footer.epp-cl-1.epp-space-top-16.epp-air-bottom-8(ng-if="!showPostReply[coat.id]" ng-class="{'border--gray':coat.replies.length}")
     div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="upvote(coat.id)") upvote
       span.text--smallest.color--gray.text--bold(ng-if="coat.upvotes") {{coat.upvotes}}
@@ -55,7 +55,7 @@ div.epp-ctn--gtr
       p.link-style.text--bold.footer-link(ng-click="downvote(coat.id)") downvote
       span.text--smallest.color--gray.text--bold(ng-if="coat.downvotes") {{coat.downvotes}}
     div.epp-cl-1-6
-      p.link-style.text--bold.footer-link(ng-click="showPostReply == true") reply
+      p.link-style.text--bold.footer-link(ng-click="displayReplyBox(coat.id)") reply
       span.text--smallest.color--gray.text--bold(ng-if="coat.replies.length") {{coat.replies.length}}
     div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="tip(coat.id)") tip
@@ -74,5 +74,5 @@ div.epp-ctn--gtr
   div.epp-ctn--gtr.append.append--photo-ctn(ng-if="coat.picture")
     div.append--photo(ng-style="{'background-image': 'url('+coat.picture+')'}")
 
-  div.append.append--replies-ctn.epp-air-left-8.epp-air-right-8(ng-if="coat.replies.length")
+  div.append.append--replies-ctn(ng-if="coat.replies.length")
     include reply

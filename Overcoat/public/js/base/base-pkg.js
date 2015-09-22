@@ -26948,6 +26948,11 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     }
   };
 
+  $scope.displayReplyBox = function(coatId) {
+      $scope.showPostReply[coatId] = true;
+      console.log($scope.showPostReply);
+  };
+
   $scope.toggleTooltip = function(tooltipId) {
     $scope.tooltips[tooltipId] = $scope.tooltips[tooltipId] ? !$scope.tooltips[tooltipId] : true;
   };
@@ -27132,5 +27137,6 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.tooltips = [];
     $scope.shareTooltips = [];
     $scope.searchResults = [];
+    $scope.showPostReply = [];
   }
 }]);

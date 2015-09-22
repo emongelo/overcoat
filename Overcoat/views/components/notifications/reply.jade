@@ -29,5 +29,5 @@ article.oc-box.epp-space-top-8.border--gray(class="oc-box--{{notification.type}}
         span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[[notification.type,notification.id].join('-')]")
         
 // Replies      
-article.oc-box.epp-space-left-8.epp-space-right-8(class="oc-box--{{notification.type}}" ng-init="coat = notification.coat")
+article.oc-box(class="oc-box--{{notification.type}}" ng-init="coat = notification.coat")
   include ../partials/reply
