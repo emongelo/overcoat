@@ -10,7 +10,7 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
 
       // Menu
       div.epp-cl-1-12.align-right.relative
-        span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(reply.id)") &nbsp;
+        span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(reply.id)") &nbsp;
         div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[reply.id]")
           a(href="javascript:;" ng-click="tooltip.getOriginUrl(reply)") Url Origin
           a(href="javascript:;" ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow

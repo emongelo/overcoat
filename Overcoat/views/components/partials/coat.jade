@@ -22,7 +22,7 @@ div.epp-ctn--gtr
         span.subline 20 minutes ago  
         
     div.epp-cl-1-12.align-right.relative
-      span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
+      span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
       div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[coat.id]")
         a(href="javascript:;" ng-click="getOriginUrl(coat)") Url Origin
         a(href="javascript:;" ng-click="muteUser(coat.user.id)" ng-if="user.id != coat.user.id") Mute {{coat.user.name}}
@@ -33,21 +33,21 @@ div.epp-ctn--gtr
 
 
   main.epp-cl-1.epp-space-top-8.coat-message
-    p
+    p.epp-air-right-8
       | {{coat.message}}
 
-  div.post-reply.epp-air-8(ng-if="showPostReply[coat.id]")
-    form.post-reply-form.epp-air-8
-      textarea
+  div.post-reply.epp-space-top-16(ng-if="showPostReply[coat.id]")
+    form.post-reply-form
+      textarea.epp-air-16
         | I am typing my comment right here
-      div.footer-links
+      div.footer-links.epp-air-left-16.epp-air-bottom-6
         div.epp-ctn.epp-cl-1
           div.epp-cl-1-2
             a.epp-air-left-32.link-style.footer-link.upload-icon.text--bold Add photo
           div.epp-cl-1-2.align-right
             input.epp-space-left-8.link-style.footer-link.display-inblock.text--bold(type="submit" value="reply")
 
-  footer.epp-cl-1.epp-space-top-16.epp-air-bottom-8(ng-if="!showPostReply[coat.id]" ng-class="{'border--gray':coat.replies.length}")
+  footer.epp-cl-1.epp-space-top-24.epp-air-bottom-16(ng-if="!showPostReply[coat.id]" ng-class="{'border--gray':coat.replies.length}")
     div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="upvote(coat.id)") upvote
       span.text--smallest.color--gray.text--bold(ng-if="coat.upvotes") {{coat.upvotes}}
@@ -61,7 +61,7 @@ div.epp-ctn--gtr
       p.link-style.text--bold.footer-link(ng-click="tip(coat.id)") tip
       span.text--smallest.color--gray.text--bold(ng-if="coat.tips") {{coat.tips}}
 
-    div.epp-cl-1-6.align-right.relative.right
+    div.epp-cl-1-6.align-right.relative.right.epp-air-right-6
       p.link-style.text--bold.footer-link(data-ng-click="toggleShareTooltip(coat.id)") share
         span &nbsp;
       span.text--smallest.color--gray
