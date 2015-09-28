@@ -26,10 +26,13 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
       div.epp-cl-1-5
         p.link-style.footer-link.text--bold(ng-click="upvote(reply.id)") upvote
         span.text--smallest.color--gray.text--bold {{reply.upvotes}}
-      div.epp-cl-1-3
+      div.epp-cl-1-4
         p.link-style.footer-link.text--bold(ng-click="downvote(reply.id)") downvote
         span.text--smallest.color--gray.text--bold {{reply.downvotes}}
-      div.epp-cl-1-4
+      div.epp-cl-1-6
+        p.align-center.link-style.text--bold.footer-link(ng-click="toggleReplyBox(reply.id)") reply
+        span.text--smallest.color--gray.text--bold(ng-if="replies.length") {{replies.length}}
+      div.epp-cl-1-6
         p.link-style.footer-link.text--bold(ng-click="tip(reply.id)") tip
         span.text--smallest.color--gray.text--bold {{reply.tips}}
 

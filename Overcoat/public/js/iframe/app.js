@@ -12,7 +12,8 @@ container.style.right = '-400px';
 
 // Iframe element
 iframe = document.createElement('iframe');
-iframe.src = "http://ec2-52-8-130-205.us-west-1.compute.amazonaws.com:4000";
+//iframe.src = "http://ec2-52-8-130-205.us-west-1.compute.amazonaws.com:4000";
+iframe.src = "http://dev.overcoat.com:4000";
 iframe.setAttribute('width', 400);
 iframe.setAttribute('notifications', 35);
 iframe.style.width = '400px';
@@ -25,14 +26,16 @@ iframe.style.transitionDuration = '400ms';
 toggle = document.createElement('div');
 toggle.id = 'ocExtensionToggle';
 toggle.style.backgroundColor = '#0099e8';
-toggle.style.borderRadius = '18px 0px 0px 18px';
-toggle.style.top = '2%';
+toggle.style.borderRadius = '30px 0px 0px 30px';
+toggle.style.top = '28px';
 toggle.style.right = '0';
 toggle.style.width = '41px';
 toggle.style.height = '41px';
 toggle.style.position = 'fixed';
 toggle.style.transitionProperty = 'all';
 toggle.style.transitionDuration = '400ms';
+toggle.style.border = '6px solid #f68000';
+toggle.style.borderRight = '0';
 
 counter = document.createElement('span');
 counter.style.backgroundColor = '#fff';
@@ -41,9 +44,10 @@ counter.style.borderRadius = '8px';
 counter.style.padding = '3px 6px';
 counter.style.marginTop = '9px';
 counter.style.marginLeft = '10px';
-counter.style.fontFamily = 'Cubano';
+counter.style.fontFamily = 'Arial';
+counter.style.fontWeight = 'bold';
 counter.style.color = '#0099e8';
-counter.style.fontSize = '13px';
+counter.style.fontSize = '14px';
 
 toggle.appendChild(counter);
 

@@ -3,7 +3,7 @@ div.epp-ctn.epp-ctn--gtr.main-header(ng-if="user")
   include search
 
   // Main header
-  nav.epp-space-top-24.main-menu.align-center(ng-if="user")
+  nav.epp-space-top-24.main-menu.align-center(ng-if="user" ng-class="{'border-bottom-search': showSubmenu == 'search'}")
     include main-header
 
   // Coats component

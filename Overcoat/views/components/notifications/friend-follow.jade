@@ -9,7 +9,7 @@ article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}")
           span.notification-desc  followed you from
         p.link-style.text--bold.notification-link tiptap.com
 
-      div.epp-cl-1-8.epp-space-left-8.align-right.relative
+      div.epp-cl-1-12.epp-space-left-8.align-right.right.relative
         span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip([notification.type,notification.id].join('-'))") &nbsp;
         div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[[notification.type,notification.id].join('-')]")
           a(href="javascript:;" ng-click="tooltip.getOriginUrl(notification)") Url Origin

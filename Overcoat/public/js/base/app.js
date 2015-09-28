@@ -119,9 +119,8 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     }
   };
 
-  $scope.displayReplyBox = function(coatId) {
-      $scope.showPostReply[coatId] = true;
-      console.log($scope.showPostReply);
+  $scope.toggleReplyBox = function(coatId) {
+      $scope.showPostReply[coatId] = !$scope.showPostReply[coatId];
   };
 
   $scope.toggleTooltip = function(tooltipId) {
@@ -303,7 +302,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.inviteModal = false;
     $scope.noCoats = false;
     $scope.site = [];
-    $scope.coats = [];
+    $scope.coats = $scope.coats || [];
     $scope.newCoats = [];
     $scope.tooltips = [];
     $scope.shareTooltips = [];

@@ -143,6 +143,11 @@ button {
 
 	nav {
 		font-family: 'Cubano', sans-serif;
+
+		&.border-bottom-search {
+			border-bottom: 1px solid #fff;
+			padding-bottom: 12px;
+		}
 		.main-menu__button {
 			font-size: 21px;
 			color: #a3dbf5;
@@ -176,19 +181,43 @@ button {
 		}
 
 		.submenu {
+			background-color: #2a86c9;
+			position: absolute;
+			top: 38px;
+			width: 218px;
 			display: block;
 			line-height: 0.6rem;
+			border-radius: 5px;
+			overflow: hidden;
+
+			&.submenu-coats {
+				left: 0;
+			}
+
+			&.submenu-discover {
+				right: 0;
+			}
+
 			.main-menu__button {
-				font-size: 0.65rem;
-				padding: 0 5px;
+				font-family: "Overcoat Bold";
+				font-size: 16px;
+				padding: 13px 16px;
+				text-transform: none;
 			}
 
-			.submenu-search {
-				.main-menu__button {
-					font-size: 21px;
-				}
+			.border-bottom {
+				border-bottom: 1px solid #0069bf;
 			}
 
+		}
+
+		.submenu-search {
+
+			.main-menu__button {
+				font-family: "Overcoat Medium";
+				font-size: 14px;
+				text-transform: none;
+			}
 		}
 
 		.icon-search {
@@ -328,7 +357,7 @@ input.footer-link {
 
 	.subline {
 		color: #6b6b6b;
-		font-size: 12px;
+		font-size: 13px;
 	}
 
 	.friend-invitations {
@@ -423,10 +452,15 @@ input.footer-link {
 			}
 		}
 	}
-	
+
+	&.search-wrapper {
+		margin-bottom: -16px;
+	}
+
 	.search-box {
-		color: #999;
-		font-size: 18px;
+		color: #999 !important;
+		font-family: 'Overcoat News', sans-serif;
+		font-size: 14px;
 	}
 
 	.search-results {
@@ -514,10 +548,47 @@ input.footer-link {
 		padding: 6px;
 	}
 
-	.post-reply-form {
+	.post-reply-box {
 		border: 1px solid #ccc;
+		position: relative;
+
 		textarea {
 			border: 0;
+		}
+
+		.icon-close-reply {
+			background-image: url('/statics/images/close-reply.png');
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			top: -25px;
+			right: 0;
+			cursor: pointer;
+		}
+
+		&:after, &:before {
+			bottom: 100%;
+			left: 82%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+
+		&:before {
+			border-bottom-color: #ccc;
+			border-width: 25px;
+			margin-left: -25px;
+		}
+
+		&:after {
+			border-bottom-color: #fff;
+			border-width: 24px;
+			margin-left: -24px;
 		}
 	}
 }
@@ -677,7 +748,7 @@ input.footer-link {
 	}
 
 	&-bottom:before {
-		right: 2px;
+		right: 10px;
 		top: 27px;
 		margin-left: -6px;
 		border-right-color: transparent;
