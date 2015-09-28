@@ -82,5 +82,6 @@ var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 // Listen to message from child window
 eventer(messageEvent,function(e) {
   counter.innerHTML = e.data.value;
+  counter.innerHTML = 35;
   console.log('parent received message!:  ',e.data.name);
 },false);
