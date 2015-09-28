@@ -36,6 +36,7 @@ toggle.style.transitionProperty = 'all';
 toggle.style.transitionDuration = '400ms';
 toggle.style.border = '6px solid #f68000';
 toggle.style.borderRight = '0';
+toggle.style.cursor = 'pointer';
 
 counter = document.createElement('span');
 counter.style.backgroundColor = '#fff';
@@ -48,6 +49,7 @@ counter.style.fontFamily = 'Arial';
 counter.style.fontWeight = 'bold';
 counter.style.color = '#0099e8';
 counter.style.fontSize = '14px';
+counter.style.cursor = 'pointer';
 
 toggle.appendChild(counter);
 
