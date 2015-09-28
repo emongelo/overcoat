@@ -19,7 +19,7 @@ div.main-menu__button(ng-class="{'main-menu__button--active': isActive('search')
 a.main-menu__button.item-avatar(href="javascript:;" ng-click="toggleAccount()" ng-class="{'main-menu__button--active': isActive('account')}" ng-if="!hideMenu")
   img.avatar--smallest(ng-src="{{user.avatar}}")
 
-div.epp-cl-1.epp-space-bottom-16.epp-space-left-8.align-left.main-menu__button.main-menu__button--active(href="javascript:;" ng-if="showAccount && hideMenu")
+div.epp-cl-1.epp-space-bottom-24.epp-space-left-8.align-left.main-menu__button.main-menu__button--active(href="javascript:;" ng-if="showAccount && hideMenu")
   div.epp-cl-5-6.my-account My Account
   div.epp-cl-1-12.align-center.close-account(ng-click="toggleAccount()" ng-if="showAccount && hideMenu")
     img.valign--middle(src="/statics/images/close-blue.png")
