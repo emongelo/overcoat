@@ -22,7 +22,7 @@ exports.replies = [
     tips: 6,
     shares: 19,
     picture: undefined,
-    replies: [{
+    replies: [{ 
         id: 2,
         userId: 1,
         coatId: 3,
