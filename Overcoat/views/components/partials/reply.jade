@@ -20,7 +20,8 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
           a(href="javascript:;" ng-click="tooltip.deletereply(reply.id)" ng-if="user.id == reply.user.id") Delete reply
         span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[reply.id]")
 
-    div.epp-cl-1-6
+    div.epp-cl-1-6.epp-space-left-6.epp-air-top-8
+      div.reply-bar(ng-if="reply.replies.length" src="") &nbsp;
 
     div.epp-cl-3-4.epp-space-top-8.epp-air-left-8
       div.epp-cl-1-5
@@ -39,3 +40,28 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
 
       div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="reply.picture")
         div.epp-cl-1.append--photo(ng-style="{'background-image': 'url('+reply.picture+')'}")
+
+  // Reply de reply
+  article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in reply.replies")
+    div.epp-ctn--gtr
+      div.epp-cl-1.epp-space-top-16
+        div.epp-cl-1-8
+          img.avatar--small.avatar--rounded(ng-src="{{reply.user.avatar}}")
+        div.epp-cl-3-4.epp-air-left-8
+          p
+            span.screenname.text--bold {{reply.user.name}}
+            |  - {{reply.message}}
+
+        // Menu
+        div.epp-cl-1-12.align-right.relative
+          span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(reply.id)") &nbsp;
+          div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[reply.id]")
+            a(href="javascript:;" ng-click="tooltip.getOriginUrl(reply)") Url Origin
+            a(href="javascript:;" ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
+            a(href="javascript:;" ng-click="tooltip.muteUser(reply.user.id)" ng-if="user.id != reply.user.id") Mute {{reply.user.name}}
+            a(href="javascript:;" ng-click="tooltip.reportUser(reply.user.id)" ng-if="user.id != reply.user.id") Report user
+            a(href="javascript:;" ng-click="tooltip.unfollow(reply.user.id)" ng-if="user.id != reply.user.id && isFriend(reply.user.id)") Unfollow
+            a(href="javascript:;" ng-click="tooltip.deletereply(reply.id)" ng-if="user.id == reply.user.id") Delete reply
+          span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[reply.id]")
+
+      div.epp-cl-1-6

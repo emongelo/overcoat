@@ -392,6 +392,14 @@ input.footer-link {
 
 		}
 
+		.reply-bar {
+			background-color: #ccc;
+			border-radius: 5px;
+			width: 5px;
+			height: 100%;
+			margin: 0 auto;
+		}
+
 		&.oc-box--friend-invitation {
 			color: #fff;
 			font-family: "Overcoat Bold";
