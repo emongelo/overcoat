@@ -36,7 +36,7 @@ div.epp-ctn--gtr
     p.epp-air-right-8
       | {{coat.message}}
 
-  div.post-reply.epp-space-top-16(ng-if="showPostReply[coat.id]")
+  div.post-reply.epp-space-top-16(ng-init="setEntity(coat, 'coat')" ng-if="showPostReply['coat-' + coat.id]")
     include reply-box
 
   footer.epp-cl-1.epp-space-top-24.epp-air-bottom-16(ng-if="!showPostReply[coat.id]" ng-class="{'border--gray':coat.replies.length}")
@@ -47,7 +47,7 @@ div.epp-ctn--gtr
       p.link-style.text--bold.footer-link(ng-click="downvote(coat.id)") downvote
       span.text--smallest.color--gray.text--bold(ng-if="coat.downvotes") {{coat.downvotes}}
     div.epp-cl-1-6
-      p.link-style.text--bold.footer-link(ng-click="toggleReplyBox(coat.id)") reply
+      p.link-style.text--bold.footer-link(ng-click="toggleReplyBox(coat, 'coat')") reply
       span.text--smallest.color--gray.text--bold(ng-if="coat.replies.length") {{coat.replies.length}}
     div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="tip(coat.id)") tip

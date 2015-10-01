@@ -119,8 +119,14 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     }
   };
 
-  $scope.toggleReplyBox = function(coatId) {
-      $scope.showPostReply[coatId] = !$scope.showPostReply[coatId];
+  $scope.setEntity = function(entity, type) {
+    $scope.entity = entity;
+    $scope.entity.type = type;
+  };
+
+  $scope.toggleReplyBox = function(entity, type) {
+      var entityType = type || entity.type;
+      $scope.showPostReply[entityType + '-' + entity.id] = !$scope.showPostReply[entityType + '-' + entity.id];
   };
 
   $scope.toggleTooltip = function(tooltipId) {
