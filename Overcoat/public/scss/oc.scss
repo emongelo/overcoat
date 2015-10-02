@@ -63,6 +63,11 @@ button {
 	cursor: pointer;
 }
 
+textarea {
+	outline: none;
+	border: 0;
+}
+
 .valign--top {
 	display: inline-block;
 	vertical-align: top;
@@ -560,11 +565,6 @@ input.footer-link {
 		border: 1px solid #ccc;
 		position: relative;
 		background-color: #fff;
-
-		textarea {
-			outline: none;
-			border: 0;
-		}
 
 		.icon-close-reply {
 			background-image: url('/statics/images/close-reply.png');

@@ -1,5 +1,4 @@
-var _ = require('underscore');
-var sv = require('../services/index');
+var mocks = require('../resources/mocks/index');
 
 /**
  * Async controller
@@ -83,18 +82,14 @@ var apiController = function(router){
    * Get user data
    * @params.userId
    */
-  router.get('/users/detail/:userId',function(req, res){
+  router.get('/user/:userId',function(req, res){
+	  var arr = mocks.users;
 
-    // Sanity check
-    if (!req.params.userId) {
-      handleError('user id not provided');
-    }
+	  var user = arr.filter(function(e){
+		  return e.id == req.params.userId
+	  });
 
-    // Get user data
-    var userId = req.params.userId;
-    var user = sv.userService.getUser(userId);
-    res.send(user);
-
+	  res.send(user.shift());
   });
 
   /**

@@ -1,13 +1,12 @@
-GLOBAL.config = require('../config/config');
+global.config = require('../config/config');
 
-var express = require('express')
-  , path = require('path')
-  , betterLog = require('better-log').install()
-  , cookieParser = require('cookie-parser')
-  , bodyParser = require('body-parser')
-  , I18n = require('i18n-2')
-  , corsInterceptor = require('../interceptors/cors-interceptor')
-  , app = express();
+var express = require('express'),
+  path = require('path'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  I18n = require('i18n-2'),
+  corsInterceptor = require('../interceptors/cors-interceptor'),
+  app = express();
 
 if (app.get('env') === 'development') app.locals.pretty = true;
 app.set('views', path.join(config.rootPath, 'views'));

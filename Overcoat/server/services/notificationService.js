@@ -1,25 +1,10 @@
-var mocks = require('../resources/mocks/index');
+var apiConnector = require('./api-connector')();
 var models = require('../models/index');
-var userService = require('./userService').userService;
-var coatService = require('./coatService').coatService;
+var endpoints = require('../resources/endpoints/index');
+var connectorOptions = {};
 
 exports.notificationService = {
-  getNotifications: function() {
-    return new Promise(
-      function(resolve, reject) {
-
-        var arr = mocks.notifications;
-        arr.forEach(function (e) {
-
-          e.user = userService.getUser(e.userId);
-
-          if (e.coatId) {
-            e.coat = coatService.getCoat(e.coatId);
-          }
-        });
-
-        resolve(arr);
-      });
-
+  getNotifications: function(params) {
+	  return apiConnector.call(endpoints.getNotifications.method, endpoints.getNotifications.path, params, connectorOptions, models.apiResponse);
   }
 };

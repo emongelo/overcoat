@@ -1,10 +1,10 @@
 div.post-reply-box
   span.icon-close-reply(ng-click="toggleReplyBox(entity)")
-  textarea.epp-air-16(ng-model="")
+  textarea.epp-air-16(ng-model="replyText")
     | I am typing my comment right here
   div.footer-links.epp-air-left-16.epp-air-bottom-6
     div.epp-ctn.epp-cl-1
       div.epp-cl-1-2
         a.epp-air-left-32.link-style.footer-link.upload-icon.text--bold Add photo
       div.epp-cl-1-2.align-right
-        input.epp-space-right-8.link-style.footer-link.display-inblock.text--bold(type="submit" value="reply" ng-click="postReply(entity)")
+        input.epp-space-right-8.link-style.footer-link.display-inblock.text--bold(type="submit" value="reply" ng-click="postReply(replyText)")

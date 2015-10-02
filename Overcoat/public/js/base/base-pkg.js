@@ -26902,10 +26902,10 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
    */
   $scope.getAccount = function(userId, cb) {
     resetUI();
-    $http.get('/api/users/detail/' + userId + '?render=false').success(function(res){
+    $http.get('/account/' + userId).success(function(userService){
       $scope.isLogged = true;
       $scope.hideMenu = true;
-      $scope.user = res;
+      $scope.user = userService;
       if (cb) cb();
       $scope.getCoats();
     });
@@ -26956,7 +26956,59 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   $scope.toggleReplyBox = function(entity, type) {
       var entityType = type || entity.type;
       $scope.showPostReply[entityType + '-' + entity.id] = !$scope.showPostReply[entityType + '-' + entity.id];
+      $scope.replyText = '';
   };
+
+	$scope.postReply = function(text) {
+    if ( !text ) {
+        alert('You must enter a text');
+        return false;
+    }
+
+    $scope.replyText = text;
+
+    var params = {
+        userId: $scope.user.id,
+        replyText: text
+    };
+
+    $http.post('/coat/post', params).then(function(serviceResponse){
+        $scope.coats.replies.unshift({
+            id: 7,
+	          coatId: $scope.coat.id,
+            userId: $scope.user.id,
+            user: $scope.user,
+            siteId: 1,
+            message: $scope.replyText,
+            upvotes: 0,
+            downvotes: 0,
+            tips: 0,
+            shares: 0,
+            picture: undefined
+        });
+
+        $scope.toggleReplyBox(entity);
+    }, function(err){
+    });
+	};
+
+	$scope.deleteReply = function(replyId) {
+	    if ( confirm('Sure?') ) {
+	        $http.delete('/reply/delete', {replyId: replyId}).then(function(res){
+	            var reply = $scope.coats.replies.filter(function(e) {
+	                if ( e.id == replyId ) {
+	                    var index = $scope.coats.replies.indexOf(e);
+	                    if ( index != -1 ) {
+	                        $scope.coats.replies.splice(index, 1);
+	                    }
+	                }
+	                return e.id == replyId
+	            });
+	        }, function(err){
+
+	        });
+	    }
+	};
 
   $scope.toggleTooltip = function(tooltipId) {
     $scope.tooltips[tooltipId] = $scope.tooltips[tooltipId] ? !$scope.tooltips[tooltipId] : true;
@@ -27038,7 +27090,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.coatText = '';
   };
 
-  $scope.submit = function(text) {
+  $scope.postCoat = function(text) {
     if ( !text ) {
       alert('You must enter a text');
       return false;

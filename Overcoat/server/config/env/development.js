@@ -2,7 +2,7 @@ module.exports = {
   port : 4000,
   development : true,
   api: {
-    basePath: ''
+    basePath: 'http://dev.overcoat.com:4000/api'
   },
   assets : {
     js      : "/statics/js",

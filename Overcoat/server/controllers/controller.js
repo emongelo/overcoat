@@ -1,5 +1,4 @@
 var _ = require('underscore');
-var mocks = require('../resources/mocks/index');
 var sv = require('../services/index');
 var models = require('../models/index');
 
@@ -23,27 +22,52 @@ var controller = function(router){
     res.render('main', req);
   });
 
-  router.get("/coats", function(req, res){
-    var site = req.query.site;
-    site = 'www.whitehouse.gov';
+	/**
+	 * User data
+	 */
+	router.get("/account/:userId", function(req, res){
+		var params = {
+			userId: req.params.userId
+		};
 
-    sv.coatService.getSite(site).then(function(site){
-      sv.coatService.getCoats(site.id).then(function(coats){
+		sv.userService.getUser(params).then(function(serviceResponse){
+			var user = serviceResponse.data;
+			res.send(user);
+		}).catch(function(err){
+			if (err) {
+				res.send(JSON.stringify(err));
+			}
+		});
+	});
+
+	/**
+	 * Coats
+	 */
+  router.get("/coats", function(req, res){
+
+	  var params = {
+		  siteUrl: req.query.site
+	  };
+
+    sv.coatService.getSite(params).then(function(siteResponse){
+	    params.site = siteResponse.data;
+
+      sv.coatService.getCoats(params).then(function(coatsResponse){
         res.send({
-          site: site,
-          coats: coats
+          site: params.site,
+          coats: coatsResponse.data
         });
       });
     });
   });
 
   router.post("/coat/post", function(req, res){
-    postParams = {
+    var params = {
       userId: req.body.userId,
       coatText: req.body.coatText
     };
 
-    sv.coatService.postCoat(postParams).then(function(res){
+    sv.coatService.postCoat(params).then(function(res){
       res.send({status: 'success'});
     }, function(err){
       res.send({status: 'error', message: err});
@@ -51,11 +75,11 @@ var controller = function(router){
   });
 
   router.delete("/coat/delete", function(req, res){
-    deleteParams = {
+    var params = {
       coatId: req.body.userId
     };
 
-    sv.coatService.deleteCoat(deleteParams).then(function(res){
+    sv.coatService.deleteCoat(params).then(function(res){
       res.send({status: 'success'});
     }, function(err){
       res.send({status: 'error', message: err});
@@ -63,7 +87,7 @@ var controller = function(router){
   });
 
   router.get("/search", function(req, res){
-    params = {
+    var params = {
       q: req.query.q,
       type: req.query.type
     };
@@ -76,9 +100,9 @@ var controller = function(router){
   });
 
   router.get("/activity", function(req, res){
-    sv.notificationService.getNotifications().then(function(serviceResponse){
-      var activities = serviceResponse;
-      res.send(activities);
+	  var params = {};
+    sv.notificationService.getNotifications(params).then(function(serviceResponse){
+      res.send(serviceResponse);
     }).catch(function(err){
       if (err) {
         res.send(JSON.stringify(err));
@@ -86,16 +110,13 @@ var controller = function(router){
     });
   });
 
-  router.get("/account", function(req, res){
-    var userId = req.query.userId;
-    var user = sv.userService.getUser(userId);
-
-    res.send(user);
-  });
-
   router.get("/user/friends", function(req, res){
-    var friends = sv.userService.getFriends().then(function(friends){
-      res.send(friends);
+	  var params = {
+		  userId: req.query.userId
+	  };
+
+    sv.userService.getFriends(params).then(function(serviceResponse){
+      res.send(serviceResponse);
     }, function(err){
       console.log('Se ha producido un error inesperado');
       res.send([]);
@@ -103,20 +124,14 @@ var controller = function(router){
   });
 
   router.get("/discover", function(req, res){
-    res.send({});
-    /* return;
-
-    var promises = [
-      sv.coatService.getHotSites(),
-      sv.coatService.getNewSites(),
-      sv.coatService.getTopCoaters(),
-      sv.coatService.getHotCoats()
-    ];
-
-    promises.all(function(responses){
-      res.send({});
-    });*/
-
+	  var params = {};
+	  sv.notificationService.getNotifications(params).then(function(serviceResponse){
+		  res.send(serviceResponse);
+	  }).catch(function(err){
+		  if (err) {
+			  res.send(JSON.stringify(err));
+		  }
+	  });
   });
 
 };
