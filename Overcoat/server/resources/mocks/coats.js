@@ -97,7 +97,8 @@ exports.coats = [
 					coats: 123,
 					following: 432,
 					upvotes: 84
-				}
+				},
+				replies: []
 			},
 			{
 				id: 2,

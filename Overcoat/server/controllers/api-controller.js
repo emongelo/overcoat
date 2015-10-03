@@ -6,17 +6,59 @@ var mocks = require('../resources/mocks/index');
  */
 var apiController = function(router){
 
+	/**
+	 * Get site
+	 * @params.site
+	 * @query.limit
+	 */
+	router.get('/get-site',function(req, res){
+		// Get site
+
+	});
+
   /**
    * Get coats
    * @params.site
    * @query.limit
    */
-  router.get('/coats/search/:site',function(req, res){
+  router.get('/coats/get-coats',function(req, res){
     // Get coats of current site
+	  var siteUrl = req.query.siteUrl;
+	  var coats = mocks.coats;
 
+	  res.send(coats);
   });
 
-  /**
+	/**
+	 * Post coat
+	 */
+	router.post('/coats/post',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Delete coat
+	 */
+	router.delete('/coats/delete',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Post reply
+	 */
+	router.post('/replies/post',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Delete reply
+	 */
+	router.delete('/replies/delete',function(req, res){
+		res.send({success: true});
+	});
+
+
+	/**
    * Discover coats
    * @params.userId
    * @params.toUserId
@@ -39,15 +81,6 @@ var apiController = function(router){
   });
 
   /**
-   * Get coat posts
-   * @params.coatId
-   * @query.limit
-   */
-  router.post('/posts/:coatId',function(req, res){
-    // Create new coat
-  });
-
-  /**
    * Upvote post
    * @params.postId
    * @params.userId
@@ -63,16 +96,6 @@ var apiController = function(router){
    */
   router.post('/posts/downvote/:postId',function(req, res){
     // Downvote
-  });
-
-  /**
-   * Get coat posts
-   * @params.postId
-   * @params.message
-   * @user
-   */
-  router.post('/posts/reply/:postId',function(req, res){
-    // Reply
   });
 
 

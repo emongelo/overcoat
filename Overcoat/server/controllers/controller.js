@@ -43,48 +43,64 @@ var controller = function(router){
 	/**
 	 * Coats
 	 */
-  router.get("/coats", function(req, res){
+  router.get("/coats/get-coats", function(req, res){
 
 	  var params = {
 		  siteUrl: req.query.site
 	  };
 
-    sv.coatService.getSite(params).then(function(siteResponse){
-	    params.site = siteResponse.data;
-
-      sv.coatService.getCoats(params).then(function(coatsResponse){
-        res.send({
-          site: params.site,
-          coats: coatsResponse.data
-        });
-      });
+    sv.coatService.getCoats(params).then(function(coatsResponse){
+      res.send({coats: coatsResponse.data});
     });
+
   });
 
-  router.post("/coat/post", function(req, res){
+  router.post("/coats/post", function(req, res){
     var params = {
       userId: req.body.userId,
       coatText: req.body.coatText
     };
 
-    sv.coatService.postCoat(params).then(function(res){
-      res.send({status: 'success'});
-    }, function(err){
-      res.send({status: 'error', message: err});
+    sv.coatService.postCoat(params).then(function(serviceResponse){
+	    res.send({status: 'success'});
     });
   });
 
-  router.delete("/coat/delete", function(req, res){
+  router.delete("/coats/delete", function(req, res){
     var params = {
-      coatId: req.body.userId
+      coatId: req.body.coatId
     };
 
-    sv.coatService.deleteCoat(params).then(function(res){
+    sv.coatService.deleteCoat(params).then(function(serviceResponse){
       res.send({status: 'success'});
-    }, function(err){
-      res.send({status: 'error', message: err});
     });
   });
+
+	/*
+	 * Replies
+	 */
+
+	router.post("/replies/post", function(req, res){
+		var params = {
+			userId: req.body.userId,
+			replyText: req.body.replyText
+		};
+
+		sv.coatService.postReply(params).then(function(serviceResponse){
+			res.send({status: 'success'});
+		});
+	});
+
+	router.delete("/replies/delete", function(req, res){
+		var params = {
+			replyId: req.body.replyId
+		};
+
+		sv.coatService.deleteReply(params).then(function(serviceResponse){
+			res.send({status: 'success'});
+		});
+	});
+
 
   router.get("/search", function(req, res){
     var params = {

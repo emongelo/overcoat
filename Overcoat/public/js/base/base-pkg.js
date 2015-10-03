@@ -26845,39 +26845,194 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   sendNotificationMessage($scope.url);
   resetUI();
 
-  /**
-   * Login
-   */
+  /* -- Login -- */
+
   $scope.signin = function(network) {
     $scope.getAccount(1);
   };
 
+	/* --- Feed --- */
+
   /**
-   * Get coats for current site
+   * Get coats
    */
   $scope.getCoats = function() {
     resetUI();
 
     $scope.component = 'coats';
     $scope.loading = true;
-    $http.get('/coats?site=' + $scope.url).success(function(serviceResponse){
+    $http.get('/coats/get-coats?site=' + $scope.url).success(function(serviceResponse){
       $scope.loading = false;
-      $scope.site = serviceResponse.site;
+      $scope.site = serviceResponse.site || {id: 1, name: $scope.url};
       $scope.coats = serviceResponse.coats;
-      $scope.noCoats = false;
-
-      if ( !$scope.coats.length ) {
-        $scope.noCoats = true;
-      }
-
-      if ( !$scope.site ) {
-        $scope.site = {
-          name: $scope.url
-        };
-      }
+      $scope.noCoats = $scope.coats.length ? false : true;
 
     });
   };
+
+	/**
+	 * Post coat
+	 */
+	$scope.postCoat = function(text) {
+		if ( !text ) {
+			alert('You must enter a text');
+			return false;
+		}
+
+		$scope.coatText = text;
+
+		var params = {
+			userId: $scope.user.id,
+			coatText: text
+		};
+
+		$http.post('/coats/post', params).then(function(serviceResponse){
+			$scope.coats.unshift({
+				id: $scope.coats.length + 1,
+				userId: $scope.user.id,
+				user: $scope.user,
+				siteUri: $scope.site,
+				message: $scope.coatText,
+				upvotes: 0,
+				downvotes: 0,
+				tips: 0,
+				shares: 0,
+				picture: undefined
+			});
+
+			$scope.togglePostingBox();
+		}, function(err){
+			$scope.coats.unshift({
+				id: $scope.coats.length + 1,
+				userId: $scope.user.id,
+				user: $scope.user,
+				siteId: 1,
+				message: $scope.coatText,
+				upvotes: 0,
+				downvotes: 0,
+				tips: 0,
+				shares: 0,
+				picture: undefined
+			});
+
+			$scope.togglePostingBox();
+		});
+	};
+
+	/**
+	 * Delete coat
+	 */
+	$scope.deleteCoat = function(coatId) {
+		if ( confirm('Sure?') ) {
+			$http.delete('/coats/delete', {coatId: coatId}).then(function(response){
+				var coat = $scope.coats.filter(function(e) {
+					if ( e.id == coatId ) {
+						var index = $scope.coats.indexOf(e);
+						if ( index != -1 ) {
+							$scope.coats.splice(index, 1);
+						}
+					}
+					return e.id == coatId
+				});
+			}, function(err){
+
+			});
+		}
+	};
+
+	/**
+	 * Post reply
+	 */
+	$scope.postReply = function(entity, text) {
+		if ( !text ) {
+			alert('You must enter a text');
+			return false;
+		}
+
+		$scope.replyText = text;
+
+		var params = {
+			userId: $scope.user.id,
+			replyText: text
+		};
+
+		$http.post('/replies/post', params).then(function(serviceResponse){
+
+			entity.replies.unshift({
+				id: Math.floor((Math.random() * 9999) + 1),
+				coatId: entity.id,
+				user: $scope.user,
+				siteUrl: $scope.url,
+				message: $scope.replyText,
+				upvotes: 0,
+				downvotes: 0,
+				tips: 0,
+				shares: 0,
+				picture: undefined,
+				replies: []
+			});
+
+			$scope.toggleReplyBox(entity);
+		});
+	};
+
+	/**
+	 * Delete reply
+	 */
+	$scope.deleteReply = function(replyId) {
+		if ( confirm('Sure?') ) {
+			$http.delete('/reply/delete', {replyId: replyId}).then(function(res){
+				var reply = $scope.coats.replies.filter(function(e) {
+					if ( e.id == replyId ) {
+						var index = $scope.coats.replies.indexOf(e);
+						if ( index != -1 ) {
+							$scope.coats.replies.splice(index, 1);
+						}
+					}
+					return e.id == replyId
+				});
+			}, function(err){
+
+			});
+		}
+	};
+
+	/**
+	 * Toggle boxes
+	 */
+	$scope.toggleReplyBox = function(entity, type) {
+		var entityType = type || entity.type;
+		$scope.showPostReply[entityType + '-' + entity.id] = !$scope.showPostReply[entityType + '-' + entity.id];
+		$scope.replyText = '';
+	};
+
+	$scope.togglePostingBox = function() {
+		$scope.showPostingBox = !$scope.showPostingBox;
+		$scope.coatText = '';
+	};
+
+	/**
+	 * Coat actions
+	 */
+	$scope.upvote = function(coatId) {
+		alert('upvote coat ' + coatId);
+	};
+
+	$scope.downvote = function(coatId) {
+		alert('downvote coat ' + coatId);
+	};
+
+	$scope.reply = function(coatId) {
+		alert('reply coat ' + coatId);
+	};
+
+	$scope.tip = function(coatId) {
+		alert('tip coat ' + coatId);
+	};
+
+	$scope.follow = function(userId) {
+		alert('follow user ' + userId);
+	};
 
   /**
    * Get activity
@@ -26948,95 +27103,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     }
   };
 
-  $scope.setEntity = function(entity, type) {
-    $scope.entity = entity;
-    $scope.entity.type = type;
-  };
 
-  $scope.toggleReplyBox = function(entity, type) {
-      var entityType = type || entity.type;
-      $scope.showPostReply[entityType + '-' + entity.id] = !$scope.showPostReply[entityType + '-' + entity.id];
-      $scope.replyText = '';
-  };
-
-	$scope.postReply = function(text) {
-    if ( !text ) {
-        alert('You must enter a text');
-        return false;
-    }
-
-    $scope.replyText = text;
-
-    var params = {
-        userId: $scope.user.id,
-        replyText: text
-    };
-
-    $http.post('/coat/post', params).then(function(serviceResponse){
-        $scope.coats.replies.unshift({
-            id: 7,
-	          coatId: $scope.coat.id,
-            userId: $scope.user.id,
-            user: $scope.user,
-            siteId: 1,
-            message: $scope.replyText,
-            upvotes: 0,
-            downvotes: 0,
-            tips: 0,
-            shares: 0,
-            picture: undefined
-        });
-
-        $scope.toggleReplyBox(entity);
-    }, function(err){
-    });
-	};
-
-	$scope.deleteReply = function(replyId) {
-	    if ( confirm('Sure?') ) {
-	        $http.delete('/reply/delete', {replyId: replyId}).then(function(res){
-	            var reply = $scope.coats.replies.filter(function(e) {
-	                if ( e.id == replyId ) {
-	                    var index = $scope.coats.replies.indexOf(e);
-	                    if ( index != -1 ) {
-	                        $scope.coats.replies.splice(index, 1);
-	                    }
-	                }
-	                return e.id == replyId
-	            });
-	        }, function(err){
-
-	        });
-	    }
-	};
-
-  $scope.toggleTooltip = function(tooltipId) {
-    $scope.tooltips[tooltipId] = $scope.tooltips[tooltipId] ? !$scope.tooltips[tooltipId] : true;
-  };
-
-  $scope.toggleShareTooltip = function(tooltipId) {
-    $scope.shareTooltips[tooltipId] = $scope.shareTooltips[tooltipId] ? !$scope.shareTooltips[tooltipId] : true;
-  };
-
-  $scope.upvote = function(coatId) {
-    alert('upvote coat ' + coatId);
-  };
-
-  $scope.downvote = function(coatId) {
-    alert('downvote coat ' + coatId);
-  };
-
-  $scope.reply = function(coatId) {
-    alert('reply coat ' + coatId);
-  };
-
-  $scope.tip = function(coatId) {
-    alert('tip coat ' + coatId);
-  };
-
-  $scope.follow = function(userId) {
-    alert('follow user ' + userId);
-  };
 
   $scope.acceptInvitation = function(userId) {
     alert('accept invitation for user ' + userId);
@@ -27051,6 +27118,12 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
    * -- Helpers
    *
    */
+
+  $scope.setEntity = function(entity, type) {
+	  $scope.entity = entity;
+	  $scope.entity.type = type;
+  };
+
   $scope.setActivity = function(posts) {
     $scope.notifications = posts;
   };
@@ -27085,60 +27158,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.subSection = filter;
   };
 
-  $scope.togglePostingBox = function() {
-    $scope.showPostingBox = !$scope.showPostingBox;
-    $scope.coatText = '';
-  };
 
-  $scope.postCoat = function(text) {
-    if ( !text ) {
-      alert('You must enter a text');
-      return false;
-    }
-
-    $scope.coatText = text;
-
-    var params = {
-      userId: $scope.user.id,
-      coatText: text
-    };
-
-    $http.post('/coat/post', params).then(function(serviceResponse){
-      $scope.coats.unshift({
-        id: 7,
-        userId: $scope.user.id,
-        user: $scope.user,
-        siteId: 1,
-        message: $scope.coatText,
-        upvotes: 0,
-        downvotes: 0,
-        tips: 0,
-        shares: 0,
-        picture: undefined
-      });
-
-      $scope.togglePostingBox();
-    }, function(err){
-    });
-  };
-
-  $scope.deleteCoat = function(coatId) {
-    if ( confirm('Sure?') ) {
-      $http.delete('/coat/delete', {coatId: coatId}).then(function(res){
-        var coat = $scope.coats.filter(function(e) {
-          if ( e.id == coatId ) {
-            var index = $scope.coats.indexOf(e);
-            if ( index != -1 ) {
-              $scope.coats.splice(index, 1);
-            }
-          }
-          return e.id == coatId
-        });
-      }, function(err){
-
-      });
-    }
-  };
 
   $scope.searchSubmit = function(searchText) {
 
@@ -27178,6 +27198,14 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
       //if ( cb ) cb();
     });
   };
+
+	$scope.toggleTooltip = function(tooltipId) {
+		$scope.tooltips[tooltipId] = $scope.tooltips[tooltipId] ? !$scope.tooltips[tooltipId] : true;
+	};
+
+	$scope.toggleShareTooltip = function(tooltipId) {
+		$scope.shareTooltips[tooltipId] = $scope.shareTooltips[tooltipId] ? !$scope.shareTooltips[tooltipId] : true;
+	};
 
   function resetUI() {
     $scope.modal = '';

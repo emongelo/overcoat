@@ -1,21 +1,69 @@
 var config = require('../../config/config');
 
 module.exports = {
+	// User
+	getUser: {
+		method: 'get',
+		path: config.api.basePath + '/user/:userId'
+	},
+	getAccount : {
+		method: 'get',
+		path: config.api.basePath + '/getAccount'
+	},
+	unfollow: {
+		method: 'delete',
+		path: config.api.basePath + '/unfollow'
+	},
+	follow: {
+		method: 'put',
+		path: config.api.basePath + '/follow'
+	},
+	getFriends: {
+		method: 'get',
+		path: config.api.basePath + '/user/friends'
+	},
+	// Feed
+	getCoats: {
+		method: 'get',
+		path: config.api.basePath + '/coats/get-coats?siteUrl=:siteUrl'
+	},
+	postCoat: {
+		method: 'post',
+		path: config.api.basePath + '/coats/post'
+	},
+	deleteCoat: {
+		method: 'delete',
+		path: config.api.basePath + '/coats/delete'
+	},
+	postReply: {
+		method: 'post',
+		path: config.api.basePath + '/replies/post'
+	},
+	deleteReply: {
+		method: 'delete',
+		path: config.api.basePath + '/replies/delete'
+	},
+	// Actions
+	tipCoat: {
+		method: 'put',
+		path: config.api.basePath + '/tipCoat'
+	},
+	shareCoat: {
+		method: 'put',
+		path: config.api.basePath + '/shareCoat'
+	},
+	downvoteCoat: {
+		method: 'put',
+		path: config.api.basePath + '/downvoteCoat'
+	},
+	upvoteCoat: {
+		method: 'put',
+		path: config.api.basePath + '/upvoteCoat'
+	},
+
   search: {
     method: 'get',
     path: config.api.basePath + '/search/:query'
-  },
-  unfollow: {
-    method: 'delete',
-    path: config.api.basePath + '/unfollow'
-  },
-  follow: {
-    method: 'put',
-    path: config.api.basePath + '/follow'
-  },
-  getAccount : {
-    method: 'get',
-    path: config.api.basePath + '/getAccount'
   },
   getNotifications: {
     method: 'get',
@@ -24,45 +72,5 @@ module.exports = {
   getDiscover: {
     method: 'get',
     path: config.api.basePath + '/getDiscover'
-  },
-  getCoats: {
-    method: 'get',
-    path: config.api.basePath + '/getCoats'
-  },
-  tipCoat: {
-    method: 'put',
-    path: config.api.basePath + '/tipCoat'
-  },
-  shareCoat: {
-    method: 'put',
-    path: config.api.basePath + '/shareCoat'
-  },
-  downvoteCoat: {
-    method: 'put',
-    path: config.api.basePath + '/downvoteCoat'
-  },
-  upvoteCoat: {
-    method: 'put',
-    path: config.api.basePath + '/upvoteCoat'
-  },
-  postCoat: {
-    method: 'post',
-    path: config.api.basePath + '/postCoat'
-  },
-  deleteCoat: {
-    method: 'delete',
-    path: config.api.basePath + '/deleteCoat'
-  },
-	getSite: {
-		method: 'get',
-		path: config.api.basePath + '/site'
-	},
-	getUser: {
-		method: 'get',
-		path: config.api.basePath + '/user/:userId'
-	},
-  getFriends: {
-    method: 'get',
-    path: config.api.basePath + '/user/friends'
   }
 };

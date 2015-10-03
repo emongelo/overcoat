@@ -1,5 +1,5 @@
 div.epp-ctn.epp-space-bottom-8.posting-box(ng-if="showPostingBox")
-  form(name="postCoat" ng-submit="postCoat(coatText)")
+  div
     div.epp-ctn.epp-cl-11-12
       textarea(placeholder="Post something" ng-model="coatText")
     div.epp-cl-1-12.align-center.valign--text-top
@@ -11,4 +11,4 @@ div.epp-ctn.epp-space-bottom-8.posting-box(ng-if="showPostingBox")
         div.epp-cl-1-2
           a.epp-air-left-32.link-style.footer-link.upload-icon.text--bold Add photo
         div.epp-cl-1-2.align-right
-          input.epp-space-left-8.link-style.footer-link.display-inblock.text--bold(type="submit" value="Coat")
+          span.epp-space-left-8.link-style.footer-link.display-inblock.text--bold(ng-click="postCoat(coatText)") Coat
