@@ -11,11 +11,11 @@ module.exports = {
 		path: config.api.basePath + '/getAccount'
 	},
 	unfollow: {
-		method: 'delete',
+		method: 'post',
 		path: config.api.basePath + '/unfollow'
 	},
 	follow: {
-		method: 'put',
+		method: 'post',
 		path: config.api.basePath + '/follow'
 	},
 	getFriends: {
@@ -25,7 +25,7 @@ module.exports = {
 	// Feed
 	getCoats: {
 		method: 'get',
-		path: config.api.basePath + '/coats/get-coats?siteUrl=:siteUrl'
+		path: config.api.basePath + '/coats/get-coats?siteUrl=:siteUrl&filter=:filter'
 	},
 	postCoat: {
 		method: 'post',
@@ -44,33 +44,31 @@ module.exports = {
 		path: config.api.basePath + '/replies/delete'
 	},
 	// Actions
-	tipCoat: {
-		method: 'put',
-		path: config.api.basePath + '/tipCoat'
+	tip: {
+		method: 'post',
+		path: config.api.basePath + '/tip'
 	},
-	shareCoat: {
-		method: 'put',
-		path: config.api.basePath + '/shareCoat'
+	downvote: {
+		method: 'post',
+		path: config.api.basePath + '/downvote'
 	},
-	downvoteCoat: {
-		method: 'put',
-		path: config.api.basePath + '/downvoteCoat'
-	},
-	upvoteCoat: {
-		method: 'put',
-		path: config.api.basePath + '/upvoteCoat'
+	upvote: {
+		method: 'post',
+		path: config.api.basePath + '/upvote'
 	},
 
   search: {
     method: 'get',
     path: config.api.basePath + '/search/:query'
   },
+	// Norifications
   getNotifications: {
     method: 'get',
-    path: config.api.basePath + '/getNotifications'
+    path: config.api.basePath + '/notifications'
   },
+	// Discover
   getDiscover: {
     method: 'get',
-    path: config.api.basePath + '/getDiscover'
+    path: config.api.basePath + '/discover?filter=:filter'
   }
 };

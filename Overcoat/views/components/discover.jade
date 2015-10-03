@@ -2,36 +2,32 @@
 section.epp-ctn.epp-cl-1.main(ng-if="component == 'discover'")
   div.epp-space-bottom-16.discover
 
-    article.epp-ctn--gtr.oc-box.epp-space-top-6.epp-air-top-8.epp-air-bottom-8
+    article.epp-ctn--gtr.oc-box.epp-space-top-6.epp-air-top-8.epp-air-bottom-8(ng-repeat="site in sites")
       div.epp-cl-3-4
-        span.coat-name.text--bold whitehouse.com
+        span.coat-name.text--bold {{site.name}}
       div.epp-cl-1-4.align-right.epp-air-top-8
-        h2.counters 8.2k
-        span.text--smallest.counter--text.text--bold coats
-
-    article.epp-ctn--gtr.oc-box.epp-space-top-6.epp-air-top-8.epp-air-bottom-8
-      div.epp-cl-3-4
-        span.coat-name.text--bold whitehouse.com
-      div.epp-cl-1-4.align-right.epp-air-top-8
-        h2.counters 234
+        h2.counters {{site.coats}}
         span.text--smallest.counter--text.text--bold coats
 
 
-    article.oc-box.epp-space-top-6.epp-air-8.epp-air-left-16.epp-air-right-16
+    article.oc-box.epp-space-top-6.epp-air-8.epp-air-left-16.epp-air-right-16(ng-repeat="coater in coaters")
       div.epp-cl-1-6
-        img.avatar--small.avatar--rounded(ng-src="{{user.avatar}}")
+        img.avatar--small.avatar--rounded(ng-src="{{coater.avatar}}")
       div.epp-ctn.epp-cl-2-3
         p.screenname
-          span.text--bold John Doe
+          span.text--bold {{coater.name}}
         div.epp-cl-1.epp-space-top-8.user-stats
           div.epp-cl-1-4
-            h2.counters 212
+            h2.counters {{coater.coats}}
             span.counter--text.text--bold.text--smallest Coats
           div.epp-cl-1-3
-            h2.counters 12
+            h2.counters {{coater.followers}}
             span.counter--text.text--bold.text--smallest Followers
           div.epp-cl-1-3
-            h2.counters 1.1m
+            h2.counters {{coater.following}}
             span.counter--text.text--bold.text--smallest Following
       div.epp-cl-1-6.align-right
         button.button--follow.text--smallest Follow
+
+    article.oc-box.epp-space-top-6.coat-box(ng-repeat="coat in coats" ng-class="{'with-picture' : coat.picture}")
+      include partials/coat

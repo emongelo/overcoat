@@ -41,16 +41,16 @@ div.epp-ctn--gtr
 
   footer.epp-cl-1.epp-space-top-24.epp-air-bottom-16(ng-if="!showPostReply[coat.id]" ng-class="{'border--gray':coat.replies.length}")
     div.epp-cl-1-6
-      p.link-style.text--bold.footer-link(ng-click="upvote(coat.id)") upvote
+      p.link-style.text--bold.footer-link(ng-click="upvote(coat)") upvote
       span.text--smallest.color--gray.text--bold(ng-if="coat.upvotes") {{coat.upvotes}}
     div.epp-cl-1-4
-      p.link-style.text--bold.footer-link(ng-click="downvote(coat.id)") downvote
+      p.link-style.text--bold.footer-link(ng-click="downvote(coat)") downvote
       span.text--smallest.color--gray.text--bold(ng-if="coat.downvotes") {{coat.downvotes}}
     div.epp-cl-1-6
       p.link-style.text--bold.footer-link(ng-click="toggleReplyBox(coat, 'coat')") reply
       span.text--smallest.color--gray.text--bold(ng-if="coat.replies.length") {{coat.replies.length}}
     div.epp-cl-1-6
-      p.link-style.text--bold.footer-link(ng-click="tip(coat.id)") tip
+      p.link-style.text--bold.footer-link(ng-click="tip(coat)") tip
       span.text--smallest.color--gray.text--bold(ng-if="coat.tips") {{coat.tips}}
 
     div.epp-cl-1-6.align-right.relative.right.epp-air-right-6

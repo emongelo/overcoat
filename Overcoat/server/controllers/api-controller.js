@@ -57,17 +57,56 @@ var apiController = function(router){
 		res.send({success: true});
 	});
 
+	/**
+	 * Upvote
+	 */
+	router.post('/upvote',function(req, res){
+		res.send({success: true});
+	});
 
 	/**
-   * Discover coats
-   * @params.userId
-   * @params.toUserId
+	 * Downvote
+	 */
+	router.post('/downvote',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Tip
+	 */
+	router.post('/tip',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Follow
+	 */
+	router.post('/follow',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Unfollow
+	 */
+	router.post('/unfollow',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Notifications
+	 */
+	router.get('/notifications',function(req, res){
+		var notifications = mocks.notifications;
+		res.send(notifications);
+	});
+
+	/**
+   * Discover
    */
-  router.post('/coats/discover',function(req, res){
-    // Hot sites
-    // New sites
-    // Top coaters
-    // Hot coats anywhere
+  router.get('/discover',function(req, res){
+	  var filter = req.query.filter;
+	  var discover = mocks.discover[filter];
+	  res.send(discover);
   });
 
 
@@ -78,24 +117,6 @@ var apiController = function(router){
    */
   router.get('/posts/search/:coatId',function(req, res){
     // Get coat posts
-  });
-
-  /**
-   * Upvote post
-   * @params.postId
-   * @params.userId
-   */
-  router.post('/posts/upvote/:postId',function(req, res){
-    // Upvote
-  });
-
-  /**
-   * Downvote post
-   * @params.postId
-   * @query.userId
-   */
-  router.post('/posts/downvote/:postId',function(req, res){
-    // Downvote
   });
 
 

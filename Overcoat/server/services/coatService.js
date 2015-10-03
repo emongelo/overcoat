@@ -3,7 +3,7 @@ var models = require('../models/index');
 var endpoints = require('../resources/endpoints/index');
 var connectorOptions = {};
 
-var coatService = {
+exports.coatService = {
   getCoats: function(params) {
 	  return apiConnector.call(endpoints.getCoats.method, endpoints.getCoats.path, params, connectorOptions, models.apiResponse);
   },
@@ -24,9 +24,19 @@ var coatService = {
 		return apiConnector.call(endpoints.deleteReply.method, endpoints.deleteReply.path, params, connectorOptions, models.apiResponse);
 	},
 
+	upvote: function(params) {
+		return apiConnector.call(endpoints.upvote.method, endpoints.upvote.path, params, connectorOptions, models.apiResponse);
+	},
+
+	downvote: function(params) {
+		return apiConnector.call(endpoints.downvote.method, endpoints.downvote.path, params, connectorOptions, models.apiResponse);
+	},
+
+	tip: function(params) {
+		return apiConnector.call(endpoints.tip.method, endpoints.tip.path, params, connectorOptions, models.apiResponse);
+	},
+
 	search: function(params) {
 		return apiConnector.call(endpoints.search.method, endpoints.search.path, params, connectorOptions, models.apiResponse);
 	}
 };
-
-exports['coatService'] = coatService;

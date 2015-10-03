@@ -46,7 +46,8 @@ var controller = function(router){
   router.get("/coats/get-coats", function(req, res){
 
 	  var params = {
-		  siteUrl: req.query.site
+		  siteUrl: req.query.site,
+		  filter: req.query.filter
 	  };
 
     sv.coatService.getCoats(params).then(function(coatsResponse){
@@ -101,6 +102,90 @@ var controller = function(router){
 		});
 	});
 
+	/*
+	* Actions
+	*/
+
+	// Upvote
+	router.post("/upvote", function(req, res){
+		var params = {
+			replyId: req.body.replyId
+		};
+
+		sv.coatService.upvote(params).then(function(serviceResponse){
+			res.send({status: 'success'});
+		});
+	});
+
+	// Downvote
+	router.post("/downvote", function(req, res){
+		var params = {
+			replyId: req.body.replyId
+		};
+
+		sv.coatService.downvote(params).then(function(serviceResponse){
+			res.send({status: 'success'});
+		});
+	});
+
+	// Tip
+	router.post("/tip", function(req, res){
+		var params = {
+			replyId: req.body.replyId
+		};
+
+		sv.coatService.tip(params).then(function(serviceResponse){
+			res.send({status: 'success'});
+		});
+	});
+
+	// Follow
+	router.post("/follow", function(req, res){
+		var params = {
+			userId: req.body.userId
+		};
+
+		sv.userService.follow(params).then(function(serviceResponse){
+			res.send({status: 'success'});
+		});
+	});
+
+	// Unfollow
+	router.post("/unfollow", function(req, res){
+		var params = {
+			userId: req.body.userId
+		};
+
+		sv.userService.unfollow(params).then(function(serviceResponse){
+			res.send({status: 'success'});
+		});
+	});
+
+	// Activity
+	router.get("/activity", function(req, res){
+		var params = {};
+		sv.notificationService.getNotifications(params).then(function(serviceResponse){
+			res.send(serviceResponse.data);
+		}).catch(function(err){
+			if (err) {
+				res.send(JSON.stringify(err));
+			}
+		});
+	});
+
+	// Discover
+	router.get("/discover", function(req, res){
+		var params = {
+			filter: req.query.filter
+		};
+		sv.discoverService.getDiscover(params).then(function(serviceResponse){
+			res.send(serviceResponse.data);
+		}).catch(function(err){
+			if (err) {
+				res.send(JSON.stringify(err));
+			}
+		});
+	});
 
   router.get("/search", function(req, res){
     var params = {
@@ -115,17 +200,6 @@ var controller = function(router){
     });
   });
 
-  router.get("/activity", function(req, res){
-	  var params = {};
-    sv.notificationService.getNotifications(params).then(function(serviceResponse){
-      res.send(serviceResponse);
-    }).catch(function(err){
-      if (err) {
-        res.send(JSON.stringify(err));
-      }
-    });
-  });
-
   router.get("/user/friends", function(req, res){
 	  var params = {
 		  userId: req.query.userId
@@ -137,17 +211,6 @@ var controller = function(router){
       console.log('Se ha producido un error inesperado');
       res.send([]);
     })
-  });
-
-  router.get("/discover", function(req, res){
-	  var params = {};
-	  sv.notificationService.getNotifications(params).then(function(serviceResponse){
-		  res.send(serviceResponse);
-	  }).catch(function(err){
-		  if (err) {
-			  res.send(JSON.stringify(err));
-		  }
-	  });
   });
 
 };

@@ -12,8 +12,8 @@ var Overcoat = angular.module('Overcoat', []);
 Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   var _this = this;
 
-  $scope.url = window.location.href;
-  sendNotificationMessage($scope.url);
+  $scope.siteUrl = parent.window.location.href;
+  sendNotificationMessage($scope.siteUrl);
   resetUI();
 
   /* -- Login -- */
@@ -27,17 +27,19 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   /**
    * Get coats
    */
-  $scope.getCoats = function() {
+  $scope.getCoats = function(filter) {
     resetUI();
 
     $scope.component = 'coats';
+	  filter = filter || "active";
+	  $scope.subSection = filter;
     $scope.loading = true;
-    $http.get('/coats/get-coats?site=' + $scope.url).success(function(serviceResponse){
+
+    $http.get('/coats/get-coats?site=' + $scope.siteUrl + '&filter=' + filter).success(function(serviceResponse){
       $scope.loading = false;
-      $scope.site = serviceResponse.site || {id: 1, name: $scope.url};
+      $scope.site = serviceResponse.site || {id: 1, name: $scope.siteUrl};
       $scope.coats = serviceResponse.coats;
       $scope.noCoats = $scope.coats.length ? false : true;
-
     });
   };
 
@@ -133,7 +135,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 				id: Math.floor((Math.random() * 9999) + 1),
 				coatId: entity.id,
 				user: $scope.user,
-				siteUrl: $scope.url,
+				siteUrl: $scope.siteUrl,
 				message: $scope.replyText,
 				upvotes: 0,
 				downvotes: 0,
@@ -185,24 +187,34 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 	/**
 	 * Coat actions
 	 */
-	$scope.upvote = function(coatId) {
-		alert('upvote coat ' + coatId);
+	$scope.upvote = function(entity) {
+		$http.post('/upvote', {entity: entity}).then(function(res){
+			entity.upvotes++;
+		});
 	};
 
-	$scope.downvote = function(coatId) {
-		alert('downvote coat ' + coatId);
+	$scope.downvote = function(entity) {
+		$http.post('/downvote', {entity: entity}).then(function(res){
+			entity.downvotes++;
+		});
 	};
 
-	$scope.reply = function(coatId) {
-		alert('reply coat ' + coatId);
+	$scope.tip = function(entity) {
+		$http.post('/tip', {entity: entity}).then(function(res){
+			entity.tips++;
+		});
 	};
 
-	$scope.tip = function(coatId) {
-		alert('tip coat ' + coatId);
+	$scope.follow = function(entity) {
+		$http.post('/follow', {entity: entity}).then(function(res){
+			alert('following');
+		});
 	};
 
-	$scope.follow = function(userId) {
-		alert('follow user ' + userId);
+	$scope.unfollow = function(entity) {
+		$http.post('/unfollow', {entity: entity}).then(function(res){
+			alert('unfollowing');
+		});
 	};
 
   /**
@@ -223,6 +235,28 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     });
   };
 
+	/**
+	 * Discover section
+	 */
+	$scope.getDiscover = function(filter) {
+		resetUI();
+		$scope.component = 'discover';
+		filter = filter || "hotSites";
+		$scope.subSection = filter;
+
+		$http.get('/discover?filter=' + filter).success(function(res){
+			if ( filter == 'hotSites' || filter == 'newSites') {
+				$scope.sites = res;
+			}
+			if ( filter == 'hotCoats' ) {
+				$scope.coats = res;
+			}
+			if ( filter == 'topCoaters') {
+				$scope.coaters = res;
+			}
+		});
+	};
+
   /**
    * Get selected coat posts
    */
@@ -234,18 +268,6 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
       $scope.user = userService;
       if (cb) cb();
       $scope.getCoats();
-    });
-  };
-
-  /**
-   * Discover section
-   */
-  $scope.getDiscover = function() {
-    resetUI();
-    $scope.component = 'discover';
-
-    $http.get('/discover').success(function(res){
-      $scope.discover = res;
     });
   };
 
@@ -313,15 +335,11 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   };
 
   $scope.toggleSubmenu = function(section) {
-    if ( section != 'Search' ) $scope['get' + section]();
+    //if ( section != 'Search' ) $scope['get' + section]();
     $scope.showSubmenu = ($scope.showSubmenu == section.toLowerCase()) ? '' : section.toLowerCase();
   };
 
   $scope.filterCoats = function(filter) {
-    $scope.subSection = filter;
-  };
-
-  $scope.filterDiscover = function(filter) {
     $scope.subSection = filter;
   };
 
@@ -388,11 +406,14 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     $scope.inviteModal = false;
     $scope.noCoats = false;
     $scope.site = [];
-    $scope.coats = $scope.coats || [];
+    $scope.coats = [];
     $scope.newCoats = [];
     $scope.tooltips = [];
     $scope.shareTooltips = [];
     $scope.searchResults = [];
     $scope.showPostReply = [];
+	  // Discover
+	  $scope.sites = [];
+	  $scope.coaters = [];
   }
 }]);

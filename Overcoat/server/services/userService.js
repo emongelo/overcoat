@@ -10,5 +10,13 @@ exports.userService = {
 
   getFriends: function(params) {
     return apiConnector.call(endpoints.getFriends.method, endpoints.getFriends.path, params, connectorOptions, models.apiResponse);
-  }
+  },
+
+	follow: function(params) {
+		return apiConnector.call(endpoints.follow.method, endpoints.follow.path, params, connectorOptions, models.apiResponse);
+	},
+
+	unfollow: function(params) {
+		return apiConnector.call(endpoints.unfollow.method, endpoints.unfollow.path, params, connectorOptions, models.apiResponse);
+	}
 };
