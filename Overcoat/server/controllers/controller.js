@@ -19,6 +19,7 @@ var controller = function(router){
    * Main frame
    */
   router.get("/",function(req, res){
+	  req.siteURI = req.query.site;
     res.render('main', req);
   });
 

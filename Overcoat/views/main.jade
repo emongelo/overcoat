@@ -14,6 +14,8 @@ html(lang="ES" class="hotels no-js" itemscope itemtype="http://schema.org/Organi
     style [ng\:cloak],[ng-cloak],[data-ng-cloak]
     script(src="#{config.assets.js}/base/base-pkg.js")
     link(rel="stylesheet" href="#{config.assets.css}/oc.css")
+    script.
+      var originURI = "!{siteURI}"
 
   body(ng-app="Overcoat" ng-cloak ng-controller="mainCtrl" ng-init="appInit()")
 

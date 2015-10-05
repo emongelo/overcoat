@@ -26840,7 +26840,7 @@ var Overcoat = angular.module('Overcoat', []);
 
 Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   var _this = this;
-  $scope.siteUrl = window.frameElement.baseURI;
+  $scope.siteUrl = originURI;
   sendNotificationMessage($scope.siteUrl);
   resetUI();
 
@@ -27133,14 +27133,14 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
   $scope.acceptInvitation = function(invitation) {
 	  $http.get('/invitations/accept').success(function(invitationRes){
-		  var reply = $scope.coats.replies.filter(function(e) {
-			  if ( e.id == replyId ) {
-				  var index = $scope.coats.replies.indexOf(e);
+		  $scope.invitations.filter(function(e) {
+			  if ( e.userID == invitation.userID ) {
+				  var index = $scope.invitations.indexOf(e);
 				  if ( index != -1 ) {
-					  $scope.coats.replies.splice(index, 1);
+					  $scope.invitations.splice(index, 1);
 				  }
 			  }
-			  return e.id == replyId
+			  return e.userID == invitation.userID
 		  });
 	  });
   };
@@ -27154,7 +27154,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 					  $scope.invitations.splice(index, 1);
 				  }
 			  }
-			  return e.id == replyId
+			  return e.userID == invitation.userID
 		  });
 	  });
   };
