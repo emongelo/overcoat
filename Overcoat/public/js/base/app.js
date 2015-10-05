@@ -124,7 +124,7 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 		};
 
 		$http.post('/replies/post', params).then(function(serviceResponse){
-
+			entity.replies = entity.replies || [];
 			entity.replies.unshift({
 				id: Math.floor((Math.random() * 9999) + 1),
 				coatId: entity.id,

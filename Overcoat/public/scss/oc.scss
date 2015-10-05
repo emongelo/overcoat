@@ -316,11 +316,11 @@ textarea, input {
 	font-size: 11px;
 }
 
-input.footer-link {
+.post-coat-submit, .post-reply-submit {
 	line-height: 1rem;
 	font-size: 14px;
 	background: transparent;
-	vertical-align: baseline;
+	vertical-align: bottom;
 	font-family: "Overcoat Bold";
 }
 .main {
