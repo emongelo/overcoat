@@ -99,6 +99,19 @@ var apiController = function(router){
 		var notifications = mocks.notifications;
 		res.send(notifications);
 	});
+	// Invitations
+	router.get('/invitations',function(req, res){
+		var invitations = mocks.invitations;
+		res.send(invitations);
+	});
+	// Accept invitations
+	router.get('/invitations/accept',function(req, res){
+		res.send({success: true});
+	});
+	// Reject invitations
+	router.get('/invitations/reject',function(req, res){
+		res.send({success: true});
+	});
 
 	/**
    * Discover

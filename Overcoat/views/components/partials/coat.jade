@@ -12,7 +12,7 @@ div.epp-ctn--gtr
         span.subline 20 minutes ago
         
       div.epp-cl-1-4.align-right
-        button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !isFriend(coat.user.id)" ng-click="follow(coat.user.id)") Follow
+        button.button--follow.text--smallest(ng-if="user.id != coat.user.id && !coat.user.isFriend" ng-click="follow(coat)") Follow
     
     else
       div.epp-ctn.epp-cl-3-4.epp-air-left-8
@@ -27,7 +27,7 @@ div.epp-ctn--gtr
         a(href="javascript:;" ng-click="getOriginUrl(coat)") Url Origin
         a(href="javascript:;" ng-click="muteUser(coat.user.id)" ng-if="user.id != coat.user.id") Mute {{coat.user.name}}
         a(href="javascript:;" ng-click="reportUser(coat.user.id)" ng-if="user.id != coat.user.id") Report user
-        a(href="javascript:;" ng-click="unfollow(coat.user.id)" ng-if="user.id != coat.user.id && isFriend(coat.user.id)") Unfollow
+        a(href="javascript:;" ng-click="unfollow(coat)" ng-if="user.id != coat.user.id && coat.user.isFriend") Unfollow
         a(href="javascript:;" ng-click="deleteCoat(coat.id)" ng-if="user.id == coat.user.id") Delete coat
       span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[coat.id]")
 

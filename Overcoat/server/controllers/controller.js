@@ -173,6 +173,40 @@ var controller = function(router){
 		});
 	});
 
+	// Invitations
+	router.get("/invitations", function(req, res){
+		var params = {};
+		sv.notificationService.getInvitations(params).then(function(serviceResponse){
+			res.send(serviceResponse.data);
+		}).catch(function(err){
+			if (err) {
+				res.send(JSON.stringify(err));
+			}
+		});
+	});
+
+	router.get("/invitations/accept", function(req, res){
+		var params = {};
+		sv.notificationService.acceptInvitation(params).then(function(serviceResponse){
+			res.send(serviceResponse.data);
+		}).catch(function(err){
+			if (err) {
+				res.send(JSON.stringify(err));
+			}
+		});
+	});
+
+	router.get("/invitations/reject", function(req, res){
+		var params = {};
+		sv.notificationService.rejectInvitation(params).then(function(serviceResponse){
+			res.send(serviceResponse.data);
+		}).catch(function(err){
+			if (err) {
+				res.send(JSON.stringify(err));
+			}
+		});
+	});
+
 	// Discover
 	router.get("/discover", function(req, res){
 		var params = {

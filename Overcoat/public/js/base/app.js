@@ -31,16 +31,11 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     resetUI();
 
     $scope.component = 'coats';
-	  filter = filter || "active";
+	  $scope.filter = filter || "active";
 	  $scope.subSection = filter;
     $scope.loading = true;
 
-    $http.get('/coats/get-coats?site=' + $scope.siteUrl + '&filter=' + filter).success(function(serviceResponse){
-      $scope.loading = false;
-      $scope.site = serviceResponse.site || {id: 1, name: $scope.siteUrl};
-      $scope.coats = serviceResponse.coats;
-      $scope.noCoats = $scope.coats.length ? false : true;
-    });
+	  _getCoats($scope);
   };
 
 	/**
@@ -207,13 +202,13 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
 	$scope.follow = function(entity) {
 		$http.post('/follow', {entity: entity}).then(function(res){
-			alert('following');
+			entity.user.isFriend = true;
 		});
 	};
 
 	$scope.unfollow = function(entity) {
 		$http.post('/unfollow', {entity: entity}).then(function(res){
-			alert('unfollowing');
+			entity.user.isFriend = false;
 		});
 	};
 
@@ -224,15 +219,15 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     resetUI();
     $scope.component = 'activity';
     $scope.loading = true;
-    $http.get('/activity').success(function(res){
+    $http.get('/activity').success(function(notificationsRes){
       $scope.loading = false;
-      $scope.notifications = res;
-      $scope.noNotifications = false;
-
-      if ( !$scope.notifications.length ) {
-        $scope.noNotifications = true;
-      }
+      $scope.notifications = notificationsRes;
+	    $scope.noNotifications = $scope.notifications.length ? false : true;
     });
+
+	  $http.get('/invitations').success(function(invitationRes){
+		  $scope.invitations = invitationRes;
+	  });
   };
 
 	/**
@@ -241,17 +236,17 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 	$scope.getDiscover = function(filter) {
 		resetUI();
 		$scope.component = 'discover';
-		filter = filter || "hotSites";
+		$scope.filter = filter || "hotSites";
 		$scope.subSection = filter;
 
-		$http.get('/discover?filter=' + filter).success(function(res){
-			if ( filter == 'hotSites' || filter == 'newSites') {
+		$http.get('/discover?filter=' + $scope.filter).success(function(res){
+			if ( $scope.filter == 'hotSites' || $scope.filter == 'newSites') {
 				$scope.sites = res;
 			}
-			if ( filter == 'hotCoats' ) {
+			if ( $scope.filter == 'hotCoats' ) {
 				$scope.coats = res;
 			}
-			if ( filter == 'topCoaters') {
+			if ( $scope.filter == 'topCoaters') {
 				$scope.coaters = res;
 			}
 		});
@@ -274,11 +269,23 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   /**
    * Show/Hide searchbox
    */
-  $scope.toggleSearchbox = function() {
-    $scope.component = ($scope.component != 'search') ? 'search' : 'coats';
-    $scope.hideMenu = !$scope.hideMenu;
-    $scope.showSearchbox = !$scope.showSearchbox;
-    $scope.toggleSubmenu('Search');
+  $scope.toggleSearchbox = function(filter) {
+
+	  if ( !filter && $scope.component == 'search' ) {
+
+		  $scope.getCoats();
+		  return;
+	  }
+
+	  if ( !filter ) {
+		  $scope.hideMenu = !$scope.hideMenu;
+	  }
+
+    $scope.component = 'search';
+	  $scope.subSection = filter || 'site';
+	  $scope.toggleSubmenu('Search');
+	  _getCoats($scope);
+	  //$scope.getCoats();
   };
 
   /**
@@ -296,14 +303,32 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
     }
   };
 
-
-
-  $scope.acceptInvitation = function(userId) {
-    alert('accept invitation for user ' + userId);
+  $scope.acceptInvitation = function(invitation) {
+	  $http.get('/invitations/accept').success(function(invitationRes){
+		  $scope.invitations.filter(function(e) {
+			  if ( e.userID == invitation.userID ) {
+				  var index = $scope.invitations.indexOf(e);
+				  if ( index != -1 ) {
+					  $scope.invitations.splice(index, 1);
+				  }
+			  }
+			  return e.userID == invitation.userID
+		  });
+	  });
   };
 
-  $scope.ignoreInvitation = function(userId) {
-    alert('ignore invitation for user ' + userId);
+  $scope.ignoreInvitation = function(invitation) {
+	  $http.get('/invitations/reject').success(function(invitationRes){
+		  $scope.invitations.filter(function(e) {
+			  if ( e.userID == invitation.userID ) {
+				  var index = $scope.invitations.indexOf(e);
+				  if ( index != -1 ) {
+					  $scope.invitations.splice(index, 1);
+				  }
+			  }
+			  return e.userID == invitation.userID
+		  });
+	  });
   };
 
 
@@ -335,7 +360,6 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
   };
 
   $scope.toggleSubmenu = function(section) {
-    //if ( section != 'Search' ) $scope['get' + section]();
     $scope.showSubmenu = ($scope.showSubmenu == section.toLowerCase()) ? '' : section.toLowerCase();
   };
 
@@ -395,6 +419,15 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 	$scope.toggleShareTooltip = function(tooltipId) {
 		$scope.shareTooltips[tooltipId] = $scope.shareTooltips[tooltipId] ? !$scope.shareTooltips[tooltipId] : true;
 	};
+
+	function _getCoats( $scope ) {
+		$http.get('/coats/get-coats?site=' + $scope.siteUrl + '&filter=' + $scope.filter).success(function(serviceResponse){
+			$scope.loading = false;
+			$scope.site = serviceResponse.site || {id: 1, name: $scope.siteUrl};
+			$scope.coats = serviceResponse.coats;
+			$scope.noCoats = $scope.coats.length ? false : true;
+		});
+	}
 
   function resetUI() {
     $scope.modal = '';

@@ -5,9 +5,9 @@ article.oc-box(class="oc-box--friend-invitation")
         img.avatar--small.avatar--rounded(src="/statics/images/avatar-invite.png")
       div.epp-ctn.epp-cl-3-5.epp-air-left-8
         p.screenname
-          span.text--bold Ernesto Sábato
+          span.text--bold {{invitation.name}}
 
       div.epp-cl-1-4.epp-air-top-8.epp-air-bottom-8
-        button.button--invite.text--smaller(ng-click="acceptInvitation(1)") Invite
-        a.epp-space-left-16(href="javascript:;" ng-click="ignoreInvitation(1)")
+        button.button--invite.text--smaller(ng-click="acceptInvitation(invitation)") Invite
+        a.epp-space-left-16(href="javascript:;" ng-click="ignoreInvitation(invitation)")
           img.valign--middle(src="/statics/images/close-white.png" width="14" height="14")

@@ -43,9 +43,9 @@ div.epp-cl-1.epp-ctn.submenu(ng-class="{'submenu-coats': showSubmenu == 'coats',
     a.main-menu__button.epp-cl-1(href="javascript:;" ng-click="getDiscover('hotCoats')" ng-class="{'main-menu__button--active': isSubActive('hotCoats')}")
       span Hot coats anywhere
 
-div.epp-cl-1.align-left.epp-space-left-16.submenu-search(ng-if="showSubmenu == 'search'")
-  a.main-menu__button(href="javascript:;" ng-click="filterSearch('site')" ng-if="component == 'search'" ng-class="{'main-menu__button--active': isSubActive('site')}")
+div.epp-cl-1.align-left.epp-space-left-16.submenu-search(ng-if="component == 'search'")
+  a.main-menu__button(href="javascript:;" ng-click="toggleSearchbox('site')" ng-class="{'main-menu__button--active': isSubActive('site')}")
     span This site
-  a.main-menu__button.epp-space-left-8(href="javascript:;" ng-click="filterSearch('all')" ng-if="component == 'search'" ng-class="{'main-menu__button--active': isSubActive('all')}")
+  a.main-menu__button.epp-space-left-8(href="javascript:;" ng-click="toggleSearchbox('all')" ng-class="{'main-menu__button--active': isSubActive('all')}")
     span Across all sites
 

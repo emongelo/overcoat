@@ -24,5 +24,6 @@ article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}")
         span.epp-cl-1.icon-3points.link-style(ng-click="toggleTooltip([notification.type,notification.id].join('-'))") &nbsp;
         div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[[notification.type,notification.id].join('-')]")
           a(href="javascript:;" ng-click="tooltip.getOriginUrl(notification)") Url Origin
-          a(href="javascript:;" ng-click="tooltip.followBack(notification.user.id)") Follow back
+          a(href="javascript:;" ng-if="!notification.user.isFriend" ng-click="tooltip.followBack(notification.user.id)") Follow back
+          a(href="javascript:;" ng-if="notification.user.isFriend" ng-click="tooltip.followBack(notification.user.id)") Unfollow
         span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[[notification.type,notification.id].join('-')]")

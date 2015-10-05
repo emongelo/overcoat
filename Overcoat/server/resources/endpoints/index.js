@@ -66,6 +66,18 @@ module.exports = {
     method: 'get',
     path: config.api.basePath + '/notifications'
   },
+	getInvitations: {
+		method: 'get',
+		path: config.api.basePath + '/invitations'
+	},
+	acceptInvitation: {
+		method: 'get',
+		path: config.api.basePath + '/invitations'
+	},
+	rejectInvitation: {
+		method: 'get',
+		path: config.api.basePath + '/invitations'
+	},
 	// Discover
   getDiscover: {
     method: 'get',

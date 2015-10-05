@@ -9,5 +9,4 @@ article.oc-box.epp-space-top-8(class="oc-box--{{notification.type}}")
           span.notification-desc  just joined Overcoat!
 
       div.epp-cl-1-6.epp-air-top-8
-        button.button--follow.text--smallest.valign--text-top(ng-if="true" ng-click="follow(notification.user.id)") Follow
-        //button.epp-space-left-32.button--follow.text--smallest(ng-if="user.id != notification.user.id && isFriend(notification.user.id)" ng-click="follow(notification.user.id)") follow
+        button.button--follow.text--smallest.valign--text-top(ng-if="user.id != notification.user.id && notification.user.isFriend" ng-click="follow(notification.user.id)") Follow

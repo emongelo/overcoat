@@ -16,7 +16,7 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
           a(href="javascript:;" ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
           a(href="javascript:;" ng-click="tooltip.muteUser(reply.user.id)" ng-if="user.id != reply.user.id") Mute {{reply.user.name}}
           a(href="javascript:;" ng-click="tooltip.reportUser(reply.user.id)" ng-if="user.id != reply.user.id") Report user
-          a(href="javascript:;" ng-click="tooltip.unfollow(reply.user.id)" ng-if="user.id != reply.user.id && isFriend(reply.user.id)") Unfollow
+          a(href="javascript:;" ng-click="tooltip.unfollow(reply.user.id)" ng-if="user.id != reply.user.id && reply.user.isFriend") Unfollow
           a(href="javascript:;" ng-click="tooltip.deletereply(reply.id)" ng-if="user.id == reply.user.id") Delete reply
         span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[reply.id]")
 
@@ -63,7 +63,7 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
             a(href="javascript:;" ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
             a(href="javascript:;" ng-click="tooltip.muteUser(reply.user.id)" ng-if="user.id != reply.user.id") Mute {{reply.user.name}}
             a(href="javascript:;" ng-click="tooltip.reportUser(reply.user.id)" ng-if="user.id != reply.user.id") Report user
-            a(href="javascript:;" ng-click="tooltip.unfollow(reply.user.id)" ng-if="user.id != reply.user.id && isFriend(reply.user.id)") Unfollow
+            a(href="javascript:;" ng-click="tooltip.unfollow(reply.user.id)" ng-if="user.id != reply.user.id && reply.user.isFriend") Unfollow
             a(href="javascript:;" ng-click="tooltip.deletereply(reply.id)" ng-if="user.id == reply.user.id") Delete reply
           span.tooltip-caret.tooltip-caret-bottom(ng-if="tooltips[reply.id]")
 

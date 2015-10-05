@@ -68,6 +68,10 @@ textarea, input {
 	border: 0;
 }
 
+.hidden {
+	visibility: hidden !important;
+}
+
 .valign--top {
 	display: inline-block;
 	vertical-align: top;
