@@ -8,20 +8,20 @@ exports.coats = [
 			"screenName": "Mayra.Skinner",
 			"email": "mayraskinner@kozgene.com",
 			"registered": "2014-08-31T04:15:59 +03:00",
-			"followers": 123,
-			"coats": 123,
-			"following": 432,
-			"upvotes": 84
+			"followers": 12332432,
+			"coats": 1231213,
+			"following": 495632,
+			"upvotes": 8423580
 		},
 		site: {
 			id: 1,
 			name: "www.whitehouse.gov"
 		},
 		message: "Este sitio de mierda no funca. Por que son tan imbeciles? Cuando van a adoptar bitcoin y se dejan de joder?",
-		upvotes: 34,
+		upvotes: 3436342,
 		downvotes: 21,
-		tips: 0,
-		shares: 33,
+		tips: 326,
+		shares: 3,
 		replies: [ ]
 	},
 	{
@@ -31,10 +31,10 @@ exports.coats = [
 			name: "www.whitehouse.gov"
 		},
 		message: "Deberían poner una foto como esta en la portada, quedaría mejor",
-		upvotes: 34,
-		downvotes: 21,
+		upvotes: 28334,
+		downvotes: 221,
 		tips: 0,
-		shares: 33,
+		shares: 331235,
 		picture: "/statics/images/photo.png",
 		user: {
 			id: "1",
@@ -57,10 +57,10 @@ exports.coats = [
 			name: "www.whitehouse.gov"
 		},
 		message: "Esta pagina es una porquería",
-		upvotes: 34,
-		downvotes: 0,
-		tips: 0,
-		shares: 33,
+		upvotes: 9432,
+		downvotes: 1235,
+		tips: 8455,
+		shares: 1381,
 		user: {
 			id: "2",
 			avatar: "/statics/images/avatar-02.png",

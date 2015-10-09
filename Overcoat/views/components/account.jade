@@ -16,14 +16,14 @@ section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="showAccount")
   div.epp-ctn--gtr.epp-cl-1.epp-space-bottom-16.account
     div.epp-cl-1.epp-space-top-8.epp-ctn.align-center.account--footer
       div.epp-cl-1-4
-        p {{user.coats}}
+        p {{user.coats | abbrNum}}
         span Coats
       div.epp-cl-1-4
-        p {{user.followers}}
+        p {{user.followers | abbrNum}}
         span Followers
       div.epp-cl-1-4
-        p {{user.following}}
+        p {{user.following | abbrNum}}
         span Following
       div.epp-cl-1-4
-        p {{user.upvotes}}
+        p {{user.upvotes | abbrNum}}
         span Upvotes

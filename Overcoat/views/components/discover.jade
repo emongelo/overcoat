@@ -6,7 +6,7 @@ section.epp-ctn.epp-cl-1.main(ng-if="component == 'discover'")
       div.epp-cl-3-4
         span.coat-name.text--bold {{site.name}}
       div.epp-cl-1-4.align-right.epp-air-top-8
-        h2.counters {{site.coats}}
+        h2.counters {{site.coats | abbrNum}}
         span.text--smallest.counter--text.text--bold coats
 
 
@@ -18,13 +18,13 @@ section.epp-ctn.epp-cl-1.main(ng-if="component == 'discover'")
           span.text--bold {{coater.name}}
         div.epp-cl-1.epp-space-top-8.user-stats
           div.epp-cl-1-4
-            h2.counters {{coater.coats}}
+            h2.counters {{coater.coats | abbrNum}}
             span.counter--text.text--bold.text--smallest Coats
           div.epp-cl-1-3
-            h2.counters {{coater.followers}}
+            h2.counters {{coater.followers | abbrNum}}
             span.counter--text.text--bold.text--smallest Followers
           div.epp-cl-1-3
-            h2.counters {{coater.following}}
+            h2.counters {{coater.following | abbrNum}}
             span.counter--text.text--bold.text--smallest Following
       div.epp-cl-1-6.align-right
         button.button--follow.text--smallest Follow

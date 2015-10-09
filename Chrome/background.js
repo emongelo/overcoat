@@ -17,6 +17,14 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   }
 });
 
+chrome.runtime.onInstalled.addListener(function(details){
+	if(details.reason == "install"){
+
+	}else if(details.reason == "update"){
+		//console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
+	}
+});
+
 function runScript(tabId) {
   chrome.tabs.executeScript(tabId, {
     file: 'content_script.js'

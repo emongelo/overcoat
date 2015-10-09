@@ -178,10 +178,10 @@ exports.discover = {
 			"screenName": "Mayra.Skinner",
 			"email": "mayraskinner@kozgene.com",
 			"registered": "2014-08-31T04:15:59 +03:00",
-			"followers": 425,
-			"coats": 236,
-			"following": 136,
-			"upvotes": 67
+			"followers": 5345425,
+			"coats": 23343246,
+			"following": 1234136,
+			"upvotes": 6137
 		},
 		{
 			"id": "2",
@@ -190,10 +190,10 @@ exports.discover = {
 			"screenName": "Nola.Pruitt",
 			"email": "nolapruitt@kozgene.com",
 			"registered": "2015-05-16T18:05:37 +03:00",
-			"followers": 672,
-			"coats": 347,
-			"following": 127,
-			"upvotes": 72
+			"followers": 4672672,
+			"coats": 16547,
+			"following": 9232,
+			"upvotes": 12873
 		},
 		{
 			"id": "3",
@@ -202,10 +202,10 @@ exports.discover = {
 			"screenName": "Scott.Cooper",
 			"email": "scottcooper@kozgene.com",
 			"registered": "2015-04-26T18:35:23 +03:00",
-			"followers": 723,
-			"coats": 774,
-			"following": 813,
-			"upvotes": 185
+			"followers": 12371,
+			"coats": 4591,
+			"following": 23874,
+			"upvotes": 3475
 		}
 	]
 };

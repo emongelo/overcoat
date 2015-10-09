@@ -29,16 +29,16 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
     div.epp-cl-3-4.epp-space-top-8.epp-air-left-8(ng-if="!showPostReply['reply-' + reply.id]")
       div.epp-cl-1-5
         p.link-style.footer-link.text--bold(ng-click="upvote(reply)") upvote
-        span.text--smallest.color--gray.text--bold(ng-if="reply.upvotes") {{reply.upvotes}}
+        span.text--smallest.color--gray.text--bold(ng-if="reply.upvotes") {{reply.upvotes | abbrNum}}
       div.epp-cl-1-4
         p.link-style.footer-link.text--bold(ng-click="downvote(reply)") downvote
-        span.text--smallest.color--gray.text--bold(ng-if="reply.downvotes") {{reply.downvotes}}
+        span.text--smallest.color--gray.text--bold(ng-if="reply.downvotes") {{reply.downvotes | abbrNum}}
       div.epp-cl-1-6
         p.align-center.link-style.text--bold.footer-link(ng-click="toggleReplyBox(reply, 'reply')") reply
-        span.text--smallest.color--gray.text--bold(ng-if="reply.replies.length") {{reply.replies.length}}
+        span.text--smallest.color--gray.text--bold(ng-if="reply.replies.length") {{reply.replies.length | abbrNum}}
       div.epp-cl-1-6
         p.link-style.footer-link.text--bold(ng-click="tip(reply)") tip
-        span.text--smallest.color--gray.text--bold(ng-if="reply.tips") {{reply.tips}}
+        span.text--smallest.color--gray.text--bold(ng-if="reply.tips") {{reply.tips | abbrNum}}
 
 
       div.epp-cl-1.epp-ctn--gtr.append.append--photo-ctn(ng-if="reply.picture")
