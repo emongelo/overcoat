@@ -30,6 +30,10 @@ module.exports = {
 		method: 'post',
 		path: config.api.basePath + '/user/mute'
 	},
+	userLogin: {
+		method: 'post',
+		path: config.api.basePath + '/auth/:provider'
+	},
 	// Feed
 	getCoats: {
 		method: 'get',

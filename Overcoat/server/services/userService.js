@@ -8,6 +8,10 @@ exports.userService = {
 	  return apiConnector.call(endpoints.getUser.method, endpoints.getUser.path, params, connectorOptions, models.apiResponse);
   },
 
+	userLogin: function(params) {
+		return apiConnector.call(endpoints.userLogin.method, endpoints.userLogin.path, params, connectorOptions, models.apiResponse);
+	},
+
   getFriends: function(params) {
     return apiConnector.call(endpoints.getFriends.method, endpoints.getFriends.path, params, connectorOptions, models.apiResponse);
   },

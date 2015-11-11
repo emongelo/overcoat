@@ -172,6 +172,7 @@ var apiController = function(router){
    */
   router.post('/users/follow',function(req, res){
     // Follow user
+	  res.send({success: true});
   });
 
   /**
@@ -181,6 +182,7 @@ var apiController = function(router){
    */
   router.post('/users/unfollow',function(req, res){
     // Unfollow user
+	  res.send({success: true});
   });
 
   /**
@@ -190,6 +192,7 @@ var apiController = function(router){
    */
   router.post('/users/invite',function(req, res){
     // Invite friend and send mail
+	  res.send({success: true});
   });
 
   /**
@@ -198,6 +201,7 @@ var apiController = function(router){
    */
   router.post('/users/notifications/:userId',function(req, res){
     // Invite friend and send mail
+	  res.send({success: true});
   });
 
   /**
@@ -207,7 +211,18 @@ var apiController = function(router){
    */
   router.post('/users/notifications/stop',function(req, res){
     // Stop notifications
+	  res.send({success: true});
   });
+
+	/**
+	 * Auth login
+	 * @params.provider
+	 * @params.userId
+	 */
+	router.post('/auth/:provider(facebook|twitter|google)',function(req, res){
+		// Log user
+		res.send({success: true});
+	});
 
 };
 

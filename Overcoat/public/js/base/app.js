@@ -7,22 +7,42 @@ var sendNotificationMessage = function(site) {
 	parent.postMessage( notification, site );
 };
 
-var Overcoat = angular.module('Overcoat', []);
+var Overcoat = angular.module('Overcoat', ['ngAnimate', 'satellizer']).config(function($authProvider) {
 
-Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
+	$authProvider.facebook({
+		clientId: '1477347859261626',
+		url: '/auth/facebook',
+		scope: ['email'],
+		scopeDelimiter: ',',
+		display: 'popup',
+		type: '2.0',
+		popupOptions: { width: 580, height: 400 }
+	});
+
+	//$authProvider.google({
+	//	clientId: 'Google Client ID'
+	//});
+
+});
+
+Overcoat.controller('mainCtrl', ['$scope', '$http', '$auth', function($scope, $http, $auth){
   var _this = this;
+
+	/* -- Auth -- */
+	$scope.authenticate = function(provider) {
+		$auth.authenticate(provider).then(function(response) {
+			$scope.getAccount(1)
+		}).catch(function(response) {
+				alert('Please login to continue');
+		});
+	};
+
   $scope.siteURI = originURI || undefined;
 
 	if ( $scope.siteURI )
     sendNotificationMessage($scope.siteURI);
 
   resetUI();
-
-  /* -- Login -- */
-
-  $scope.signin = function(network) {
-    $scope.getAccount(1);
-  };
 
 	/* --- Feed --- */
 

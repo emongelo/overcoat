@@ -23,7 +23,7 @@ div.epp-ctn--gtr
         
     div.epp-cl-1-12.align-right.relative
       span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(toggleTooltip(['coat',coat.id].join('-')))") &nbsp;
-      div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[['coat',coat.id].join('-')]")
+      div.epp-air-8.tooltip.tooltip-bottom.fade(ng-if="tooltips[['coat',coat.id].join('-')]")
         a(href="javascript:;" ng-click="getOriginUrl(coat)") Url Origin
         a(href="javascript:;" ng-click="muteUser(coat.user.id)" ng-if="user.id != coat.user.id") Mute {{coat.user.name}}
         a(href="javascript:;" ng-click="reportUser(coat.user.id)" ng-if="user.id != coat.user.id") Report user
@@ -57,7 +57,7 @@ div.epp-ctn--gtr
       p.link-style.text--bold.footer-link(data-ng-click="toggleShareTooltip(coat.id)") share
         span &nbsp;
       span.text--smallest.color--gray
-      div.epp-air-8.tooltip.tooltip-top(ng-if="shareTooltips[coat.id]")
+      div.epp-air-8.tooltip.tooltip-top.fade(ng-if="shareTooltips[coat.id]")
         a(href="javascript:;" ng-click="share('tw')") Share on Twitter
         a(href="javascript:;" ng-click="share('fb')") Share on Facebook
         a(href="javascript:;" ng-click="getLink(coat)") Get link

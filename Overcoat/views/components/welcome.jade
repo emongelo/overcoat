@@ -20,13 +20,13 @@ div.epp-ctn.welcome-main(ng-if="!user")
 
       div.epp-space-top-32.network-list
 
-        div.epp-cl-1.network-row.network--fb.epp-space-bottom-8(ng-click="signin('facebook')")
+        div.epp-cl-1.network-row.network--fb.epp-space-bottom-8(ng-click="authenticate('facebook')")
           p Connect with Facebook
 
-        div.epp-cl-1.network-row.network--tw.epp-space-bottom-8(ng-click="signin('twitter')")
+        div.epp-cl-1.network-row.network--tw.epp-space-bottom-8(ng-click="authenticate('twitter')")
           p Connect with Twitter
 
-        div.epp-cl-1.network-row.network--gl.epp-space-bottom-8(ng-click="signin('google')")
+        div.epp-cl-1.network-row.network--gl.epp-space-bottom-8(ng-click="authenticate('google')")
           p Connect with Google
 
       p.epp-space-top-24.text--smaller.terms

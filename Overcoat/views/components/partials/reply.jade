@@ -11,7 +11,7 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
       // Menu
       div.epp-cl-1-12.align-right.relative
         span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(toggleTooltip(['reply',reply.id].join('-')))") &nbsp;
-        div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[['reply',reply.id].join('-')]")
+        div.epp-air-8.tooltip.tooltip-bottom.fade(ng-if="tooltips[['reply',reply.id].join('-')]")
           a(href="javascript:;" ng-click="tooltip.getOriginUrl(reply)") Url Origin
           a(href="javascript:;" ng-if="user.id != reply.user.id && !isFriend(reply.user.id)" ng-click="follow(reply.user.id)") follow
           a(href="javascript:;" ng-click="muteUser(reply.user.id)" ng-if="user.id != reply.user.id") Mute {{reply.user.name}}
@@ -58,7 +58,7 @@ article.epp-air-bottom-8.oc-box.reply.border--gray(ng-repeat="reply in coat.repl
         // Menu
         div.epp-cl-1-12.align-right.relative
           span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(toggleTooltip(['sub-reply',reReply.id].join('-')))") &nbsp;
-          div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[['sub-reply',reReply.id].join('-')]")
+          div.epp-air-8.tooltip.tooltip-bottom.fade(ng-if="tooltips[['sub-reply',reReply.id].join('-')]")
             a(href="javascript:;" ng-click="tooltip.getOriginUrl(reReply)") Url Origin
             a(href="javascript:;" ng-if="user.id != reReply.user.id && !isFriend(reReply.user.id)" ng-click="follow(reReply.user.id)") follow
             a(href="javascript:;" ng-click="muteUser(reReply.user.id)" ng-if="user.id != reReply.user.id") Mute {{reReply.user.name}}

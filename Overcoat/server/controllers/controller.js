@@ -274,6 +274,20 @@ var controller = function(router){
 		})
 	});
 
+	router.post("/auth/:provider(facebook|twitter|google)", function(req, res){
+		var params = {
+			provider: req.params.provider,
+			userId: req.query.userId
+		};
+
+		sv.userService.userLogin(params).then(function(serviceResponse){
+			res.send(serviceResponse);
+		}, function(err){
+			console.log('Se ha producido un error inesperado');
+			res.send([]);
+		})
+	});
+
 };
 
 module.exports = controller;
