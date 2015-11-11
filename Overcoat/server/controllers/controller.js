@@ -248,6 +248,32 @@ var controller = function(router){
     })
   });
 
+	router.post("/user/report", function(req, res){
+		var params = {
+			userId: req.query.userId
+		};
+
+		sv.userService.reportUser(params).then(function(serviceResponse){
+			res.send(serviceResponse);
+		}, function(err){
+			console.log('Se ha producido un error inesperado');
+			res.send([]);
+		})
+	});
+
+	router.post("/user/mute", function(req, res){
+		var params = {
+			userId: req.query.userId
+		};
+
+		sv.userService.muteUser(params).then(function(serviceResponse){
+			res.send(serviceResponse);
+		}, function(err){
+			console.log('Se ha producido un error inesperado');
+			res.send([]);
+		})
+	});
+
 };
 
 module.exports = controller;

@@ -22,8 +22,8 @@ div.epp-ctn--gtr
         span.subline 20 minutes ago  
         
     div.epp-cl-1-12.align-right.relative
-      span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(coat.id)") &nbsp;
-      div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[coat.id]")
+      span.epp-cl-2-3.icon-3points.link-style(ng-click="toggleTooltip(toggleTooltip(['coat',coat.id].join('-')))") &nbsp;
+      div.epp-air-8.tooltip.tooltip-bottom(ng-if="tooltips[['coat',coat.id].join('-')]")
         a(href="javascript:;" ng-click="getOriginUrl(coat)") Url Origin
         a(href="javascript:;" ng-click="muteUser(coat.user.id)" ng-if="user.id != coat.user.id") Mute {{coat.user.name}}
         a(href="javascript:;" ng-click="reportUser(coat.user.id)" ng-if="user.id != coat.user.id") Report user

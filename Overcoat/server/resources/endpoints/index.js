@@ -22,6 +22,14 @@ module.exports = {
 		method: 'get',
 		path: config.api.basePath + '/user/friends'
 	},
+	reportUser: {
+		method: 'post',
+		path: config.api.basePath + '/user/report'
+	},
+	muteUser: {
+		method: 'post',
+		path: config.api.basePath + '/user/mute'
+	},
 	// Feed
 	getCoats: {
 		method: 'get',

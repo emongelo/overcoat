@@ -149,6 +149,22 @@ var apiController = function(router){
 	  res.send(user.shift());
   });
 
+	/**
+	 * Report user
+	 * @params.userId
+	 */
+	router.get('/user/report',function(req, res){
+		res.send({success: true});
+	});
+
+	/**
+	 * Mute user
+	 * @params.userId
+	 */
+	router.get('/user/mute',function(req, res){
+		res.send({success: true});
+	});
+
   /**
    * Follow user
    * @params.userId

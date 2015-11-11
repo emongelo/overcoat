@@ -18,5 +18,13 @@ exports.userService = {
 
 	unfollow: function(params) {
 		return apiConnector.call(endpoints.unfollow.method, endpoints.unfollow.path, params, connectorOptions, models.apiResponse);
+	},
+
+	reportUser: function(params) {
+		return apiConnector.call(endpoints.reportUser.method, endpoints.reportUser.path, params, connectorOptions, models.apiResponse);
+	},
+
+	muteUser: function(params) {
+		return apiConnector.call(endpoints.muteUser.method, endpoints.muteUser.path, params, connectorOptions, models.apiResponse);
 	}
 };

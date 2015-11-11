@@ -149,18 +149,44 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 	/**
 	 * Delete reply
 	 */
-	$scope.deleteReply = function(replyId) {
+	$scope.deleteReply = function(replyId, parent) {
 		if ( confirm('Sure?') ) {
-			$http.delete('/reply/delete', {replyId: replyId}).then(function(res){
-				var reply = $scope.coats.replies.filter(function(e) {
+			$http.delete('/replies/delete', {replyId: replyId}).then(function(res){
+				var reply = parent.replies.filter(function(e) {
 					if ( e.id == replyId ) {
-						var index = $scope.coats.replies.indexOf(e);
+						var index = parent.replies.indexOf(e);
 						if ( index != -1 ) {
-							$scope.coats.replies.splice(index, 1);
+							parent.replies.splice(index, 1);
 						}
 					}
 					return e.id == replyId
 				});
+			}, function(err){
+
+			});
+		}
+	};
+
+	/**
+	 * Report User
+	 */
+	$scope.reportUser = function(userId) {
+		if ( confirm('Sure?') ) {
+			$http.post('/user/report', {userId: userId}).then(function(res){
+				alert('User was reported');
+			}, function(err){
+
+			});
+		}
+	};
+
+	/**
+	 * Mute User
+	 */
+	$scope.muteUser = function(userId) {
+		if ( confirm('Sure?') ) {
+			$http.post('/user/mute', {userId: userId}).then(function(res){
+				alert('User was muted');
 			}, function(err){
 
 			});
