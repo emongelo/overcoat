@@ -34,7 +34,7 @@ toggle.style.height = '41px';
 toggle.style.position = 'fixed';
 toggle.style.transitionProperty = 'all';
 toggle.style.transitionDuration = '400ms';
-toggle.style.border = '6px solid #f68000';
+toggle.style.border = '6px solid #000';
 toggle.style.borderRight = '0';
 toggle.style.cursor = 'pointer';
 
@@ -83,7 +83,11 @@ var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
 // Listen to message from child window
 eventer(messageEvent,function(e) {
+	var count = e.data.value;
+
+	toggle.style.border = '6px solid ' + ( count ? '#f68000' : '#000' );
+	toggle.style.borderRight = '0';
+
   counter.innerHTML = e.data.value;
-  counter.innerHTML = 35;
   console.log('parent received message!:  ',e.data.name);
 },false);

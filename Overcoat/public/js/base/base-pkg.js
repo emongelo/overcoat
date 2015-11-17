@@ -28966,16 +28966,16 @@
 
 
 })(window, window.angular);
-var sendNotificationMessage = function(site) {
+var sendNotificationMessage = function(site, coats) {
   var notification = {
     name: "updateNotifications",
-    value: "0"
+    value: coats
   };
   
 	parent.postMessage( notification, site );
 };
 
-var Overcoat = angular.module('Overcoat', ['ngAnimate', 'satellizer']).config(function($authProvider) {
+var Overcoat = angular.module('Overcoat', ['satellizer']).config(function($authProvider) {
 
 	$authProvider.facebook({
 		clientId: '1477347859261626',
@@ -28996,19 +28996,31 @@ var Overcoat = angular.module('Overcoat', ['ngAnimate', 'satellizer']).config(fu
 Overcoat.controller('mainCtrl', ['$scope', '$http', '$auth', function($scope, $http, $auth){
   var _this = this;
 
+	$scope.siteURI = originURI || undefined;
+
 	/* -- Auth -- */
 	$scope.authenticate = function(provider) {
 		$auth.authenticate(provider).then(function(response) {
-			$scope.getAccount(1)
+			$scope.getAccount(1);
 		}).catch(function(response) {
 				alert('Please login to continue');
 		});
 	};
 
-  $scope.siteURI = originURI || undefined;
+  $scope.triggerPolling = function() {
+	  var from = new Date().getTime();
+	  $http.get('/site/new-coats?site=' + $scope.siteURI + '&from=' + from).then(function(serviceResponse){
+		  var count = serviceResponse.data.count;
+		  if ( count ) {
+			  $scope.newCoats = $scope.newCoats ? $scope.newCoats + count : count;
+			  if ( $scope.siteURI ) {
+				  sendNotificationMessage($scope.siteURI, $scope.newCoats);
+			  }
+		  }
+	  });
+  };
 
-	if ( $scope.siteURI )
-    sendNotificationMessage($scope.siteURI);
+	setInterval($scope.triggerPolling, 10000);
 
   resetUI();
 
@@ -29442,6 +29454,10 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', '$auth', function($scope, $h
 			$scope.site = serviceResponse.site || {id: 1, name: $scope.siteURI};
 			$scope.coats = serviceResponse.coats;
 			$scope.noCoats = $scope.coats.length ? false : true;
+			$scope.newCoats = 0;
+			if ( $scope.siteURI ) {
+				sendNotificationMessage($scope.siteURI, $scope.newCoats);
+			}
 		});
 	}
 
@@ -29456,7 +29472,6 @@ Overcoat.controller('mainCtrl', ['$scope', '$http', '$auth', function($scope, $h
     $scope.noCoats = false;
     $scope.site = [];
     $scope.coats = [];
-    $scope.newCoats = [];
     $scope.tooltips = [];
     $scope.shareTooltips = [];
     $scope.searchResults = [];
@@ -29477,7 +29492,12 @@ Overcoat.filter('siteName', function(){
 			l = window.location;
 		}
 
-		return l.hostname + (l.pathname || '');
+		l = l.hostname + (l.pathname || '');
+
+		if(l.substr(-1) === '/') {
+			return l.substr(0, l.length - 1);
+		}
+		return l;
 
 	}
 });

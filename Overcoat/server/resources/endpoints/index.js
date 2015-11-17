@@ -39,6 +39,10 @@ module.exports = {
 		method: 'get',
 		path: config.api.basePath + '/coats/get-coats?siteUrl=:siteUrl&filter=:filter'
 	},
+	getSiteCoatsFromTimestamp: {
+		method: 'get',
+		path: config.api.basePath + '/site/get-coats?siteUrl=:siteUrl&from=:from'
+	},
 	postCoat: {
 		method: 'post',
 		path: config.api.basePath + '/coats/post'

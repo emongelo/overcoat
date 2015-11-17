@@ -8,6 +8,10 @@ exports.coatService = {
 	  return apiConnector.call(endpoints.getCoats.method, endpoints.getCoats.path, params, connectorOptions, models.apiResponse);
   },
 
+	getSiteCoatsFromTimestamp: function(params) {
+		return apiConnector.call(endpoints.getSiteCoatsFromTimestamp.method, endpoints.getSiteCoatsFromTimestamp.path, params, connectorOptions, models.apiResponse);
+	},
+
   postCoat: function(params) {
     return apiConnector.call(endpoints.postCoat.method, endpoints.postCoat.path, params, connectorOptions, models.apiResponse);
   },

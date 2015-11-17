@@ -1,7 +1,8 @@
 section.epp-ctn.epp-cl-1.epp-ctn--gtr.main(ng-if="component == 'coats'")
-  div.epp-ctn.epp-cl-1.epp-space-top-8.epp-space-bottom-8.align-center(ng-if="newCoats.length")
-    div.epp-cl-1-4.new-coats
-      span.link-style(ng-click="addCoats(5)") New coats
+  div.epp-ctn.epp-cl-1.epp-space-top-8.epp-space-bottom-8.align-center(ng-if="newCoats")
+    div.epp-cl-1-4.new-coats(ng-click="getCoats()")
+      span.icon-up
+      span.link-style  New coats
 
   article.oc-box.epp-space-top-6.coat-box(ng-repeat="coat in coats" ng-class="{'with-picture' : coat.picture}")
     include partials/coat

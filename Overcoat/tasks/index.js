@@ -41,7 +41,7 @@ module.exports = function(config){
       ext: 'js html',
       env: {
         'DEBUG' : 'template:server'
-        ,'NODE_ENV' : 'development'
+        ,'NODE_ENV' : process.env.NODE_ENV
       },
       ignore: [_config.path.dir+'/public']
     })

@@ -57,6 +57,19 @@ var controller = function(router){
 
   });
 
+	router.get("/site/new-coats", function(req, res){
+
+		var params = {
+			siteUrl: req.query.site,
+			from: req.query.from
+		};
+
+		sv.coatService.getSiteCoatsFromTimestamp(params).then(function(coatsResponse){
+			res.send(coatsResponse.data);
+		});
+
+	});
+
   router.post("/coats/post", function(req, res){
     var params = {
       userId: req.body.userId,

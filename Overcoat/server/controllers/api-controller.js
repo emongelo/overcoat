@@ -30,6 +30,20 @@ var apiController = function(router){
   });
 
 	/**
+	 * Get site coats
+	 * @params.site
+	 * @query.limit
+	 */
+	router.get('/site/get-coats',function(req, res){
+		// Get coats of current site
+		var siteUrl = req.query.siteUrl;
+		var from = req.query.from;
+		var newCoats = mocks.newCoats;
+
+		res.send(newCoats);
+	});
+
+	/**
 	 * Post coat
 	 */
 	router.post('/coats/post',function(req, res){
