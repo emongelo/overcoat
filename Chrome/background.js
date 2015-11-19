@@ -3,7 +3,13 @@ var enabled = true;
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   enabled = !enabled;
 
-  runScript();
+	chrome.windows.getAll({populate:true},function(windows){
+		windows.forEach(function(window){
+			window.tabs.forEach(function(tab){
+				runScript(tab.id);
+			});
+		});
+	});
 
   sendResponse({enabled: enabled});
 });
@@ -18,11 +24,13 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 });
 
 chrome.runtime.onInstalled.addListener(function(details){
-	if(details.reason == "install"){
-
-	}else if(details.reason == "update"){
-		//console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
-	}
+	chrome.windows.getAll({populate:true},function(windows){
+		windows.forEach(function(window){
+			window.tabs.forEach(function(tab){
+				runScript(tab.id);
+			});
+		});
+	});
 });
 
 function runScript(tabId) {

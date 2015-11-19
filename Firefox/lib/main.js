@@ -4,6 +4,10 @@ var panels = require("sdk/panel");
 var self = require("sdk/self");
 var tabs = require("sdk/tabs");
 
+require("sdk/system/unload").when(function(reason) {
+	console.log('unload');
+});
+
 var Overcoat = {};
 
 // Default options
@@ -35,6 +39,8 @@ Overcoat.setupUI = function () {
 
   // Add panel on button click
   var panel = panels.Panel({
+	  width: 200,
+	  height: 250,
     contentURL: self.data.url("panel.html"),
     onHide: handleHide,
     contentScriptFile: [self.data.url('panel.js')]

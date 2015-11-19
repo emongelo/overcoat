@@ -5,10 +5,11 @@ self.port.on('status-change', function(status){
   if ( status )
     attachScript();
   else
-    dettachScript();
+    detachScript();
 });
 
-function dettachScript() {
+function detachScript() {
+	console.log('detach');
   if (js || container) {
     if ( js ) js.remove();
     if ( container ) container.remove();
