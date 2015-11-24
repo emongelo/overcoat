@@ -304,6 +304,7 @@ var controller = function(router){
 
 	router.post("/auth/twitter", function(req, res){
 
+		console.log(req.body);
 		var twitter = new Twitter({
 			consumerKey: config.twitter.consumerKey,
 			consumerSecret: config.twitter.consumerSecret

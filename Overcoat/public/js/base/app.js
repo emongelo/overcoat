@@ -20,7 +20,11 @@ var Overcoat = angular.module('Overcoat', ['satellizer']).config(function($authP
 	});
 
 	$authProvider.twitter({
-		url: '/auth/twitter'
+		url: '/auth/twitter',
+		authorizationEndpoint: 'https://api.twitter.com/oauth/authenticate',
+		redirectUri: window.location.origin + '/auth/twitter',
+		type: '1.0',
+		popupOptions: { width: 495, height: 645 }
 	});
 
 	//$authProvider.google({
