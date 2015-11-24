@@ -34,10 +34,6 @@ module.exports = {
 		method: 'post',
 		path: config.api.basePath + '/auth/:provider'
 	},
-	twitterRequestToken: {
-		method: 'post',
-		path: config.twitter.basePath + '/oauth/request_token'
-	},
 	// Feed
 	getCoats: {
 		method: 'get',
