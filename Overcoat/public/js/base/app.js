@@ -19,6 +19,10 @@ var Overcoat = angular.module('Overcoat', ['satellizer']).config(function($authP
 		popupOptions: { width: 580, height: 400 }
 	});
 
+	$authProvider.twitter({
+		url: '/auth/twitter'
+	});
+
 	//$authProvider.google({
 	//	clientId: 'Google Client ID'
 	//});

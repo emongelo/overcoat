@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var sv = require('../services/index');
 var models = require('../models/index');
+var Twitter = require('node-twitter-api');
 
 /**
  * Default controller
@@ -287,7 +288,7 @@ var controller = function(router){
 		})
 	});
 
-	router.post("/auth/:provider(facebook|twitter|google)", function(req, res){
+	router.post("/auth/facebook", function(req, res){
 		var params = {
 			provider: req.params.provider,
 			userId: req.query.userId
@@ -301,6 +302,23 @@ var controller = function(router){
 		})
 	});
 
+	router.post("/auth/twitter", function(req, res){
+
+		var twitter = new Twitter({
+			consumerKey: config.twitter.consumerKey,
+			consumerSecret: config.twitter.consumerSecret,
+			callback: config.twitter.callbackUrl
+		});
+
+		twitter.getRequestToken(function(err, requestToken, requestSecret) {
+			if (err)
+				res.status(500).send(err);
+			else {
+				res.send({'request_token':requestToken});
+			}
+		});
+
+	});
 };
 
 module.exports = controller;
