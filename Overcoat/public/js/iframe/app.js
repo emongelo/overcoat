@@ -83,7 +83,7 @@ var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
 // Listen to message from child window
 eventer(messageEvent,function(e) {
-	var count = e.data.value;
+	var count = e.data.value || 0;
 
 	toggle.style.border = '6px solid ' + ( count ? '#f68000' : '#000' );
 	toggle.style.borderRight = '0';
