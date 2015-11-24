@@ -314,7 +314,7 @@ var controller = function(router){
 			if (err)
 				res.status(500).send(err);
 			else {
-				res.send({'request_token':requestToken});
+				res.send({request_token:requestToken});
 			}
 		});
 
