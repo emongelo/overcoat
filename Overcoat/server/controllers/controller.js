@@ -306,8 +306,7 @@ var controller = function(router){
 
 		var twitter = new Twitter({
 			consumerKey: config.twitter.consumerKey,
-			consumerSecret: config.twitter.consumerSecret,
-			callback: config.twitter.callbackUrl
+			consumerSecret: config.twitter.consumerSecret
 		});
 
 		twitter.getRequestToken(function(err, requestToken, requestSecret) {
