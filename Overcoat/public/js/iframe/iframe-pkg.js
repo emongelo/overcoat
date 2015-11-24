@@ -88,6 +88,6 @@ eventer(messageEvent,function(e) {
 	toggle.style.border = '6px solid ' + ( count ? '#f68000' : '#000' );
 	toggle.style.borderRight = '0';
 
-  counter.innerHTML = e.data.value;
+  counter.innerHTML = count;
   console.log('parent received message!:  ',e.data.name);
 },false);
